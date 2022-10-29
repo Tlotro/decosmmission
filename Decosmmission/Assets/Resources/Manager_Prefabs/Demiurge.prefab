@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4325150541980763013
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6652953515017281068}
+  - component: {fileID: 1579833902244846979}
+  m_Layer: 0
+  m_Name: Demiurge
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6652953515017281068
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4325150541980763013}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 365.15875, y: 204.8076, z: -0.25771537}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1579833902244846979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4325150541980763013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cae04e56b53e1340b4d8ef1b2d3a0f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioMaster: {fileID: 305015342504191292, guid: 791ae8ffb22e99b4dad02a589dceab13, type: 3}
+  SceneLoader: {fileID: 9181845446680509108, guid: aeb9e9267585941488bb056fd70e1da5, type: 3}
+  SettingsManager: {fileID: 8985658027921815398, guid: bee47ff32140c42479151c0e1fe98d19, type: 3}
+  PauseManager: {fileID: 931691912516722137, guid: 9272f35528027f549b1d52a925cb0ad0, type: 3}
+  CanvasManager: {fileID: 6786238242277849730, guid: f27272bad7f45704cb25eb59b50cfa26, type: 3}
+  AudioMasterFlag: 1
+  SceneLoaderFlag: 1
+  SettingsManagerFlag: 1
+  PauseManagerFlag: 1
+  CanvasManagerFlag: 1
