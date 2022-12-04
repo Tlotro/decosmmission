@@ -7,6 +7,7 @@ public enum CanvasType{
     MainCanvas,
     PauseCanvas,
     SettingsCanvas,
+    DialogWindowCanvas
 }
 
 public class CanvasManager : MonoBehaviour
@@ -51,6 +52,7 @@ public class CanvasManager : MonoBehaviour
         ControlledCanvas desiredCanvas = controlledCanvasList.Find(x => x.type == type);
         if(desiredCanvas != null)
         {
+            ListState();
             activeCanvasStack.Peek().SetInteractable(false);
             desiredCanvas.SetSortingOrder(activeCanvasStack.Peek().GetSortingOrder() + 1);
             desiredCanvas.SetActive(true);

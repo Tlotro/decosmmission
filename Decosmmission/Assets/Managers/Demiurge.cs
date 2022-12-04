@@ -4,12 +4,6 @@ using UnityEngine;
 
 public class Demiurge : MonoBehaviour
 {
-    public GameObject AudioMaster;
-    public GameObject SceneLoader;
-    public GameObject SettingsManager;
-    public GameObject PauseManager;
-    public GameObject CanvasManager;
-
     public bool AudioMasterFlag;
     public bool SceneLoaderFlag;
     public bool SettingsManagerFlag;
@@ -18,10 +12,15 @@ public class Demiurge : MonoBehaviour
 
     private void Awake()
     {
-        if (AudioMasterFlag) Instantiate(AudioMaster);
-        if (SceneLoaderFlag) Instantiate(SceneLoader);
-        if (SettingsManagerFlag) Instantiate(SettingsManager);
-        if (PauseManagerFlag) Instantiate(PauseManager);
-        if (CanvasManagerFlag) Instantiate(CanvasManager);
+        if (AudioMasterFlag) Instantiate(Resources.Load<GameObject>("Manager_Prefabs/AudioMaster"));
+        if (SceneLoaderFlag) Instantiate(Resources.Load<GameObject>("Manager_Prefabs/SceneLoader"));
+        if (SettingsManagerFlag) Instantiate(Resources.Load<GameObject>("Manager_Prefabs/SettingsManager"));
+        if (PauseManagerFlag) Instantiate(Resources.Load<GameObject>("Manager_Prefabs/PauseManager"));
+        if (CanvasManagerFlag) Instantiate(Resources.Load<GameObject>("Manager_Prefabs/CanvasManager"));
+        
+        DialogWindow dw = DialogWindow.Create();
+        dw.SetSide(Side.Right);
+        dw.SetCharacterIcon("UI_Sprites/TestIcon");
+        dw.SetText("Twirp-Twirp");
     }
 }
