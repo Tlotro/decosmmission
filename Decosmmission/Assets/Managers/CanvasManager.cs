@@ -7,7 +7,8 @@ public enum CanvasType{
     MainCanvas,
     PauseCanvas,
     SettingsCanvas,
-    DialogWindowCanvas
+    DialogWindowCanvas,
+    ManualCanvas
 }
 
 public class CanvasManager : MonoBehaviour
@@ -36,7 +37,10 @@ public class CanvasManager : MonoBehaviour
         activeCanvasStack = new Stack<ControlledCanvas>();
 
         if (SettingsManager.instance != null)
+        {
             controlledCanvasList.Add(SettingsManager.instance.SettingsMenu.GetComponent<ControlledCanvas>());
+            controlledCanvasList.Add(SettingsManager.instance.Manual.GetComponent<ControlledCanvas>());
+        }
         if (PauseManager.instance != null)
             controlledCanvasList.Add(PauseManager.instance.PauseMenu.GetComponent<ControlledCanvas>());
 

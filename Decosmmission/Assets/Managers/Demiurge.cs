@@ -17,10 +17,5 @@ public class Demiurge : MonoBehaviour
         if (SettingsManagerFlag) Instantiate(Resources.Load<GameObject>("Manager_Prefabs/SettingsManager"));
         if (PauseManagerFlag) Instantiate(Resources.Load<GameObject>("Manager_Prefabs/PauseManager"));
         if (CanvasManagerFlag) Instantiate(Resources.Load<GameObject>("Manager_Prefabs/CanvasManager"));
-        
-        DialogWindow dw = DialogWindow.Create();
-        dw.SetSide(Side.Right);
-        dw.SetCharacterIcon("UI_Sprites/TestIcon");
-        dw.SetText("Twirp-Twirp");
     }
 }

@@ -12,6 +12,7 @@ public class SettingsManager : MonoBehaviour
     public AudioMixer audioMixer;
 
     public GameObject SettingsMenu;
+    public GameObject Manual;
 
     public Slider masterSlider;
     public Slider musicSlider;
