@@ -24,6 +24,7 @@ public class MainMenu : MonoBehaviour
 
     public void NewGameButtonPressed()
     {
+        SceneLoader.instance.LoadScene("Ship");
         // Ñעונועü ס‎יג, ןונויעט ג כמבבט
     }
 
