@@ -57,8 +57,11 @@ public class CanvasManager : MonoBehaviour
         if(desiredCanvas != null)
         {
             ListState();
-            activeCanvasStack.Peek().SetInteractable(false);
-            desiredCanvas.SetSortingOrder(activeCanvasStack.Peek().GetSortingOrder() + 1);
+            if(activeCanvasStack.Count > 0)
+            {
+                activeCanvasStack.Peek().SetInteractable(false);
+                desiredCanvas.SetSortingOrder(activeCanvasStack.Peek().GetSortingOrder() + 1);
+            } 
             desiredCanvas.SetActive(true);
             activeCanvasStack.Push(desiredCanvas);
             StackState();

@@ -281,10 +281,10 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0.28229254
-    width: 0.99880016
-    height: 0.43199316
+    x: 0.03960143
+    y: 0
+    width: 0.9197751
+    height: 1.0009624
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -365,7 +365,7 @@ MonoBehaviour:
   m_AssetsPPU: 16
   m_RefResolutionX: 360
   m_RefResolutionY: 202
-  m_CropFrame: 2
+  m_CropFrame: 1
   m_GridSnapping: 2
   m_UpscaleRT: 0
   m_PixelSnapping: 0
@@ -806,7 +806,6 @@ MonoBehaviour:
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
-  m_AlphaBlendOnOverlap: 0
   m_OverlapOperation: 0
   m_NormalMapDistance: 3
   m_NormalMapQuality: 2
@@ -940,6 +939,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1579833902244846979, guid: e346dc8ddde779a4fbab3f176fd910ef, type: 3}
+      propertyPath: PauseManagerFlag
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4325150541980763013, guid: e346dc8ddde779a4fbab3f176fd910ef, type: 3}
       propertyPath: m_Name
       value: Demiurge
@@ -3667,7 +3670,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -3882,7 +3884,6 @@ MonoBehaviour:
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
-  m_AlphaBlendOnOverlap: 0
   m_OverlapOperation: 0
   m_NormalMapDistance: 3
   m_NormalMapQuality: 2

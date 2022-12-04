@@ -40,13 +40,13 @@ Material:
     - Vector1_aba9b9220d904e328501144377617799: 240
     - Vector1_bd0b36ea0167484bb0a0d68e6a8a2f7a: 0.132
     - Vector1_ce2cc6702df148219e650352d1cc0a39: 0
-    - _DiscDegree: -54.325386
-    - _DiscOffset: 1.2655921
-    - _DiscQuantity: 0.0162744
-    - _DiskWidth: 0.04909841
-    - _FaintQuantity: 0.0060953265
+    - _DiscDegree: 28.869762
+    - _DiscOffset: 0.7836682
+    - _DiscQuantity: 0.01763549
+    - _DiskWidth: 0.026086308
+    - _FaintQuantity: 0.0047325296
     - _PixelCountByWidth: 256
-    - _TimeOffset: 3134
+    - _TimeOffset: 2104
     m_Colors:
     - Vector2_af6eb8b114604e148eba8a23c28daa9b: {r: 1920, g: 1080, b: 0, a: 0}
   m_BuildTextureStacks: []

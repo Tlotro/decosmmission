@@ -75,6 +75,12 @@ public class AudioMaster : MonoBehaviour
         imp.Stop();
     }
 
+    public void StopAll()
+    {
+        foreach (AudioImp imp in imps)
+            imp.Stop();
+    }
+
     public void Fade(string impName, float timeToFade = 1f)
     {
         AudioImp imp = imps.Find(x => x.name == impName);

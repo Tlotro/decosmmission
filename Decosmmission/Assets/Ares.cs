@@ -10,9 +10,16 @@ public class Ares : MonoBehaviour
     [SerializeField]
     TMPro.TMP_Text text;
     int wave = 0;
+
+    private void Awake()
+    {
+        
+    }
+
     // Start is called before the first frame update
     void Start()
     {
+        AudioMaster.instance.Appear("Theme", "Test_Tune", MixerGroup.Music, 0.6f, 0, true, 0.0f);
         Prefabs.Add(Resources.Load<GameObject>("Units/UnitTestPrefab"));
         Prefabs.Add(Resources.Load<GameObject>("Units/UnitTestPrefab2"));
         SpawnWave();
