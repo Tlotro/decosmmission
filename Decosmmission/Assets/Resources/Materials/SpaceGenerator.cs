@@ -13,7 +13,13 @@ public static class SpaceGenerator
     public static float diskOffset;
     public static float diskWidth;
 
-    private static Material m_Material = Resources.Load<Material>("Materials/SpaceBox");
+    private static Material m_MaterialBase = Resources.Load<Material>("Materials/SpaceBox");
+    private static Material m_Material;
+
+    public static void Setup()
+    {
+        m_Material = MonoBehaviour.Instantiate(m_MaterialBase);
+    }
 
     public static void generateSpaceValues()
     {
@@ -53,12 +59,11 @@ public static class SpaceGenerator
         Texture2D Tex = new Texture2D(tmp.width, tmp.height);
         Tex.ReadPixels(new Rect(0, 0, tmp.width, tmp.height), 0, 0);
         Tex.Apply();
-
+        Debug.Log(Tex);
         //Restore the last active RT and release our temp tex
         RenderTexture.active = lastActive;
         RenderTexture.ReleaseTemporary(tmp);
         byte[] data = Tex.EncodeToPNG();
-        System.IO.File.WriteAllBytes("Assets/Resources/Materials/userPic.png", data);
         Tex.filterMode = FilterMode.Point;
         renderer.sprite = Sprite.Create(Tex, new Rect(0, 0, Tex.width, Tex.height), new Vector2(0.5f, 0.5f));
     }

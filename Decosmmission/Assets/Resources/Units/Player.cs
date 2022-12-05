@@ -133,7 +133,7 @@ public class Player : BaseEntity
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        
+        grounded = false;
     }
 
     protected void OnDestroy()

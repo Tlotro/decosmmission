@@ -21,6 +21,7 @@ public class Demiurge : MonoBehaviour
         if (CanvasManagerFlag) Instantiate(Resources.Load<GameObject>("Manager_Prefabs/CanvasManager"));
         if (image != null)
         {
+            SpaceGenerator.Setup();
             SpaceGenerator.generateSpaceValues();
             SpaceGenerator.getSpace(1920, 1080, image);
         }
