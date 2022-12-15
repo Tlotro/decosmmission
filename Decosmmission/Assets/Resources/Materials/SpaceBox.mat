@@ -50,14 +50,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _DiscDegree: 43.054474
-    - _DiscOffset: 0.20570484
-    - _DiscQuantity: 0.023737941
-    - _DiskWidth: 0.15992792
+    - _DiscDegree: -50.362637
+    - _DiscOffset: 0.3190564
+    - _DiscQuantity: 0.014190247
+    - _DiskWidth: 0.17278442
     - _EnableExternalAlpha: 0
-    - _FaintQuantity: 0.0072593335
+    - _FaintQuantity: 0.0036089686
     - _PixelCountByWidth: 256
-    - _TimeOffset: 1852
+    - _TimeOffset: 2245
     m_Colors:
     - Vector2_af6eb8b114604e148eba8a23c28daa9b: {r: 1920, g: 1080, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}

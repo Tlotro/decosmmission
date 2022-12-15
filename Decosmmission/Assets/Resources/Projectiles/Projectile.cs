@@ -58,7 +58,7 @@ public class Projectile : MonoBehaviour
     /// <returns></returns>
     public static GameObject Create(GameObject basePrefab, GameObject shooter, Vector3 position, Vector3 direction, int speed, int Damage, int LayerMask)
     {
-        GameObject item = Instantiate(basePrefab, position, Quaternion.FromToRotation(Vector3.right, direction));
+        GameObject item = Instantiate(basePrefab, position, Quaternion.FromToRotation((Vector2)Vector3.right, (Vector2)direction));
         Projectile projectile = item.GetComponent<Projectile>();
         projectile.shooter = shooter;
         projectile.rb.velocity = direction.normalized * speed;
