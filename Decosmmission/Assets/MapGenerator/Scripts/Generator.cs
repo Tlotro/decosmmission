@@ -4,19 +4,18 @@ using UnityEngine;
 public class Generator : MonoBehaviour
 {
     [SerializeField]
-    private Room[] rooms;
+    private RoomRepository designs;
 
     // Для визуализации
     [SerializeField] 
     private RoomCell cellPrefab;
     
-    // Вся карта.
-    // Один элемент - комната в этой точке
-    // и локальная позиция в этой комнате.
     private MapCell[,] map;
     private int mapSize;
     
-    private Room RandomRoom => rooms[Random.Range(0, rooms.Length - 1)];
+    private List<RoomCell> visualisedCells;
+
+    private Room RandomRoom => designs.GetRandomRoom();
     
     public void Generate(int roomCount)
     {
@@ -32,17 +31,15 @@ public class Generator : MonoBehaviour
         
         int x = 0;
         int y = 0;
-        
         for (int i = 0; i < roomCount; i++)
         {
             var room = RandomRoom;
-            var design = room.Design;
 
-            for (int row = 0; row < design.Length; row++, y++)
+            for (int row = 0; row < room.Height; row++, y++)
             {
-                for (int col = 0; col < design[row].Length; col++, x++)
+                for (int col = 0; col < room.Width; col++, x++)
                 {
-                    if (design[row][col] == null)
+                    if (room.Cells[row, col] == null)
                         continue;
 
                     MapCell mapCell = new(room, row, col);
@@ -84,12 +81,15 @@ public class Generator : MonoBehaviour
         renderer.color = cellColor;
 
         cellObject.transform.position = new Vector3(x, y);
+
+        visualisedCells.Add(cellObject);
     }
 
     private void CleanUp()
     {
-        for (int row = 0; row < mapSize; row++)
-        for (int col = 0; col < mapSize; col++)
-            Destroy(map[row, col].Room);
+        foreach (var cell in visualisedCells)
+            Destroy(cell);
+
+        visualisedCells.Clear();
     }
 }
