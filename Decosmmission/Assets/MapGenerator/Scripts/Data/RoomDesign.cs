@@ -10,11 +10,11 @@ public class RoomDesign : MonoBehaviour
     public Room ToRoom()
     {
         var cells = new RoomCell[Design.Length, Design.Length];
-        for (var row = 0; row < cells.length)
+        for (var row = 0; row < cells.Length; row++)
         {
-            for (var col = 0; col < cells.length)
+            for (var col = 0; col < cells.Length; col++)
             {
-                cells[row, col] = new RoomCell[row, col];
+                cells[row, col] = this[row,col].Copy();
             }
         }
 
