@@ -14,7 +14,7 @@ public class RoomDesign : MonoBehaviour
         {
             for (var col = 0; col < cells.length)
             {
-                cells[row, col] = Design[row, col];
+                cells[row, col] = new RoomCell[row, col];
             }
         }
 
