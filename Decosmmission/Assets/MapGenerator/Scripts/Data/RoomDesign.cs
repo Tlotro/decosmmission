@@ -9,10 +9,13 @@ public class RoomDesign : MonoBehaviour
 
     public Room ToRoom()
     {
-        var cells = new RoomCell[Design.Length, Design[0].Length];
-        foreach (var cellArray in Design)
+        var cells = new RoomCell[Design.Length, Design.Length];
+        for (var row = 0; row < cells.length)
         {
-            // Cloning designs...
+            for (var col = 0; col < cells.length)
+            {
+                cells[row, col] = new RoomCell[row, col];
+            }
         }
 
         return new Room(cells);
