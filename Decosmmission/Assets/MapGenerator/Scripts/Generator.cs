@@ -15,8 +15,6 @@ public class Generator : MonoBehaviour
     
     private List<RoomCell> visualisedCells;
 
-    private Room RandomRoom => designs.GetRandomRoom();
-    
     public void Generate(int roomCount)
     {
         if (map != null)
@@ -33,7 +31,7 @@ public class Generator : MonoBehaviour
         int y = 0;
         for (int i = 0; i < roomCount; i++)
         {
-            var room = RandomRoom;
+            var room = designs.GetRandomRoom();
 
             for (int row = 0; row < room.Height; row++, y++)
             {
@@ -41,7 +39,7 @@ public class Generator : MonoBehaviour
                 {
                     if (room.Cells[row, col] == null)
                         continue;
-
+                    
                     MapCell mapCell = new(room, row, col);
                     map[y, x] = mapCell;
                 }
@@ -65,14 +63,14 @@ public class Generator : MonoBehaviour
                     colorForRoom.Add(room, new Color(Random.Range(0, 1f), Random.Range(0, 1f), Random.Range(0, 1f)));
                 
                 // Временная штука чтобы визуализировать всё, что происходит
-                InstantiateCell(row, col, colorForRoom[room]);
+                VisualiseCell(row, col, colorForRoom[room]);
             }
         }
         
         Debug.Log("Generating...");
     }
 
-    private void InstantiateCell(int y, int x, Color cellColor)
+    private void VisualiseCell(int y, int x, Color cellColor)
     {
         var cellObject = Instantiate(cellPrefab);
 
