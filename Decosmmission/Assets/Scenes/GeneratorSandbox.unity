@@ -241,6 +241,53 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!1 &479405464
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 479405466}
+  - component: {fileID: 479405465}
+  m_Layer: 0
+  m_Name: RoomRepository
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &479405465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 479405464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58d8c38779314807a8d463d2f4cd3a52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  designs:
+  - {fileID: 1197289635562357903, guid: 587dddeba1697c942a107ce81a833ed8, type: 3}
+  - {fileID: 8778747526197074248, guid: 30f76701c349c5d458022470f28f511e, type: 3}
+--- !u!4 &479405466
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 479405464}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &765234942
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,10 +363,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 819677dfdd37faa4ab5144da0322bf3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rooms:
-  - {fileID: 1197289635562357903, guid: 587dddeba1697c942a107ce81a833ed8, type: 3}
-  - {fileID: 8778747526197074248, guid: 30f76701c349c5d458022470f28f511e, type: 3}
-  cellPrefab: {fileID: 9166955407415838862, guid: 1739358e2da140c46b5958a6e01baaea, type: 3}
+  designs: {fileID: 479405465}
+  cellPrefab: {fileID: 372598526915632426, guid: b7829d616db288548a69ce7887c235fe, type: 3}
 --- !u!4 &2047049105
 Transform:
   m_ObjectHideFlags: 0

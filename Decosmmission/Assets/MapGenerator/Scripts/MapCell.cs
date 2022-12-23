@@ -2,7 +2,7 @@
 {
     public MapCell(Room room, int roomY, int roomX)
     {
-        Room= room;
+        Room = room;
         RoomY = roomY;
         RoomX = roomX;
     }

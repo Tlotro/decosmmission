@@ -1,13 +1,13 @@
 ﻿public class Room
 {
-    public readonly int Width;
     public readonly int Height;
+    public readonly int Width;
     
     public Room(RoomCell[,] cells)
     {
         Cells = cells;
-        Width = cells.GetLength(0);
-        Height = cells.GetLength(1);
+        Height = cells.GetLength(0);
+        Width = cells.GetLength(1);
     }
     
     public RoomCell[,] Cells { get; }

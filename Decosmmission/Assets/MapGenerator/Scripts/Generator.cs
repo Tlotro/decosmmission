@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using MapGenerator.Scripts.View;
 using UnityEngine;
 
 public class Generator : MonoBehaviour
@@ -8,12 +9,12 @@ public class Generator : MonoBehaviour
 
     // Для визуализации
     [SerializeField] 
-    private RoomCell cellPrefab;
+    private CellView cellPrefab;
     
     private MapCell[,] map;
     private int mapSize;
     
-    private List<RoomCell> visualisedCells;
+    private List<GameObject> visualisedCells;
 
     public void Generate(int roomCount)
     {
@@ -49,6 +50,7 @@ public class Generator : MonoBehaviour
         }
         
         // Визуализация для отладки
+        visualisedCells ??= new List<GameObject>();
         Dictionary<Room, Color> colorForRoom = new();
         for (int row = 0; row < mapSize; row++)
         {
@@ -66,28 +68,21 @@ public class Generator : MonoBehaviour
                 VisualiseCell(row, col, colorForRoom[room]);
             }
         }
-        
-        Debug.Log("Generating...");
     }
 
     private void VisualiseCell(int y, int x, Color cellColor)
     {
         var cellObject = Instantiate(cellPrefab);
-
-        var renderer = cellObject.GetComponent<SpriteRenderer>();
-
-        renderer.color = cellColor;
-
+        cellObject.SetColor(cellColor);
         cellObject.transform.position = new Vector3(x, y);
 
-        visualisedCells.Add(cellObject);
+        visualisedCells.Add(cellObject.gameObject);
     }
 
     private void CleanUp()
     {
         foreach (var cell in visualisedCells)
             Destroy(cell);
-
         visualisedCells.Clear();
     }
 }
