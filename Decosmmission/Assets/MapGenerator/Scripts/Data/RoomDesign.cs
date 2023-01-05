@@ -1,47 +1,24 @@
 ﻿using System;
 using UnityEngine;
-using Exception = System.Exception;
 
 [Serializable]
 public class RoomDesign : MonoBehaviour
 {
     [SerializeField]
     public CellArray[] Design;
-
-    [SerializeField] 
-    private DoorDesign[] doors;
-
-    [SerializeField] 
-    private int width;
     
-    [SerializeField] 
-    private int height;
-
-    private RoomCell[,] cells;
-
-    public bool IsInitialized { get; set; }
-    
-    public void Initialize()
-    {
-        cells = new RoomCell[height, width];
-        
-        for (int row = 0; row < height; row++)
-        for (int col = 0; col < width; col++)
-            cells[row, col] = new RoomCell();
-
-        IsInitialized = true;
-    }
-
     public Room ToRoom()
     {
-        if (!IsInitialized)
-            throw new Exception("Design must first be initialized and only then converted to a room!");
+        // Рассчитывается, что в юнити Design настроен как двумерный
+        // массив
+        var copiedCells = new RoomCell[Design.Length, Design[0].Length];
         
-        var copiedCells = new RoomCell[height, width];
-        
-        for (var row = 0; row < height; row++)
-        for (var col = 0; col < width; col++)
-            copiedCells[row, col] = cells[row, col].Copy();
+        for (var row = 0; row < Design.Length; row++)
+        for (var col = 0; col < Design[row].Length; col++)
+            if (Design[row][col] != null)
+                copiedCells[row, col] = Design[row][col].ToRoomCell();
+            else
+                copiedCells[row, col] = RoomCell.NoDoor;
 
         return new Room(copiedCells);
     }
@@ -51,7 +28,9 @@ public class RoomDesign : MonoBehaviour
 [Serializable]
 public class CellArray
 {
-    public RoomCell[] cells;
+    public CellDesign[] cells;
     
-    public RoomCell this[int index] => cells[index];
+    public CellDesign this[int index] => cells[index];
+
+    public int Length => cells.Length;
 }

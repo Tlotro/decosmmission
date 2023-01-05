@@ -21,7 +21,7 @@ public class Generator : MonoBehaviour
         if (map != null)
             CleanUp();
         
-        // Создаём карту размера roomCount * roomCount * 10.
+        // Создаём карту размера roomCount * 10 x roomCount * 10.
         // Места в теории может не хватить, но пока что пусть
         // будет так.
         const int magicNumber = 10;
@@ -38,7 +38,7 @@ public class Generator : MonoBehaviour
             {
                 for (int col = 0; col < room.Width; col++, x++)
                 {
-                    if (room.Cells[row, col] == null)
+                    if (room.Cells[row, col].IsEmptySpace)
                         continue;
                     
                     MapCell mapCell = new(room, row, col);

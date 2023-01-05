@@ -1,7 +1,20 @@
 ﻿public class RoomCell
 {
-    public RoomCell Copy()
+    public bool North { get; }
+    public bool East { get; }
+    public bool South { get; }
+    public bool West { get; }
+    public bool IsEmptySpace { get; }
+
+    public static RoomCell NoDoor => 
+        new (false, false, false, false, false);
+
+    public RoomCell(bool north, bool east, bool south, bool west, bool isEmptySpace)
     {
-        return new RoomCell();
+        North = north;
+        East = east;
+        South = south;
+        West = west;
+        IsEmptySpace = isEmptySpace;
     }
 }
