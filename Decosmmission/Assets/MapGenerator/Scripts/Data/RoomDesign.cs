@@ -24,7 +24,7 @@ public class RoomDesign : MonoBehaviour
     }
 }
 
-// Чтобы можно было сериальзовать в юнити двумерный массив
+// Чтобы можно было сериализовать в юнити двумерный массив
 [Serializable]
 public class CellArray
 {

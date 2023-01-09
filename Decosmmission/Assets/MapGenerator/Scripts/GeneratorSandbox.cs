@@ -6,6 +6,9 @@ public class GeneratorSandbox : MonoBehaviour
     private Generator generator;
 
     [SerializeField] 
+    private MapVisualiser visualiser;
+
+    [SerializeField] 
     private int roomCount;
     
     private void Update()
@@ -13,6 +16,7 @@ public class GeneratorSandbox : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             generator.Generate(roomCount);
+            visualiser.Visualise(generator.Map, generator.MapSize);
         }
     }
 }

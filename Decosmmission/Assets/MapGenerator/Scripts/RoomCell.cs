@@ -6,6 +6,8 @@
     public bool West { get; }
     public bool IsEmptySpace { get; }
 
+    public bool IsDoor => North || East || South || West;
+
     public static RoomCell NoDoor => 
         new (false, false, false, false, false);
 
