@@ -36,7 +36,7 @@ public class MapVisualiser : MonoBehaviour
 
     private void VisualiseCell(int y, int x, Color cellColor)
     {
-        var cellObject = Instantiate(cellPrefab);
+        var cellObject = Instantiate(cellPrefab, transform, true);
         cellObject.SetColor(cellColor);
         cellObject.transform.position = new Vector3(x, y);
 
