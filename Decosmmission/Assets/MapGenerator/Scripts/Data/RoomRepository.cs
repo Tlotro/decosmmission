@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class RoomRepository : MonoBehaviour
@@ -12,4 +13,6 @@ public class RoomRepository : MonoBehaviour
         var design = designs[Random.Range(0, Count)];
         return design.ToRoom();
     }
+
+    public IEnumerable<RoomDesign> AllDesigns => designs;
 }
