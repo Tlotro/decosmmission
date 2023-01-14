@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [Serializable]
@@ -6,6 +8,33 @@ public class RoomDesign : MonoBehaviour
 {
     [SerializeField]
     public CellArray[] Design;
+
+    private (int y, int x)[] doorLocations;
+    public (int y, int x)[] DoorLocations
+    {
+        get
+        {
+            if (doorLocations != null)
+                return doorLocations;
+            
+            List<(int y, int x)> locations = new();
+            for (int row = 0; row < Design.Length; row++)
+            for (int col = 0; col < Design[0].Length; col++)
+            {
+                if (!Design[row][col])
+                    continue;
+                
+                if (Design[row][col].IsDoor)
+                    locations.Add((row, col));
+            }
+
+            doorLocations = locations.ToArray();
+            return doorLocations;
+        }
+    }
+
+    public IEnumerable<CellDesign> Doors => 
+        DoorLocations.Select(coords => Design[coords.y][coords.x]);
     
     public Room ToRoom()
     {

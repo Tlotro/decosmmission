@@ -10,6 +10,8 @@ public class CellDesign : MonoBehaviour
 
     public bool IsEmptySpace;
 
+    public bool IsDoor => North || East || South || West;
+
     public RoomCell ToRoomCell()
     {
         return new RoomCell(North, East, South, West, IsEmptySpace);
