@@ -36,20 +36,30 @@ public class RoomDesign : MonoBehaviour
     public IEnumerable<CellDesign> Doors => 
         DoorLocations.Select(coords => Design[coords.y][coords.x]);
     
+    public (int y, int x) GetLocation(CellDesign cell)
+    {
+        for (int y = 0; y < Design.Length; y++)
+        for (int x = 0; x < Design[0].Length; x++)
+            if (Design[y][x] == cell)
+                return (y, x);
+
+        throw new ArgumentException("This design does not exist!");
+    }
+    
     public Room ToRoom()
     {
         // Рассчитывается, что в юнити Design настроен как двумерный
         // массив
-        var copiedCells = new RoomCell[Design.Length, Design[0].Length];
+        var copiedDesign = new RoomCell[Design.Length, Design[0].Length];
         
         for (var row = 0; row < Design.Length; row++)
         for (var col = 0; col < Design[row].Length; col++)
             if (Design[row][col] != null)
-                copiedCells[row, col] = Design[row][col].ToRoomCell();
+                copiedDesign[row, col] = Design[row][col].ToRoomCell();
             else
-                copiedCells[row, col] = RoomCell.NoDoor;
+                copiedDesign[row, col] = RoomCell.NoDoor;
 
-        return new Room(copiedCells);
+        return new Room(copiedDesign);
     }
 }
 

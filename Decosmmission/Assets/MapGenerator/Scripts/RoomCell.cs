@@ -1,4 +1,6 @@
-﻿public class RoomCell
+﻿using System;
+
+public class RoomCell
 {
     public bool North { get; }
     public bool East { get; }
@@ -7,6 +9,17 @@
     public bool IsEmptySpace { get; }
 
     public bool IsDoor => North || East || South || West;
+
+    private MapCell _mapRepresentation;
+    public MapCell MapRepresentation {
+        get
+        {
+            if (_mapRepresentation == null)
+                throw new InvalidOperationException("Map representation has not been set yet!");
+            return _mapRepresentation;
+        }
+        set => _mapRepresentation = value;
+    }
 
     public static RoomCell NoDoor => 
         new (false, false, false, false, false);
