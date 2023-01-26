@@ -10,6 +10,7 @@ public class Generator : MonoBehaviour
     public int MapSize { get; private set; }
     public MapCell[,] Map;
 
+    private int roomsLeft;
     private int x;
     private int y;
 
@@ -30,7 +31,8 @@ public class Generator : MonoBehaviour
         var startingRoom = RandomRoom;
         PlaceRoom(startingRoom);
 
-        roomCount -= startingRoom.Doors.Count();
+        roomsLeft = roomCount;
+        roomsLeft -= startingRoom.Doors.Count();
         foreach (var door in startingRoom.Doors)
             GenerateFrom(door);
     }
@@ -38,8 +40,13 @@ public class Generator : MonoBehaviour
     private void GenerateFrom(RoomCell cell)
     {
         var fittingDesigns = Designs
+            .Where(design => design.Doors.Count() <= roomsLeft)
             .Where(design => design.Doors.Any(door => IsOpposite(cell, door)))
             .ToList();
+
+        if (fittingDesigns.Count == 0)
+            return;
+
         var randomIndex = Random.Range(0, fittingDesigns.Count);
         var roomDesign = fittingDesigns[randomIndex];
 
@@ -47,16 +54,16 @@ public class Generator : MonoBehaviour
         var doorLocation = roomDesign.GetLocation(door);
         var room = roomDesign.ToRoom();
         
-        print($"Current y: {y}, x: {x}");
-        print($"Door location for {roomDesign.name}: {doorLocation}");
-
         var offset = GetDoorOffset(cell);
         y = cell.MapRepresentation.Y - doorLocation.y + offset.y;
         x = cell.MapRepresentation.X - doorLocation.x + offset.x;
-        print($"New y: {y}, x: {x}");
         
         PlaceRoom(room);
 
+        roomsLeft -= room.Doors.Count() - 1;
+        foreach (var nextDoor in room.DoorLocations.Where(location => location != doorLocation))
+            GenerateFrom(room.Cells[nextDoor.y, nextDoor.x]);
+        
         bool IsOpposite(RoomCell cell1, CellDesign cell2)
         {
             if (cell1.North)
@@ -103,6 +110,10 @@ public class Generator : MonoBehaviour
                     continue;
                     
                 MapCell mapCell = new(y, x, room, row, col);
+
+                var roomCell = Map[y, x].Room.Cells[Map[y, x].RoomY, Map[y, x].RoomX];
+                if (Map[y, x] != null && !roomCell.IsEmptySpace)
+                    return false;
                 Map[y, x] = mapCell;
 
                 room.Cells[row, col].MapRepresentation = mapCell;
