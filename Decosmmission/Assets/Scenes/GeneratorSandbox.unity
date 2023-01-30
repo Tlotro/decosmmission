@@ -271,13 +271,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   designs:
+  - {fileID: 4739044066214524600, guid: 7a4ca823343782f4bbe64b8974b3ec2d, type: 3}
   - {fileID: 1197289635562357903, guid: 587dddeba1697c942a107ce81a833ed8, type: 3}
-  - {fileID: 8778747526197074248, guid: 30f76701c349c5d458022470f28f511e, type: 3}
-  - {fileID: 3672678644255247384, guid: 82644920c105c1d499f9bb35900e168b, type: 3}
-  - {fileID: 1197289635562357903, guid: 62e57549ccbe88b40a6305a6d6114077, type: 3}
   - {fileID: 1197289635562357903, guid: 59c31e1c05ba34c4a9d9ee94c546649c, type: 3}
+  - {fileID: 7822976062972723236, guid: 70554ecea5f39c24abb1643de7d3d3d6, type: 3}
+  - {fileID: 8778747526197074248, guid: 30f76701c349c5d458022470f28f511e, type: 3}
   - {fileID: 1197289635562357903, guid: 1146b59f6b1a62946b08794cd816a98b, type: 3}
   - {fileID: 1197289635562357903, guid: 229a702e34eb72a41ab542aa63f8397a, type: 3}
+  - {fileID: 6404468818645756154, guid: 10becd1243e47774f81eebe2cac8f8d5, type: 3}
+  - {fileID: 3672678644255247384, guid: 82644920c105c1d499f9bb35900e168b, type: 3}
+  - {fileID: 1197289635562357903, guid: 62e57549ccbe88b40a6305a6d6114077, type: 3}
 --- !u!4 &479405466
 Transform:
   m_ObjectHideFlags: 0
@@ -324,7 +327,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generator: {fileID: 2047049104}
   visualiser: {fileID: 1887609981}
-  roomCount: 10
+  roomCount: 20
 --- !u!4 &765234944
 Transform:
   m_ObjectHideFlags: 0

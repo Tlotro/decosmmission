@@ -14,4 +14,6 @@
     public Room Room { get; }
     public int RoomY { get; }
     public int RoomX { get; }
+
+    public RoomCell Cell => Room.Cells[RoomY, RoomX];
 }

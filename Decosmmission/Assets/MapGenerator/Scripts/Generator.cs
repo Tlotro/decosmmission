@@ -57,8 +57,12 @@ public class Generator : MonoBehaviour
         var offset = GetDoorOffset(cell);
         y = cell.MapRepresentation.Y - doorLocation.y + offset.y;
         x = cell.MapRepresentation.X - doorLocation.x + offset.x;
-        
-        PlaceRoom(room);
+
+        if (!PlaceRoom(room))
+        {
+            Debug.Log($"Collision at {room}");
+            return;
+        }
 
         roomsLeft -= room.Doors.Count() - 1;
         foreach (var nextDoor in room.DoorLocations.Where(location => location != doorLocation))
@@ -111,6 +115,9 @@ public class Generator : MonoBehaviour
                     
                 MapCell mapCell = new(y, x, room, row, col);
 
+                if (Map[y, x] != null && !Map[y, x].Cell.IsEmptySpace)
+                    return false;
+                
                 Map[y, x] = mapCell;
                 room.Cells[row, col].MapRepresentation = mapCell;
             }
