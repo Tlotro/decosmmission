@@ -19,10 +19,7 @@ public class Generator : MonoBehaviour
 
     public void Generate(int roomCount)
     {
-        // Создаём карту размера roomCount * 10 x roomCount * 10.
-        // То есть, пока что рассчёт на то, что максимальная комнату
-        // в ширину и в высоту: 10х10
-        const int maxRoomSize = 20;
+        const int maxRoomSize = 10;
         MapSize = roomCount * maxRoomSize;
         Map = new MapCell[MapSize, MapSize];
         x = MapSize / 2;
@@ -61,7 +58,6 @@ public class Generator : MonoBehaviour
         if (!PlaceRoom(room))
         {
             cell.IsUnused = true;
-            Debug.Log($"Collision at {room}");
             return;
         }
 

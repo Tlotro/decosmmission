@@ -1,4 +1,6 @@
+using System.Diagnostics;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 public class GeneratorSandbox : MonoBehaviour
 {
@@ -15,7 +17,10 @@ public class GeneratorSandbox : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            Stopwatch stopwatch = Stopwatch.StartNew();
             generator.Generate(roomCount);
+            stopwatch.Stop();
+            Debug.Log($"Generation took: {stopwatch.ElapsedMilliseconds}ms");
             visualiser.Visualise(generator.Map, generator.MapSize);
         }
     }

@@ -48,8 +48,7 @@ public class RoomDesign : MonoBehaviour
     
     public Room ToRoom()
     {
-        // Рассчитывается, что в юнити Design настроен как двумерный
-        // массив
+        // Рассчитывается, что в юнити Design настроен как двумерный массив
         var copiedDesign = new RoomCell[Design.Length, Design[0].Length];
         
         for (var row = 0; row < Design.Length; row++)

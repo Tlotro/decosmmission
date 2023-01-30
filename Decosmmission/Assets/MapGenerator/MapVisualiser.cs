@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using MapGenerator.Scripts.View;
 using UnityEngine;
 
 public class MapVisualiser : MonoBehaviour
 {
+    [SerializeField] 
+    private Camera camera;
     [SerializeField] 
     private CellView cellPrefab;
     [SerializeField] 
@@ -19,12 +20,18 @@ public class MapVisualiser : MonoBehaviour
         
         visualisedCells ??= new List<GameObject>();
         Dictionary<Room, Color> colorForRoom = new();
+        bool firstCell = true;
         for (int row = 0; row < mapSize; row++)
         {
             for (int col = 0; col < mapSize; col++)
             {
                 if (map[row, col] == null)
                     continue;
+                if (firstCell)
+                {
+                    camera.transform.position = new Vector3(col, mapSize - row, -10);
+                    firstCell = false;
+                }
 
                 var room = map[row, col].Room;
 

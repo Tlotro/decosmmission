@@ -177,7 +177,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 15
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -327,7 +327,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generator: {fileID: 2047049104}
   visualiser: {fileID: 1887609981}
-  roomCount: 750
+  roomCount: 500
 --- !u!4 &765234944
 Transform:
   m_ObjectHideFlags: 0
@@ -372,6 +372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 865642aec62348eaa534ca2b60c281d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camera: {fileID: 320736280}
   cellPrefab: {fileID: 372598526915632426, guid: b7829d616db288548a69ce7887c235fe, type: 3}
   doorPrefab: {fileID: 4626636388076006816, guid: fedeb169e5c474341ada5a95bbb31aae, type: 3}
 --- !u!4 &1887609982
