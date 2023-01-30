@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using MapGenerator.Scripts.View;
 using UnityEngine;
 
@@ -6,6 +7,8 @@ public class MapVisualiser : MonoBehaviour
 {
     [SerializeField] 
     private CellView cellPrefab;
+    [SerializeField] 
+    private CellView doorPrefab;
     
     private List<GameObject> visualisedCells;
 
@@ -14,7 +17,6 @@ public class MapVisualiser : MonoBehaviour
         if (visualisedCells != null)
             CleanUpVisualisation();
         
-        // Визуализация для отладки
         visualisedCells ??= new List<GameObject>();
         Dictionary<Room, Color> colorForRoom = new();
         for (int row = 0; row < mapSize; row++)
@@ -29,14 +31,25 @@ public class MapVisualiser : MonoBehaviour
                 if (!colorForRoom.ContainsKey(room))
                     colorForRoom.Add(room, new Color(Random.Range(0, 1f), Random.Range(0, 1f), Random.Range(0, 1f)));
 
-                VisualiseCell(row, col, colorForRoom[room]);
+                var cell = map[row, col].Cell;
+                if (cell.IsDoor)
+                {
+                    if (cell.IsUnused)
+                        VisualiseCell(mapSize - row, col, Color.red, doorPrefab);
+                    else
+                        VisualiseCell(mapSize - row, col, colorForRoom[room], doorPrefab);
+                }
+                else
+                {
+                    VisualiseCell(mapSize - row, col, colorForRoom[room], cellPrefab);
+                }
             }
         }
     }
 
-    private void VisualiseCell(int y, int x, Color cellColor)
+    private void VisualiseCell(int y, int x, Color cellColor, CellView view)
     {
-        var cellObject = Instantiate(cellPrefab, transform, true);
+        var cellObject = Instantiate(view, transform, true);
         cellObject.SetColor(cellColor);
         cellObject.transform.position = new Vector3(x, y);
 

@@ -7,6 +7,7 @@ public class RoomCell
     public bool South { get; }
     public bool West { get; }
     public bool IsEmptySpace { get; }
+    public bool IsUnused { get; set; }
 
     public bool IsDoor => North || East || South || West;
 

@@ -327,7 +327,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generator: {fileID: 2047049104}
   visualiser: {fileID: 1887609981}
-  roomCount: 20
+  roomCount: 750
 --- !u!4 &765234944
 Transform:
   m_ObjectHideFlags: 0
@@ -373,6 +373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cellPrefab: {fileID: 372598526915632426, guid: b7829d616db288548a69ce7887c235fe, type: 3}
+  doorPrefab: {fileID: 4626636388076006816, guid: fedeb169e5c474341ada5a95bbb31aae, type: 3}
 --- !u!4 &1887609982
 Transform:
   m_ObjectHideFlags: 0

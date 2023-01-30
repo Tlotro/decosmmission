@@ -60,6 +60,7 @@ public class Generator : MonoBehaviour
 
         if (!PlaceRoom(room))
         {
+            cell.IsUnused = true;
             Debug.Log($"Collision at {room}");
             return;
         }
