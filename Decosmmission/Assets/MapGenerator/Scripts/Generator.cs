@@ -40,7 +40,7 @@ public class Generator : MonoBehaviour
     private void GenerateFrom(RoomCell cell)
     {
         var fittingDesigns = Designs
-            .Where(design => design.Doors.Count() <= roomsLeft)
+            .Where(design => design.Doors.Count() <= roomsLeft && (roomsLeft <= 1 || design.Doors.Count() > 1))
             .Where(design => design.Doors.Any(door => IsOpposite(cell, door)))
             .ToList();
 
@@ -111,11 +111,7 @@ public class Generator : MonoBehaviour
                     
                 MapCell mapCell = new(y, x, room, row, col);
 
-                var roomCell = Map[y, x].Room.Cells[Map[y, x].RoomY, Map[y, x].RoomX];
-                if (Map[y, x] != null && !roomCell.IsEmptySpace)
-                    return false;
                 Map[y, x] = mapCell;
-
                 room.Cells[row, col].MapRepresentation = mapCell;
             }
         }
