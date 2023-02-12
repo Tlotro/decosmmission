@@ -28,10 +28,11 @@ public class Player : BaseEntity
     protected override void Start()
     {
         base.Start();
-        rb.mass = BaseMass;// + cargo.getsummasses()
         HPBar.instance.UpdateMaxHP(_maxHP);
         HPBar.instance.UpdateHP(_CurrentHP);
         text.text = "Weapon: melee";
+        CombatCameraScript.instance.target = Player.player.transform;
+        rb.mass = BaseMass;// + cargo.getsummasses()
     }
 
     protected override void Awake()
@@ -40,8 +41,7 @@ public class Player : BaseEntity
         rb = GetComponent<Rigidbody2D>();
         cd = GetComponent<Collider2D>();
         Player.player = this;
-        CombatCameraScript.instance.target = Player.player.transform;
-}
+    }
 
     protected override void SetDefaults()
     {
