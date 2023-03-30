@@ -21,7 +21,7 @@ public class GeneratorSandbox : MonoBehaviour
             generator.Generate(roomCount);
             stopwatch.Stop();
             Debug.Log($"Generation took: {stopwatch.ElapsedMilliseconds}ms");
-            visualiser.Visualise(generator.Map, generator.MapSize);
+            //visualiser.Visualise(generator.Map, generator.MapSize);
         }
     }
 }

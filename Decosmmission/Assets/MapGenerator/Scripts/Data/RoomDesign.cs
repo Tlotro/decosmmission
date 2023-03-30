@@ -8,33 +8,12 @@ public class RoomDesign : MonoBehaviour
 {
     [SerializeField]
     public CellArray[] Design;
+    //The type of mission the room is associated with
+    public string Faction;
+    //The list of tags
+    public string[] RoomTags;
+    public Door[] doors;
 
-    private (int y, int x)[] doorLocations;
-    public (int y, int x)[] DoorLocations
-    {
-        get
-        {
-            if (doorLocations != null)
-                return doorLocations;
-            
-            List<(int y, int x)> locations = new();
-            for (int row = 0; row < Design.Length; row++)
-            for (int col = 0; col < Design[0].Length; col++)
-            {
-                if (!Design[row][col])
-                    continue;
-                
-                if (Design[row][col].IsDoor)
-                    locations.Add((row, col));
-            }
-
-            doorLocations = locations.ToArray();
-            return doorLocations;
-        }
-    }
-
-    public IEnumerable<CellDesign> Doors => 
-        DoorLocations.Select(coords => Design[coords.y][coords.x]);
     
     public (int y, int x) GetLocation(CellDesign cell)
     {

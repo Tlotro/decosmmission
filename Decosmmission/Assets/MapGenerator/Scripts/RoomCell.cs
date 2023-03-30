@@ -23,14 +23,13 @@ public class RoomCell
     }
 
     public static RoomCell NoDoor => 
-        new (false, false, false, false, false);
+        new (false, false, false, false);
 
-    public RoomCell(bool north, bool east, bool south, bool west, bool isEmptySpace)
+    public RoomCell(bool north, bool east, bool south, bool west)
     {
         North = north;
         East = east;
         South = south;
         West = west;
-        IsEmptySpace = isEmptySpace;
     }
 }
