@@ -14,12 +14,14 @@ public class HPBar : MonoBehaviour
         slider = GetComponent<Slider>();
     }
 
-    public void UpdateHP(int health)
+    static public void UpdateHP(int health)
     {
-        slider.value = health;
+        if (instance != null)
+            instance.slider.value = health;
     }
-    public void UpdateMaxHP(int maxhealth)
+    static public void UpdateMaxHP(int maxhealth)
     {
-        slider.maxValue = maxhealth;
+        if (instance != null)
+            instance.slider.maxValue = maxhealth;
     }
 }

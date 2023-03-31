@@ -4,23 +4,13 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class Player : BaseEntity
+public class Player : PlayerBase
 {
-    static public Player player;
-    protected Rigidbody2D rb;
-    protected Collider2D cd;
-    
-    int JumpVelocity;
-    int MaxSpeedX;
-    int MaxSpeedY;
-    float BaseMass;
-    float acceleration;
-    bool grounded;
     float attackDelay;
     int attackmode;
     GameObject bullet;
     [SerializeField]
-    TMPro.TMP_Text text;
+    //TMPro.TMP_Text text;
 
     //Item[] cargo;
     float MaxCargo;
@@ -28,11 +18,7 @@ public class Player : BaseEntity
     protected override void Start()
     {
         base.Start();
-        HPBar.instance.UpdateMaxHP(_maxHP);
-        HPBar.instance.UpdateHP(_CurrentHP);
-        text.text = "Weapon: melee";
-        CombatCameraScript.instance.target = Player.player.transform;
-        rb.mass = BaseMass;// + cargo.getsummasses()
+        //text.text = "Weapon: melee";
     }
 
     protected override void Awake()
@@ -40,7 +26,7 @@ public class Player : BaseEntity
         bullet = Resources.Load<GameObject>("Projectiles/BaseBullet");
         rb = GetComponent<Rigidbody2D>();
         cd = GetComponent<Collider2D>();
-        Player.player = this;
+        PlayerBase.player = this;
     }
 
     protected override void SetDefaults()
@@ -57,15 +43,7 @@ public class Player : BaseEntity
     // Update is called once per frame
     protected override void Update()
     {
-        rb.angularVelocity = -(Mathf.Pow(Mathf.Abs(rb.rotation), 1.5f) * Mathf.Sign(rb.rotation));
-        rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x,-MaxSpeedX,MaxSpeedX),Mathf.Clamp(rb.velocity.y,-MaxSpeedY,MaxSpeedY));
-        if (Input.GetKeyDown(KeyCode.W) && grounded)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, JumpVelocity);
-            rb.rotation = -rb.velocity.x/MaxSpeedX*20f;
-            grounded = false;
-        }
-
+        base.Update();
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             if (attackDelay <= 0)
@@ -85,59 +63,24 @@ public class Player : BaseEntity
             }
         }
 
-        if (Input.GetKey(KeyCode.A))
-        {
-            rb.AddForce(new Vector2(-acceleration,0));
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            rb.AddForce(new Vector2(acceleration, 0));
-        }
         if (Input.GetKeyDown(KeyCode.Mouse2))
         {
             attackmode = (attackmode + 1) % 2;
             switch (attackmode)
             {
                 case 0:
-                    text.text = "Weapon: melee";
+                    //text.text = "Weapon: melee";
                     break;
                     case 1:
-                    text.text = "Weapon: ranged";
+                    //text.text = "Weapon: ranged";
                     break;
             }
         }
-        base.Update();
         attackDelay -= Time.deltaTime;
     }
 
     public override void TakeDamage(GameObject inflictor,int damage)
     {
-        if (!Iframelist.ContainsKey(inflictor))
-        {
-            HPBar.instance.UpdateMaxHP(_maxHP);
-            HPBar.instance.UpdateHP(_CurrentHP);
-        }
         base.TakeDamage(inflictor, damage);
     }    
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        grounded = false;
-    }
-
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (!grounded && Physics2D.CircleCast(transform.position, 0.45f, transform.rotation * Vector2.down, 0.5f, LayerMask.GetMask("Default")).collider != null)
-            grounded = true;
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        grounded = false;
-    }
-
-    protected void OnDestroy()
-    {
-        SceneLoader.instance.LoadScene("SampleScene");
-    }
 }

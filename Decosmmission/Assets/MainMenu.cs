@@ -34,7 +34,7 @@ public class MainMenu : MonoBehaviour
     public void NewGameButtonPressed()
     {
         AudioMaster.instance.Fade("Theme", 0.0f);
-        SceneLoader.instance.LoadScene("Ship");
+        SceneLoader.instance.LoadScene("Player Ship");
         // Ñעונועü ס‎יג, ןונויעט ג כמבבט
     }
 

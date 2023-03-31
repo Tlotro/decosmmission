@@ -9,6 +9,7 @@ public class CombatCameraScript : MonoBehaviour
     public Transform target;
     Vector3 offset;
     public Vector3 baseoffset;
+    public static int pixelPerUnit = 16;
     // Start is called before the first frame update
     void Awake()
     {
@@ -31,9 +32,9 @@ public class CombatCameraScript : MonoBehaviour
     public static Vector3 SnapToPixels(Vector3 vector3)
     {
         return new Vector3(
-            Mathf.Round(vector3.x * 32) / 32,
-            Mathf.Round(vector3.y * 32) / 32,
-            Mathf.Round(vector3.z * 32) / 32
+            Mathf.Round(vector3.x * pixelPerUnit) / pixelPerUnit,
+            Mathf.Round(vector3.y * pixelPerUnit) / pixelPerUnit,
+            Mathf.Round(vector3.z * pixelPerUnit) / pixelPerUnit
             );
     }
 

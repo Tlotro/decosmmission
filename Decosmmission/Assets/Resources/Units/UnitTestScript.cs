@@ -10,7 +10,7 @@ public class UnitTestScript : Unit
     Vector3 dashpos;
     protected override void SetDefaults()
     {
-        detectionRange = 10;
+        detectionRange = 20;
         MaxHP = 30;
         CurrentHP = 30;
         state = 0;

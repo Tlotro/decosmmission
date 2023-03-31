@@ -7,8 +7,11 @@ public class UnitTestScript2 : StaticUnit
 {
     [SerializeField]
     GameObject Cannon;
-    float shootingDelay;
+    [SerializeField]
+    Light laser;
     GameObject bullet;
+    int state;
+    float Timer;
 
     protected override void Awake()
     {
@@ -18,9 +21,10 @@ public class UnitTestScript2 : StaticUnit
 
     protected override void SetDefaults()
     {
-        detectionRange = 20;
+        detectionRange = 30;
         MaxHP = 50;
         CurrentHP = 50;
+        state = 0;
     }
 
     protected override void AI()
@@ -32,13 +36,26 @@ public class UnitTestScript2 : StaticUnit
         //Debug.Log(angle);
         //Cannon.transform.Rotate(Vector3.forward, Mathf.Abs(angle)>1?Mathf.Clamp(Mathf.LerpAngle(Cannon.transform.rotation.eulerAngles.z, angle, 0.015f),-1,1) : 0) ;
         float angle = Vector2.SignedAngle(-Cannon.transform.up, savedposition - transform.position);
-        Cannon.transform.Rotate(0, 0, Mathf.Abs(angle) >0.01?(angle*0.1f):0);
-        if(Target != null && shootingDelay <=0 && Mathf.Abs(angle) < 1)
+        switch (state) 
         {
-            shootingDelay = 1;
-            Projectile.Create(bullet, this.gameObject, transform.position, -Cannon.transform.up, 50, 15, LayerMask.GetMask("Player"));
+            case 0:
+                Cannon.transform.Rotate(0, 0, Mathf.Abs(angle) > 0.01 ? (angle * 0.1f) : 0);
+                if (Target != null && Timer <= 0 && Mathf.Abs(angle) < 1)
+                {
+                    Timer = 0.5f;
+                    state = 1;
+                }
+                break;
+            case 1:
+                if (Timer <=0)
+                {
+                    Timer = 1;
+                    state = 0;
+                    Projectile.Create(bullet, this.gameObject, transform.position, -Cannon.transform.up, 50, 15, LayerMask.GetMask("Player"));
+                }
+                break;
         }
-        shootingDelay -= Time.deltaTime;
+        Timer -= Time.deltaTime;
     }
 
 }

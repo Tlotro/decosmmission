@@ -190,7 +190,7 @@ public class Generator : MonoBehaviour
             prefabsBase = prefabsBase.Where(x => x.Faction != "Universal");
         RoomsPrefabs = prefabsBase.ToArray();
     }
-    public void Generate(int roomCount, params string[] GenerationModifierTags)
+    public void Generate(int roomCount, GameObject player, params string[] GenerationModifierTags)
     {
         LoadRoomPrefabs(GenerationModifierTags);
         IEnumerable<RoomDesign> startingRooms = RoomsPrefabs.Where(x => x is StartRoomDesign);
@@ -203,7 +203,7 @@ public class Generator : MonoBehaviour
         var startingRoom = startingRooms.ToArray()[Random.Range(0,startingRooms.Count())];
 
         RoomDesign startroom = PlaceRoom(startingRoom, 0, 0,xb,yb,0);
-        Debug.Log(Map[xb, yb]);
+        Instantiate(player, ((StartRoomDesign)startroom).SpawnPosition + (Vector2)startroom.transform.position,new Quaternion());
 
         while (doorQueue.Count() > 0 && roomCount>0)
         {
@@ -232,7 +232,7 @@ public class Generator : MonoBehaviour
             if (WeightedRooms.Count > 0)
             {
                 (int xroom,int yroom,RoomDesign room) = WeightedRooms[Random.Range(0, WeightedRooms.Count)];
-                PlaceRoom(room,xroom,yroom,x,y,0);
+                PlaceRoom(room,xroom,yroom,x,y,0).gameObject.SetActive(false);
                 roomCount--;
             }
             else

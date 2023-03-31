@@ -3,5 +3,5 @@ using UnityEngine;
 
 public class StartRoomDesign : RoomDesign
 {
-    Vector2 SpawnPosition;
+    public Vector2 SpawnPosition;
 }

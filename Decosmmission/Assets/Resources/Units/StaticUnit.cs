@@ -89,7 +89,7 @@ public abstract class StaticUnit : BaseEntity
     {
         if (Target != null)
         {
-            if (Vector2.Distance(transform.position, Target.transform.position) > 10 || Physics2D.LinecastAll(transform.position, Target.transform.position).Any<RaycastHit2D>(x => x.collider.gameObject.layer == 0))
+            if (Vector2.Distance(transform.position, Target.transform.position) > detectionRange || Physics2D.LinecastAll(transform.position, Target.transform.position).Any<RaycastHit2D>(x => x.collider.gameObject.layer == 0))
             {
                 Target = null;
             }
