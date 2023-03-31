@@ -1,0 +1,9 @@
+
+
+Letters correspond to the doors in the cell and go in this order:
+N - north
+S - south
+W - west
+E - east
+F - forward (away from the player)
+B - backward (toward the player)
