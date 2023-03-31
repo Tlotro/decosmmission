@@ -1,1 +1,1 @@
-{"masterVolume":6.0,"musicVolume":4.0,"soundsVolume":2.0,"UIVolume":2.0,"isFullScreen":true,"resolutionIndex":2,"qualityIndex":2}
+{"masterVolume":6.0,"musicVolume":4.0,"soundsVolume":2.0,"UIVolume":2.0,"isFullScreen":true,"resolutionIndex":0,"qualityIndex":2}

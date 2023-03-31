@@ -14,9 +14,13 @@ public class MainMenu : MonoBehaviour
 
     private void Awake()
     {
+        InvokeRepeating("SipCoffee", 3, 5);
+    }
+
+    private void Start()
+    {
         AudioMaster.instance.StopAll();
         AudioMaster.instance.Appear("Theme", "Test_Tune_2", MixerGroup.Music, 0.6f, 0, true, 0.0f);
-        InvokeRepeating("SipCoffee", 3, 5);
     }
 
     private void SipCoffee()

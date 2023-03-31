@@ -281,10 +281,10 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.03960143
+    x: 0.6476916
     y: 0
-    width: 0.9197751
-    height: 1.0009624
+    width: 0.40340653
+    height: 0.6566105
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -941,7 +941,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1579833902244846979, guid: e346dc8ddde779a4fbab3f176fd910ef, type: 3}
       propertyPath: PauseManagerFlag
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4325150541980763013, guid: e346dc8ddde779a4fbab3f176fd910ef, type: 3}
       propertyPath: m_Name
