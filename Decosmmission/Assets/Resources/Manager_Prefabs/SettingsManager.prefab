@@ -2407,6 +2407,7 @@ MonoBehaviour:
   resolutionDropdown: {fileID: 7053561984410600957}
   qualityDropdown: {fileID: 8985658026839239587}
   fullscreenToggle: {fileID: 8985658027894217149}
+  settingSave: {fileID: 11400000, guid: c673ffefcef039f45a79eefe6627fe0a, type: 2}
 --- !u!1 &8985658028459846378
 GameObject:
   m_ObjectHideFlags: 0
