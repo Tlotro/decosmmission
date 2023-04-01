@@ -20,9 +20,12 @@ public class PlayerBase : BaseEntity
     public float acceleration;
     [HideInInspector]
     public bool grounded;
+    [HideInInspector]
+    public Interactable ApproachedObject;
 
     //Item[] cargo;
     float MaxCargo;
+
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -38,6 +41,7 @@ public class PlayerBase : BaseEntity
         rb = GetComponent<Rigidbody2D>();
         cd = GetComponent<Collider2D>();
         PlayerBase.player = this;
+        rb.mass = BaseMass;
     }
 
     protected override void SetDefaults()
@@ -62,14 +66,18 @@ public class PlayerBase : BaseEntity
             rb.rotation = -rb.velocity.x / MaxSpeedX * 20f;
             grounded = false;
         }
-
         if (Input.GetKey(KeyCode.A))
         {
-            rb.AddForce(new Vector2(-acceleration, 0));
+            rb.AddForce(new Vector2(-acceleration, 0) * Time.deltaTime*500);
         }
         if (Input.GetKey(KeyCode.D))
         {
-            rb.AddForce(new Vector2(acceleration, 0));
+            rb.AddForce(new Vector2(acceleration, 0) * Time.deltaTime*500);
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (ApproachedObject != null)
+                ApproachedObject.Interact();
         }
         base.Update();
     }
@@ -84,19 +92,20 @@ public class PlayerBase : BaseEntity
         base.TakeDamage(inflictor, damage);
     }
 
+    public override void Death()
+    {
+        base.Death();
+        SceneLoader.instance.LoadScene("Main Menu");
+    }
+
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (!grounded && Physics2D.CircleCast(transform.position, 0.45f, transform.rotation * Vector2.down, 0.5f, LayerMask.GetMask("Default")).collider != null)
+        if (!grounded && Physics2D.CircleCast(transform.position, 0.4f, transform.rotation * Vector2.down, 0.5f, LayerMask.GetMask("Default")).collider != null)
             grounded = true;
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
         grounded = false;
-    }
-
-    protected void OnDestroy()
-    {
-        SceneLoader.instance.LoadScene("Main Menu");
     }
 }

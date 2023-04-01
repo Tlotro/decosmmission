@@ -245,7 +245,7 @@ GameObject:
   - component: {fileID: 390650852}
   - component: {fileID: 390650854}
   - component: {fileID: 390650853}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Furniture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -553,7 +553,7 @@ GameObject:
   - component: {fileID: 405926261}
   - component: {fileID: 405926263}
   - component: {fileID: 405926262}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BackGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2582,7 +2582,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 686238327}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 91f144865861bef4fa0c761a0591cf2f, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -2686,6 +2686,7 @@ MonoBehaviour:
   BaseMass: 0
   acceleration: 0
   grounded: 0
+  ApproachedObject: {fileID: 0}
 --- !u!1 &782600102
 GameObject:
   m_ObjectHideFlags: 0
@@ -3193,7 +3194,7 @@ GameObject:
   - component: {fileID: 1214060079}
   m_Layer: 0
   m_Name: Main Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3289,7 +3290,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 5.625
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -3677,7 +3678,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1579833902244846979, guid: e346dc8ddde779a4fbab3f176fd910ef, type: 3}
       propertyPath: PauseManagerFlag
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4325150541980763013, guid: e346dc8ddde779a4fbab3f176fd910ef, type: 3}
       propertyPath: m_Name
@@ -6173,6 +6174,77 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1763798254
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1763798257}
+  - component: {fileID: 1763798256}
+  - component: {fileID: 1763798255}
+  m_Layer: 2
+  m_Name: MissionStartDoor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1763798255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1763798254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13c1d6587eb2b724bb65d3b9069b2bfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &1763798256
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1763798254}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 6}
+  m_EdgeRadius: 0
+--- !u!4 &1763798257
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1763798254}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.5, y: 2, z: -0.06268647}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1890154648
 GameObject:
   m_ObjectHideFlags: 0

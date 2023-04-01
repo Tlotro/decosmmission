@@ -8,9 +8,6 @@ public class GeneratorSandbox : MonoBehaviour
     private Generator generator;
 
     [SerializeField] 
-    private MapVisualiser visualiser;
-
-    [SerializeField] 
     private int roomCount;
     private bool generated = false;
     

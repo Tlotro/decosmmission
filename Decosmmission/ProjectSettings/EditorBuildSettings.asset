@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Player Ship.unity
     guid: 07e705b26e552f4438fdb19bdc31c62c
+  - enabled: 1
+    path: Assets/Scenes/GeneratorSandbox.unity
+    guid: 63962169b53339a47817716087449989
   m_configObjects: {}

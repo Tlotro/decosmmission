@@ -10,6 +10,10 @@ public class Generator : MonoBehaviour
     Dictionary<(int,int, Direction), Door> doorMap = new Dictionary<(int,int, Direction), Door>();
     public RoomDesign[] RoomsPrefabs;
 
+    private void Start()
+    {
+        Generate((int)((StaticGameData.GlobalInstance["GeneratorValues"] as StaticGameData)["RoomCount"]), (StaticGameData.GlobalInstance["GeneratorValues"] as StaticGameData)["PlayerObject"] as GameObject);
+    }
 
     public int MapSizex { get; private set; }
     public int MapSizey { get; private set; }
