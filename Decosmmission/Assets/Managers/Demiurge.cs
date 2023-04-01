@@ -23,7 +23,7 @@ public class Demiurge : MonoBehaviour
         {
             SpaceGenerator.Setup();
             SpaceGenerator.generateSpaceValues();
-            SpaceGenerator.getSpace(1920, 1080, image);
+            SpaceGenerator.getSpace(640, 360, image);
         }
     }
 }
