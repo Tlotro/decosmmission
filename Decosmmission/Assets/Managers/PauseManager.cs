@@ -54,7 +54,7 @@ public class PauseManager : MonoBehaviour
 
     public void Manual()
     {
-        // Вызов мануала
+        CanvasManager.instance.SwitchCanvas(CanvasType.ManualCanvas);
     }
 
 }

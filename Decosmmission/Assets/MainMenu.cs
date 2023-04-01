@@ -14,9 +14,13 @@ public class MainMenu : MonoBehaviour
 
     private void Awake()
     {
+        InvokeRepeating("SipCoffee", 3, 5);
+    }
+
+    private void Start()
+    {
         AudioMaster.instance.StopAll();
         AudioMaster.instance.Appear("Theme", "Test_Tune_2", MixerGroup.Music, 0.6f, 0, true, 0.0f);
-        InvokeRepeating("SipCoffee", 5, 10);
     }
 
     private void SipCoffee()
@@ -34,7 +38,7 @@ public class MainMenu : MonoBehaviour
     public void NewGameButtonPressed()
     {
         AudioMaster.instance.Fade("Theme", 0.0f);
-        SceneLoader.instance.LoadScene("Player Ship");
+        SceneLoader.instance.LoadScene("Ship");
         // Ñעונועü ס‎יג, ןונויעט ג כמבבט
     }
 
