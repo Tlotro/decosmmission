@@ -86,10 +86,10 @@ public class PlayerBase : BaseEntity
     {
         if (!Iframelist.ContainsKey(inflictor))
         {
+            base.TakeDamage(inflictor, damage);
             HPBar.UpdateMaxHP(_maxHP);
             HPBar.UpdateHP(_CurrentHP);
         }
-        base.TakeDamage(inflictor, damage);
     }
 
     public override void Death()

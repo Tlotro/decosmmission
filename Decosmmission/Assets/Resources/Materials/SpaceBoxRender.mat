@@ -43,11 +43,12 @@ Material:
     m_Ints: []
     m_Floats:
     - Vector1_061e6d49745a4f998ead01c7a3819341: 0.3
-    - Vector1_06ab526ac69648e2a8b71faf6620bd05: 240
+    - Vector1_06ab526ac69648e2a8b71faf6620bd05: 640
     - Vector1_1d2c46e472474841a91a91801c4a6baa: 0
     - Vector1_3bac749e29fb40b896766485b393dcb9: 30
     - Vector1_6d0c02c185af477dbb6b3050f0b2de36: 4
     - Vector1_c6aa790916de41d9ab56f956367f45a0: 0.7
     - Vector1_e7d7b05dd11b49fcab44e088145c327c: 0
-    m_Colors: []
+    m_Colors:
+    - _Resolution: {r: 640, g: 360, b: 0, a: 0}
   m_BuildTextureStacks: []

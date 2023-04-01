@@ -56,7 +56,7 @@ Material:
     - _DiskWidth: 0.17278442
     - _EnableExternalAlpha: 0
     - _FaintQuantity: 0.0036089686
-    - _PixelCountByWidth: 256
+    - _PixelCountByWidth: 640
     - _TimeOffset: 2245
     m_Colors:
     - Vector2_af6eb8b114604e148eba8a23c28daa9b: {r: 640, g: 360, b: 0, a: 0}
