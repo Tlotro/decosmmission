@@ -26,7 +26,7 @@ public class SettingsManager : MonoBehaviour
     public Resolution[] resolutions;
     public static SettingsManager instance;
 
-    private const string saveFileName = "SettingsSave.txt";
+    public SettingSave settingSave;
 
     private void Awake()
     {
@@ -35,7 +35,7 @@ public class SettingsManager : MonoBehaviour
         else Destroy(gameObject);
 
         resolutions = Screen.resolutions.Where(x => /*x.refreshRate == 60 &&*/ ((x.width == 1920 && x.height == 1080) || (x.width == 1600 && x.height == 900) || (x.width == 1280 && x.height == 720))).ToArray();
-        LoadJsonData();
+        LoadData();
     }
 
     private void Start()
@@ -48,7 +48,7 @@ public class SettingsManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        SaveJsonData();
+        SaveData();
     }
 
     public float map(float value, float in_min, float in_max, float out_min, float out_max) => (value - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
@@ -96,84 +96,35 @@ public class SettingsManager : MonoBehaviour
         CanvasManager.instance.CloseTopStackCanvas();
     }
 
-    private void SaveJsonData()
+    private void SaveData()
     {
-        SettingSaveData sd = new SettingSaveData
-        {
-            masterVolume = masterSlider.value,
-            musicVolume = musicSlider.value,
-            soundsVolume = soundsSlider.value,
-            UIVolume = UISlider.value,
+        settingSave.masterVolume = masterSlider.value;
+        settingSave.musicVolume = musicSlider.value;
+        settingSave.soundsVolume = soundsSlider.value;
+        settingSave.UIVolume = UISlider.value;
 
-            isFullScreen = fullscreenToggle.isOn,
-            resolutionIndex = resolutionDropdown.value,
-            qualityIndex = qualityDropdown.value
-        };
-
-        File.WriteAllText(saveFileName, sd.ToJson());
+        settingSave.isFullScreen = fullscreenToggle.isOn;
+        settingSave.resolutionIndex = resolutionDropdown.value;
+        settingSave.qualityIndex = qualityDropdown.value;
     }
 
-    private void LoadJsonData()
+    private void LoadData()
     {
-        if (File.Exists(saveFileName))
-        {
-            SettingSaveData sd = new SettingSaveData();
-            sd.LoadFromJson(saveFileName);
+        musicSlider.value = settingSave.musicVolume;
+        soundsSlider.value = settingSave.soundsVolume;
+        UISlider.value = settingSave.UIVolume;
+        masterSlider.value = settingSave.masterVolume;
 
-            musicSlider.value = sd.musicVolume;
-            soundsSlider.value = sd.soundsVolume;
-            UISlider.value = sd.UIVolume;
-            masterSlider.value = sd.masterVolume;
+        fullscreenToggle.isOn = settingSave.isFullScreen;
 
-            fullscreenToggle.isOn = sd.isFullScreen;
+        resolutionDropdown.ClearOptions();
+        resolutionDropdown.AddOptions(resolutions.Select(x => $"{x.width} x {x.height}").ToList());
+        resolutionDropdown.value = settingSave.resolutionIndex;
+        resolutionDropdown.RefreshShownValue();
 
-            resolutionDropdown.ClearOptions();
-            resolutionDropdown.AddOptions(resolutions.Select(x => $"{x.width} x {x.height}").ToList());
-            resolutionDropdown.value = sd.resolutionIndex;
-            resolutionDropdown.RefreshShownValue();
-
-            qualityDropdown.value = sd.qualityIndex;
-        }
-        else
-        {
-            SettingSaveData sd = new SettingSaveData
-            {
-                masterVolume = 6,
-                musicVolume = 4,
-                soundsVolume = 3,
-                UIVolume = 3,
-
-                isFullScreen = true,
-                resolutionIndex = resolutions.Length - 1,
-                qualityIndex = 5
-            };
-            File.WriteAllText(saveFileName, sd.ToJson());
-
-            LoadJsonData();
-        }
+        qualityDropdown.value = settingSave.qualityIndex;
     }
 
 
 }
 
-public class SettingSaveData
-{
-    public float masterVolume;
-    public float musicVolume;
-    public float soundsVolume;
-    public float UIVolume;
-
-    public bool isFullScreen;
-    public int resolutionIndex;
-    public int qualityIndex;
-    
-    public string ToJson()
-    {
-        return JsonUtility.ToJson(this);
-    }
-
-    public void LoadFromJson(string path)
-    {
-        JsonUtility.FromJsonOverwrite(File.ReadAllText(path), this);
-    }
-}
