@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public static class SpaceGenerator
 {
     public static int timeOffset;
-    public static int PixelCountByWidth = 240;
+    public static int PixelCountByWidth = 640;
     public static float faintQuantity;
     public static float diskQuantity;
     public static float diskDegree;

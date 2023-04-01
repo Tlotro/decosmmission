@@ -59,7 +59,7 @@ Material:
     - _PixelCountByWidth: 256
     - _TimeOffset: 2245
     m_Colors:
-    - Vector2_af6eb8b114604e148eba8a23c28daa9b: {r: 1920, g: 1080, b: 0, a: 0}
+    - Vector2_af6eb8b114604e148eba8a23c28daa9b: {r: 640, g: 360, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
