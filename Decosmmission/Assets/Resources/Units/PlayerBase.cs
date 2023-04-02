@@ -23,7 +23,7 @@ public class PlayerBase : BaseEntity
     [HideInInspector]
     public Interactable ApproachedObject;
     protected Animator anim;
-    SpriteRenderer spriteRenderer;
+    protected SpriteRenderer spriteRenderer;
 
     //Item[] cargo;
     float MaxCargo;

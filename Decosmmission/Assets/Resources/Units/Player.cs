@@ -39,29 +39,45 @@ public class Player : PlayerBase
         CurrentHP = 100;
     }
 
+    async void SwordAttack() 
+    {
+        float angle = Vector2.SignedAngle(-Cannon.transform.up, CombatCameraScript.instance.Cam.ScreenToWorldPoint(Input.mousePosition) - transform.position);
+        Cannon.transform.Rotate(0, 0, angle - 45);
+        while (Cannon.transform.rotation.eulerAngles.z < angle+45)
+        {
+            Cannon.transform.Rotate(0,0,Mathf.Sign(angle)*3);
+        }
+    }
+
     // Update is called once per frame
     protected override void Update()
     {
-        float angle = Vector2.SignedAngle( - Cannon.transform.up, CombatCameraScript.instance.Cam.ScreenToWorldPoint(Input.mousePosition) - transform.position);
-        Cannon.transform.Rotate(0, 0, Mathf.Abs(angle) > 0.01 ? (angle * 0.1f) : 0);
         base.Update();
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (attackDelay <= 0)
         {
-            if (attackDelay <= 0)
+            if (attackmode == 0)
             {
-                if (attackmode == 0)
+                Cannon.transform.rotation = Quaternion.Euler(0, 0, 45 * (spriteRenderer.flipX ? 1 : -1));
+                if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
-                    foreach (var i in Physics2D.CircleCastAll(transform.position, 3, CombatCameraScript.instance.Cam.ScreenToWorldPoint(Input.mousePosition) - transform.position, 0.1f, LayerMask.GetMask("Unit")))
+                    float angle = Vector2.SignedAngle(-Cannon.transform.up, CombatCameraScript.instance.Cam.ScreenToWorldPoint(Input.mousePosition) - transform.position);
+                    Cannon.transform.rotation = Quaternion.Euler(0, 0, angle + 45 * (spriteRenderer.flipX ? 1 : -1));
+                    foreach (var i in Physics2D.CircleCastAll(Cannon.transform.position, 3, CombatCameraScript.instance.Cam.ScreenToWorldPoint(Input.mousePosition) - transform.position, 0.1f, LayerMask.GetMask("Unit")))
                         if (i.collider.gameObject.tag != "Player" && Vector2.Dot((i.transform.position - transform.position).normalized, ((Vector2)(CombatCameraScript.instance.Cam.ScreenToWorldPoint(Input.mousePosition) - transform.position)).normalized) > 0.75)
                             i.collider.GetComponent<BaseEntity>().TakeDamage(this.gameObject, 10);
                     attackDelay = 0.75f;
                 }
-                if (attackmode == 1)
+            } else if (attackmode == 1)
+            {
+                float angle = Vector2.SignedAngle(-Cannon.transform.up, CombatCameraScript.instance.Cam.ScreenToWorldPoint(Input.mousePosition) - transform.position);
+                Cannon.transform.Rotate(0, 0, Mathf.Abs(angle) > 0.01 ? (angle * 0.1f) : 0);
+                if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
                     Projectile.Create(bullet, this.gameObject, Cannon.transform.position, CombatCameraScript.instance.Cam.ScreenToWorldPoint(Input.mousePosition) - transform.position, 50, 7, LayerMask.GetMask("Unit"));
                     attackDelay = 0.5f;
                 }
             }
+
         }
 
         if (Input.GetKeyDown(KeyCode.Mouse2))
