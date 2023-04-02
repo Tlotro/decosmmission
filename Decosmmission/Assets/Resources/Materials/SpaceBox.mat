@@ -20,22 +20,6 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _AlphaTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MaskTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _NormalMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -50,17 +34,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _DiscDegree: -50.362637
-    - _DiscOffset: 0.3190564
-    - _DiscQuantity: 0.014190247
-    - _DiskWidth: 0.17278442
-    - _EnableExternalAlpha: 0
-    - _FaintQuantity: 0.0036089686
+    - _DiscDegree: 30
+    - _DiscOffset: 0
+    - _DiscQuantity: 0.1
+    - _DiskWidth: 0.5
+    - _FaintQuantity: 0.1
     - _PixelCountByWidth: 640
-    - _TimeOffset: 2245
+    - _TimeOffset: 0
     m_Colors:
     - Vector2_af6eb8b114604e148eba8a23c28daa9b: {r: 640, g: 360, b: 0, a: 0}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
