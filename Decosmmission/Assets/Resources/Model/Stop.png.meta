@@ -3,7 +3,7 @@ guid: bebfc3c83109dca4d97762f7b6cad0c0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -63,6 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -107,10 +108,10 @@ TextureImporter:
       name: Stop_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 64
-        width: 48
-        height: 64
+        x: 19
+        y: 8
+        width: 19
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,8 +119,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec6c6cbf7109d5d488e18ccb62152dc2
-      internalID: 1181438215
+      spriteID: 0057f619a1f02e645a43a946d411a899
+      internalID: 915333190
       vertices: []
       indices: 
       edges: []
@@ -128,10 +129,10 @@ TextureImporter:
       name: Stop_1
       rect:
         serializedVersion: 2
-        x: 48
-        y: 64
-        width: 48
-        height: 64
+        x: 69
+        y: 8
+        width: 14
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2cb547b24ea4074da29025da9db7330
-      internalID: 1997623795
+      spriteID: 190b382957ac1624eac107335b96bb56
+      internalID: -1367108261
       vertices: []
       indices: 
       edges: []
@@ -149,10 +150,10 @@ TextureImporter:
       name: Stop_2
       rect:
         serializedVersion: 2
-        x: 96
-        y: 64
-        width: 48
-        height: 64
+        x: 116
+        y: 7
+        width: 13
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,8 +161,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f19610bbab4ba04c9eaf082688e0780
-      internalID: 1551046172
+      spriteID: d1ad0e435b072ef40b7731fab6a1bcc5
+      internalID: -1573582569
       vertices: []
       indices: 
       edges: []
@@ -170,10 +171,10 @@ TextureImporter:
       name: Stop_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 48
-        height: 64
+        x: 161
+        y: 6
+        width: 16
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,8 +182,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 086da7358fc49d94ba92bdef5483141a
-      internalID: -1792836398
+      spriteID: f4d9ad01517851a44863019fb78a407f
+      internalID: 1694724649
       vertices: []
       indices: 
       edges: []
@@ -191,10 +192,10 @@ TextureImporter:
       name: Stop_4
       rect:
         serializedVersion: 2
-        x: 48
-        y: 0
-        width: 48
-        height: 64
+        x: 208
+        y: 5
+        width: 17
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,8 +203,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2aefba90fd56e64409ade10a1b6c3a6d
-      internalID: 270155212
+      spriteID: 841d05d7938265748a74fbc39daa8154
+      internalID: 2117707432
       vertices: []
       indices: 
       edges: []
@@ -212,10 +213,10 @@ TextureImporter:
       name: Stop_5
       rect:
         serializedVersion: 2
-        x: 96
-        y: 0
-        width: 48
-        height: 64
+        x: 255
+        y: 5
+        width: 18
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -223,8 +224,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 77434d85df2821c4ba4f9a24b922a9ea
-      internalID: 1464125770
+      spriteID: ecdedbd0eb1772e4abc71493ed7b53f8
+      internalID: -648140108
       vertices: []
       indices: 
       edges: []
@@ -240,12 +241,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Stop_0: 1181438215
-      Stop_2: 1551046172
-      Stop_3: -1792836398
-      Stop_1: 1997623795
-      Stop_5: 1464125770
-      Stop_4: 270155212
+      Stop_0: 915333190
+      Stop_2: -1573582569
+      Stop_3: 1694724649
+      Stop_1: -1367108261
+      Stop_5: -648140108
+      Stop_4: 2117707432
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
