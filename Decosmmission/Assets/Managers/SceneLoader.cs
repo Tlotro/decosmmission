@@ -7,11 +7,19 @@ public class SceneLoader : MonoBehaviour
 {
     public static SceneLoader instance;
     public static AudioListener tempListener;
+
+    public Animator transitionAnimator;
+
     public void Awake()
     {
         DontDestroyOnLoad(gameObject);
         if (instance == null) instance = this;
         else Destroy(gameObject);
+    }
+
+    public void Start()
+    {
+        transitionAnimator.SetTrigger("Fade_In");
     }
 
     public void LoadScene(string sceneName)
@@ -21,12 +29,18 @@ public class SceneLoader : MonoBehaviour
 
     IEnumerator LoadAsynchronously(string sceneName)
     {
+        transitionAnimator.SetTrigger("Fade_Out");
+
+        yield return new WaitForSeconds(0.7f);
+
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
         
         while (!operation.isDone)
         {
             yield return null;
         }
+
+        transitionAnimator.SetTrigger("Fade_In");
     }
 
     public void LoadAdditiveScene(string sceneName)

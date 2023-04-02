@@ -12,6 +12,7 @@ public class Generator : MonoBehaviour
 
     private void Start()
     {
+        AudioMaster.instance.Appear("Theme", "Test_Tune", MixerGroup.Music, 0.6f, 0, true, 0.0f);
         Generate((int)((StaticGameData.GlobalInstance["GeneratorValues"] as StaticGameData)["RoomCount"]), (StaticGameData.GlobalInstance["GeneratorValues"] as StaticGameData)["PlayerObject"] as GameObject);
     }
 
