@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class Player : PlayerBase
 {
+    [SerializeField]
+    GameObject Cannon;
     float attackDelay;
     int attackmode;
     GameObject bullet;
@@ -43,6 +45,8 @@ public class Player : PlayerBase
     // Update is called once per frame
     protected override void Update()
     {
+        float angle = Vector2.SignedAngle( - Cannon.transform.up, CombatCameraScript.instance.Cam.ScreenToWorldPoint(Input.mousePosition) - transform.position);
+        Cannon.transform.Rotate(0, 0, Mathf.Abs(angle) > 0.01 ? (angle * 0.1f) : 0);
         base.Update();
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
@@ -57,7 +61,7 @@ public class Player : PlayerBase
                 }
                 if (attackmode == 1)
                 {
-                    Projectile.Create(bullet, this.gameObject, transform.position, CombatCameraScript.instance.Cam.ScreenToWorldPoint(Input.mousePosition) - transform.position, 50, 7, LayerMask.GetMask("Unit"));
+                    Projectile.Create(bullet, this.gameObject, Cannon.transform.position, CombatCameraScript.instance.Cam.ScreenToWorldPoint(Input.mousePosition) - transform.position, 50, 7, LayerMask.GetMask("Unit"));
                     attackDelay = 0.5f;
                 }
             }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Tilemaps;
+using UnityEngine.Rendering.Universal;
 using UnityEngine;
 
 public class Door : MonoBehaviour
@@ -38,6 +39,7 @@ public class Door : MonoBehaviour
         GetComponent<TilemapRenderer>().enabled = false;
         GetComponent<TilemapCollider2D>().enabled = false;
         GetComponent<BoxCollider2D>().enabled=true;
+        GetComponent<ShadowCaster2D>().enabled = false;
     }
 
     public void Close()

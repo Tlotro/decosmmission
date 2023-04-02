@@ -1852,6 +1852,7 @@ GameObject:
   - component: {fileID: 1603924175395833637}
   - component: {fileID: 4353521508054085929}
   - component: {fileID: 7283503162179668065}
+  - component: {fileID: 3646967669025356973}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -3560,6 +3561,33 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!114 &3646967669025356973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3048635751108519222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 1
+  m_ApplyToSortingLayers: 00000000
+  m_ShapePath:
+  - {x: 0, y: -16, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 16, y: 0, z: 0}
+  - {x: 16, y: -16, z: 0}
+  m_ShapePathHash: -124390123
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 88530
 --- !u!1 &3733438417857427992
 GameObject:
   m_ObjectHideFlags: 0
@@ -3720,6 +3748,10 @@ PrefabInstance:
     - target: {fileID: 2204463840119159257, guid: 3945d7561c0fe3744a4b87af7db9ed23, type: 3}
       propertyPath: m_Name
       value: DoorMilitaryNorth
+      objectReference: {fileID: 0}
+    - target: {fileID: 7600911903480865376, guid: 3945d7561c0fe3744a4b87af7db9ed23, type: 3}
+      propertyPath: m_InstanceId
+      value: -1166700
       objectReference: {fileID: 0}
     - target: {fileID: 7704105052499789390, guid: 3945d7561c0fe3744a4b87af7db9ed23, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[0].x
@@ -4025,6 +4057,10 @@ PrefabInstance:
     - target: {fileID: 2204463840119159257, guid: 1788991dc0e3a3c43b98c0ef36556521, type: 3}
       propertyPath: m_Name
       value: DoorMilitaryEast
+      objectReference: {fileID: 0}
+    - target: {fileID: 6205655471558722775, guid: 1788991dc0e3a3c43b98c0ef36556521, type: 3}
+      propertyPath: m_InstanceId
+      value: -1166722
       objectReference: {fileID: 0}
     - target: {fileID: 7704105052499789390, guid: 1788991dc0e3a3c43b98c0ef36556521, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.size
@@ -4454,6 +4490,10 @@ PrefabInstance:
     - target: {fileID: 2204463840119159257, guid: 38e8a8d34bb107843b81b73c7248b19e, type: 3}
       propertyPath: m_Name
       value: DoorMilitarySouth
+      objectReference: {fileID: 0}
+    - target: {fileID: 6331907115245757520, guid: 38e8a8d34bb107843b81b73c7248b19e, type: 3}
+      propertyPath: m_InstanceId
+      value: -1166744
       objectReference: {fileID: 0}
     - target: {fileID: 7704105052499789390, guid: 38e8a8d34bb107843b81b73c7248b19e, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[0].x
@@ -4927,6 +4967,10 @@ PrefabInstance:
     - target: {fileID: 7704105052499789390, guid: a9be1665f6f15984aab39267d6d75b8c, type: 3}
       propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.data[0].Array.data[11].Y
       value: -10000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8493406316623782852, guid: a9be1665f6f15984aab39267d6d75b8c, type: 3}
+      propertyPath: m_InstanceId
+      value: -1166766
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9be1665f6f15984aab39267d6d75b8c, type: 3}

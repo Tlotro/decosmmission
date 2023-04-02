@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7509213973639881576}
   - component: {fileID: 3188520410618100208}
   - component: {fileID: 2300965150512660952}
+  - component: {fileID: 3833968252271915182}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -4396,6 +4397,35 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!114 &3833968252271915182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 71569295060001006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 1
+  m_ApplyToSortingLayers: 00000000
+  m_ShapePath:
+  - {x: 0, y: -32, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 32, y: 0, z: 0}
+  - {x: 32, y: -16, z: 0}
+  - {x: 16, y: -16, z: 0}
+  - {x: 16, y: -32, z: 0}
+  m_ShapePathHash: -1703442531
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 89532
 --- !u!1 &4739044066214524602
 GameObject:
   m_ObjectHideFlags: 0
@@ -9062,6 +9092,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoorMilitarySouth
       objectReference: {fileID: 0}
+    - target: {fileID: 6331907115245757520, guid: 38e8a8d34bb107843b81b73c7248b19e, type: 3}
+      propertyPath: m_InstanceId
+      value: -1176114
+      objectReference: {fileID: 0}
     - target: {fileID: 7704105052499789390, guid: 38e8a8d34bb107843b81b73c7248b19e, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[0].x
       value: -1.0000293
@@ -9426,15 +9460,23 @@ PrefabInstance:
     - target: {fileID: -3536370407545182167, guid: 1788991dc0e3a3c43b98c0ef36556521, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[1].m_Data
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -3536370407545182167, guid: 1788991dc0e3a3c43b98c0ef36556521, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[2].m_Data
+      value: 
       objectReference: {fileID: -986684546, guid: ee8b6b8932b3e034db82d7ec59fd6ffb, type: 3}
+    - target: {fileID: -3536370407545182167, guid: 1788991dc0e3a3c43b98c0ef36556521, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[3].m_Data
+      value: 
+      objectReference: {fileID: 372447144, guid: ee8b6b8932b3e034db82d7ec59fd6ffb, type: 3}
     - target: {fileID: -3536370407545182167, guid: 1788991dc0e3a3c43b98c0ef36556521, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[6].m_Data
       value: 
-      objectReference: {fileID: -1128270076, guid: ee8b6b8932b3e034db82d7ec59fd6ffb, type: 3}
+      objectReference: {fileID: -855703707, guid: ee8b6b8932b3e034db82d7ec59fd6ffb, type: 3}
     - target: {fileID: -3536370407545182167, guid: 1788991dc0e3a3c43b98c0ef36556521, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[7].m_Data
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: -1128270076, guid: ee8b6b8932b3e034db82d7ec59fd6ffb, type: 3}
     - target: {fileID: -3536370407545182167, guid: 1788991dc0e3a3c43b98c0ef36556521, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[9].m_Data
       value: 
@@ -9449,7 +9491,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -3536370407545182167, guid: 1788991dc0e3a3c43b98c0ef36556521, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[1].m_RefCount
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -3536370407545182167, guid: 1788991dc0e3a3c43b98c0ef36556521, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[2].m_RefCount
@@ -9469,7 +9511,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -3536370407545182167, guid: 1788991dc0e3a3c43b98c0ef36556521, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[7].m_RefCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -3536370407545182167, guid: 1788991dc0e3a3c43b98c0ef36556521, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[8].m_RefCount
@@ -9485,7 +9527,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -3536370407545182167, guid: 1788991dc0e3a3c43b98c0ef36556521, type: 3}
       propertyPath: m_Tiles.Array.data[2].second.m_TileSpriteIndex
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: -3536370407545182167, guid: 1788991dc0e3a3c43b98c0ef36556521, type: 3}
       propertyPath: m_Tiles.Array.data[3].second.m_TileSpriteIndex
@@ -9512,8 +9554,16 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -3536370407545182167, guid: 1788991dc0e3a3c43b98c0ef36556521, type: 3}
+      propertyPath: m_Tiles.Array.data[9].second.m_TileSpriteIndex
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -3536370407545182167, guid: 1788991dc0e3a3c43b98c0ef36556521, type: 3}
+      propertyPath: m_Tiles.Array.data[10].second.m_TileSpriteIndex
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -3536370407545182167, guid: 1788991dc0e3a3c43b98c0ef36556521, type: 3}
       propertyPath: m_Tiles.Array.data[11].second.m_TileSpriteIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1191211368104975136, guid: 1788991dc0e3a3c43b98c0ef36556521, type: 3}
       propertyPath: m_RootOrder
@@ -9562,6 +9612,10 @@ PrefabInstance:
     - target: {fileID: 2204463840119159257, guid: 1788991dc0e3a3c43b98c0ef36556521, type: 3}
       propertyPath: m_Name
       value: DoorMilitaryEast
+      objectReference: {fileID: 0}
+    - target: {fileID: 6205655471558722775, guid: 1788991dc0e3a3c43b98c0ef36556521, type: 3}
+      propertyPath: m_InstanceId
+      value: -1176208
       objectReference: {fileID: 0}
     - target: {fileID: 7704105052499789390, guid: 1788991dc0e3a3c43b98c0ef36556521, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.size

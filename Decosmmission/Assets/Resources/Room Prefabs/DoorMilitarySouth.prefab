@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7152495494495704036}
   - component: {fileID: 7704105052499789390}
   - component: {fileID: 5348878479623186058}
+  - component: {fileID: 6331907115245757520}
   m_Layer: 0
   m_Name: DoorMilitarySouth
   m_TagString: Untagged
@@ -58,7 +59,6 @@ MonoBehaviour:
   celly: 0
   way: 1
   marker: {fileID: 2240108885236783292}
-  trigger: {fileID: 0}
 --- !u!1839735485 &-3536370407545182167
 Tilemap:
   m_ObjectHideFlags: 0
@@ -363,42 +363,42 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 5299579109058990778}
     m_ColliderPaths:
-    - - X: -15312500
+    - - X: -18125000
         Y: 20000000
       - X: -20000000
         Y: 20000000
       - X: -20000000
         Y: -10000000
-      - X: -10000000
+      - X: -18125000
         Y: -10000000
       - X: -10000000
-        Y: -9375000
+        Y: -8750000
       - X: 10000000
-        Y: -9375000
-      - X: 15312500
+        Y: -8750000
+      - X: 18125000
         Y: -10000000
       - X: 20000000
         Y: -10000000
       - X: 20000000
         Y: 20000000
-      - X: 10000000
+      - X: 18125000
         Y: 20000000
       - X: 10000000
-        Y: 19375000
+        Y: 18750000
       - X: -10000000
-        Y: 19375000
+        Y: 18750000
   m_CompositePaths:
     m_Paths:
-    - - {x: -1.0000293, y: -1}
-      - {x: -0.9999706, y: -0.9375}
-      - {x: 1.0000004, y: -0.9375001}
-      - {x: 1.5312517, y: -1}
+    - - {x: -1.8125018, y: -1}
+      - {x: -0.9999987, y: -0.875}
+      - {x: 1.0000015, y: -0.87500024}
+      - {x: 1.8125018, y: -1}
       - {x: 2, y: -0.99997073}
       - {x: 1.9999708, y: 2}
-      - {x: 1, y: 1.9999708}
-      - {x: 0.9999706, y: 1.9375}
-      - {x: -1.0000004, y: 1.9375}
-      - {x: -1.5312515, y: 2}
+      - {x: 1.812498, y: 1.9999996}
+      - {x: 0.9999987, y: 1.875}
+      - {x: -1.0000015, y: 1.8750002}
+      - {x: -1.8125018, y: 2}
       - {x: -2, y: 1.9999708}
       - {x: -1.9999708, y: -1}
   m_VertexDistance: 0.0005
@@ -429,6 +429,33 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4, y: 0.25}
   m_EdgeRadius: 0
+--- !u!114 &6331907115245757520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2204463840119159257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 1
+  m_ApplyToSortingLayers: 00000000
+  m_ShapePath:
+  - {x: -2, y: -1, z: 0}
+  - {x: -2, y: 2, z: 0}
+  - {x: 2, y: 2, z: 0}
+  - {x: 2, y: -1, z: 0}
+  m_ShapePathHash: 597030165
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 93794
 --- !u!1 &2240108885236783292
 GameObject:
   m_ObjectHideFlags: 0

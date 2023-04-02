@@ -8,8 +8,10 @@ public class UnitTestScript : Unit
     int state;
     float Timer;
     Vector3 dashpos;
+    Vector3 newScale;
     protected override void SetDefaults()
     {
+        newScale = transform.localScale;
         detectionRange = 20;
         MaxHP = 30;
         CurrentHP = 30;
@@ -18,10 +20,13 @@ public class UnitTestScript : Unit
     // Update is called once per frame
     protected override void AI()
     {
+        transform.localRotation = Quaternion.AngleAxis(-rb.velocity.x / 10 * 45, Vector3.forward);
         switch (state)
         {
             case 0:
-                rb.velocity = (savedposition - transform.position).magnitude > 0.1 ? (savedposition - transform.position).normalized * 5 : new Vector3(0, 0, 0);
+                rb.velocity = (savedposition - transform.position).magnitude > 0.1 ? (savedposition - transform.position).normalized * 5 : new Vector3(0, 0, 0); 
+                newScale.x = Mathf.Sign(rb.velocity.x);
+                transform.localScale = newScale;
                 if (Target != null && (savedposition - transform.position).magnitude < 5)
                 {
                     state = 1;
@@ -35,7 +40,9 @@ public class UnitTestScript : Unit
             case 2:
                 Timer -= Time.deltaTime;
                 rb.velocity = (dashpos - transform.position).normalized * -1;
-                if(Timer <= 0)
+                newScale.x = -Mathf.Sign(rb.velocity.x);
+                transform.localScale = newScale;
+                if (Timer <= 0)
                     state = 3;
                 break;
             case 3:
@@ -58,7 +65,7 @@ public class UnitTestScript : Unit
     protected override void FixedAI()
     {
         if(state == 4)
-            foreach(var i in Physics2D.CircleCastAll(transform.position, 1, dashpos, 0.1f,LayerMask.GetMask("Player")))
+            foreach(var i in Physics2D.CircleCastAll(transform.position, 0.8f, dashpos, 0.1f,LayerMask.GetMask("Player")))
             {
                 i.collider.gameObject.GetComponent<BaseEntity>().TakeDamage(this.gameObject,10);
             }

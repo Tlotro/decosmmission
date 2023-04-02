@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 5299579109058990778}
   - component: {fileID: 7152495494495704036}
   - component: {fileID: 7704105052499789390}
-  - component: {fileID: 6460811628275657918}
   - component: {fileID: 6028168833951837486}
+  - component: {fileID: 6205655471558722775}
   m_Layer: 0
   m_Name: DoorMilitaryEast
   m_TagString: Untagged
@@ -366,71 +366,45 @@ CompositeCollider2D:
   - m_Collider: {fileID: 5299579109058990778}
     m_ColliderPaths:
     - - X: -20000000
-        Y: -15312500
+        Y: -18125000
       - X: -20000000
         Y: -20000000
       - X: 10000000
         Y: -20000000
       - X: 10000000
+        Y: -18125000
+      - X: 8750000
         Y: -10000000
-      - X: 9375000
-        Y: -10000000
-      - X: 9375000
+      - X: 8750000
         Y: 10000000
       - X: 10000000
-        Y: 15312500
+        Y: 18125000
       - X: 10000000
         Y: 20000000
       - X: -20000000
         Y: 20000000
       - X: -20000000
+        Y: 18125000
+      - X: -18750000
         Y: 10000000
-      - X: -19375000
-        Y: 10000000
-      - X: -19375000
+      - X: -18750000
         Y: -10000000
   m_CompositePaths:
     m_Paths:
-    - - {x: 0.9375, y: 0.9999998}
-      - {x: 1, y: 1.5312517}
+    - - {x: 0.99997073, y: -2}
+      - {x: 0.9999997, y: -1.812498}
+      - {x: 0.875, y: -0.9999987}
+      - {x: 0.87500024, y: 1.0000015}
+      - {x: 1, y: 1.8125018}
       - {x: 0.99997073, y: 2}
       - {x: -2, y: 1.9999708}
-      - {x: -1.9999708, y: 1}
-      - {x: -1.9375, y: 0.9999706}
-      - {x: -1.9375, y: -0.9999998}
-      - {x: -2, y: -1.5312517}
+      - {x: -1.9999996, y: 1.812498}
+      - {x: -1.875, y: 0.9999987}
+      - {x: -1.8750002, y: -1.0000015}
+      - {x: -2, y: -1.8125018}
       - {x: -1.9999708, y: -2}
-      - {x: 1, y: -1.9999708}
-      - {x: 0.99997073, y: -1}
-      - {x: 0.9375, y: -0.9999706}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
---- !u!61 &6460811628275657918
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2204463840119159257}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.875, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.25, y: 4}
-  m_EdgeRadius: 0
 --- !u!61 &6028168833951837486
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -457,6 +431,33 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.25, y: 4}
   m_EdgeRadius: 0
+--- !u!114 &6205655471558722775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2204463840119159257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 1
+  m_ApplyToSortingLayers: 00000000
+  m_ShapePath:
+  - {x: -2, y: -2, z: 0}
+  - {x: -2, y: 2, z: 0}
+  - {x: 1, y: 2, z: 0}
+  - {x: 1, y: -2, z: 0}
+  m_ShapePathHash: -1936329451
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 91294
 --- !u!1 &2240108885236783292
 GameObject:
   m_ObjectHideFlags: 0
