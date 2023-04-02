@@ -79,6 +79,14 @@ public class PlayerBase : BaseEntity
             if (ApproachedObject != null)
                 ApproachedObject.Interact();
         }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            Debug.Log(LayerMask.NameToLayer("Player"));
+            Debug.Log(LayerMask.NameToLayer("Platforms"));
+            Physics2D.IgnoreLayerCollision(7,3,true);
+        }
+        if (Input.GetKeyUp(KeyCode.S))
+            Physics2D.IgnoreLayerCollision(7, 3, false);
         base.Update();
     }
 
@@ -100,7 +108,7 @@ public class PlayerBase : BaseEntity
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (!grounded && Physics2D.CircleCast(transform.position, 0.4f, transform.rotation * Vector2.down, 0.5f, LayerMask.GetMask("Default")).collider != null)
+        if (!grounded && Physics2D.CircleCast(transform.position, 0.4f, transform.rotation * Vector2.down, 0.5f, LayerMask.GetMask("Default", "Platforms")).collider != null)
             grounded = true;
     }
 

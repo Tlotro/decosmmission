@@ -299,7 +299,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 20
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -457,7 +457,7 @@ MonoBehaviour:
   - {x: 1, y: -2, z: 0}
   m_ShapePathHash: -1936329451
   m_Mesh: {fileID: 0}
-  m_InstanceId: 91294
+  m_InstanceId: 101520
 --- !u!1 &2240108885236783292
 GameObject:
   m_ObjectHideFlags: 0

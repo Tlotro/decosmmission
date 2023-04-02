@@ -188,7 +188,7 @@ public class Generator : MonoBehaviour
     private void LoadRoomPrefabs(params string[] GenerationModifierTags)
     {
         BaseFactions = new string[]{"Military" };
-        IEnumerable<RoomDesign> prefabsBase = Resources.LoadAll<GameObject>("").Where(x => x.GetComponent<RoomDesign>() != null).Select(x=>x.GetComponent<RoomDesign>()).Where(x=>BaseFactions.Any(y=>y.Equals(x.Faction)));
+        IEnumerable<RoomDesign> prefabsBase = Resources.LoadAll<GameObject>("").Where(x => x.GetComponent<RoomDesign>() != null).Select(x=>x.GetComponent<RoomDesign>()).Where(x=>!x.RoomTags.Contains("NoUse")).Where(x=>BaseFactions.Any(y=>y.Equals(x.Faction)));
         //Add all the code for GenerationModifier handling here, idk, you can remove specific room designs or add specific tags for adding them
         if (GenerationModifierTags.Contains("NoUniversal"))
             prefabsBase = prefabsBase.Where(x => x.Faction != "Universal");

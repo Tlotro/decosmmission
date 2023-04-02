@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7152495494495704036}
   - component: {fileID: 7704105052499789390}
   - component: {fileID: 4864562828792149842}
+  - component: {fileID: 8951513228796691331}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -58,7 +59,6 @@ MonoBehaviour:
   celly: 0
   way: 0
   marker: {fileID: 2240108885236783292}
-  trigger: {fileID: 0}
 --- !u!1839735485 &-3536370407545182167
 Tilemap:
   m_ObjectHideFlags: 0
@@ -137,7 +137,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 20
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -233,6 +233,33 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &8951513228796691331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2204463840119159257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 1
+  m_ApplyToSortingLayers: 00000000
+  m_ShapePath:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  m_ShapePathHash: 0
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -1308584
 --- !u!1 &2240108885236783292
 GameObject:
   m_ObjectHideFlags: 0
