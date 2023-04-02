@@ -57,6 +57,7 @@ public class CanvasManager : MonoBehaviour
         if(desiredCanvas != null)
         {
             ListState();
+            Debug.Log(activeCanvasStack.Count);
             if(activeCanvasStack.Count > 0)
             {
                 activeCanvasStack.Peek().SetInteractable(false);
@@ -71,13 +72,14 @@ public class CanvasManager : MonoBehaviour
 
     public void CloseTopStackCanvas()
     {
-        if(activeCanvasStack.Count >= 2)
-        {
-            activeCanvasStack.Peek().SetActive(false);
-            activeCanvasStack.Pop();
+
+        activeCanvasStack.Peek().SetActive(false);
+        activeCanvasStack.Pop();
+
+        if (activeCanvasStack.Count > 0)
             activeCanvasStack.Peek().SetInteractable(true);
-            StackState();
-        }
+        
+        StackState();
     }
 
     public void StackState()

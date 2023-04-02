@@ -1069,7 +1069,7 @@ PrefabInstance:
       objectReference: {fileID: 365398958}
     - target: {fileID: 1579833902244846979, guid: e346dc8ddde779a4fbab3f176fd910ef, type: 3}
       propertyPath: PauseManagerFlag
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4325150541980763013, guid: e346dc8ddde779a4fbab3f176fd910ef, type: 3}
       propertyPath: m_Name
@@ -1753,6 +1753,7 @@ MonoBehaviour:
   panelButton: {fileID: 956253858}
   animator: {fileID: 2102396182}
   characterAnimator: {fileID: 1990090547}
+  camera: {fileID: 519420031}
   panelToggle: 0
 --- !u!95 &2102396182
 Animator:

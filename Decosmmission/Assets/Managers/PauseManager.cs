@@ -49,7 +49,7 @@ public class PauseManager : MonoBehaviour
 
     public void Quit()
     {
-        SceneLoader.instance.LoadScene("Scene1");
+        SceneLoader.instance.LoadScene("Main Menu");
     }
 
     public void Manual()
