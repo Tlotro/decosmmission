@@ -11,7 +11,6 @@ public class Player : PlayerBase
     float attackDelay;
     int attackmode;
     GameObject bullet;
-    [SerializeField]
     //TMPro.TMP_Text text;
 
     //Item[] cargo;
