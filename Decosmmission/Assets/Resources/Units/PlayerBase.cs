@@ -22,6 +22,8 @@ public class PlayerBase : BaseEntity
     public bool grounded;
     [HideInInspector]
     public Interactable ApproachedObject;
+    protected Animator anim;
+    SpriteRenderer spriteRenderer;
 
     //Item[] cargo;
     float MaxCargo;
@@ -40,6 +42,8 @@ public class PlayerBase : BaseEntity
     {
         rb = GetComponent<Rigidbody2D>();
         cd = GetComponent<Collider2D>();
+        anim = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         PlayerBase.player = this;
         rb.mass = BaseMass;
     }
@@ -48,8 +52,8 @@ public class PlayerBase : BaseEntity
     {
         acceleration = 10;
         JumpVelocity = 35;
-        MaxSpeedX = 100;
-        MaxSpeedY = 1000;
+        MaxSpeedX = 20;
+        MaxSpeedY = 200;
         BaseMass = 1;
         MaxHP = 100;
         CurrentHP = 100;
@@ -60,18 +64,25 @@ public class PlayerBase : BaseEntity
     {
         rb.angularVelocity = -(Mathf.Pow(Mathf.Abs(rb.rotation), 1.5f) * Mathf.Sign(rb.rotation));
         rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x, -MaxSpeedX, MaxSpeedX), Mathf.Clamp(rb.velocity.y, -MaxSpeedY, MaxSpeedY));
+        anim.SetFloat("VerticalSpeed", rb.velocity.y / MaxSpeedY);
+        Debug.Log(Mathf.Abs(rb.velocity.x / MaxSpeedX));
+        anim.SetFloat("HorizontalSpeed", Mathf.Abs(rb.velocity.x / MaxSpeedX));
         if (Input.GetKeyDown(KeyCode.W) && grounded)
         {
+            anim.SetTrigger("Jump");
             rb.velocity = new Vector2(rb.velocity.x, JumpVelocity);
-            rb.rotation = -rb.velocity.x / MaxSpeedX * 20f;
+            //rb.rotation = -rb.velocity.x / MaxSpeedX * 20f;
             grounded = false;
+            anim.ResetTrigger("Jump");
         }
         if (Input.GetKey(KeyCode.A))
         {
+            spriteRenderer.flipX = true;
             rb.AddForce(new Vector2(-acceleration, 0) * Time.deltaTime*500);
         }
         if (Input.GetKey(KeyCode.D))
         {
+            spriteRenderer.flipX = false;
             rb.AddForce(new Vector2(acceleration, 0) * Time.deltaTime*500);
         }
         if (Input.GetKeyDown(KeyCode.E))
@@ -81,8 +92,6 @@ public class PlayerBase : BaseEntity
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
-            Debug.Log(LayerMask.NameToLayer("Player"));
-            Debug.Log(LayerMask.NameToLayer("Platforms"));
             Physics2D.IgnoreLayerCollision(7,3,true);
         }
         if (Input.GetKeyUp(KeyCode.S))
@@ -109,7 +118,9 @@ public class PlayerBase : BaseEntity
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (!grounded && Physics2D.CircleCast(transform.position, 0.4f, transform.rotation * Vector2.down, 0.5f, LayerMask.GetMask("Default", "Platforms")).collider != null)
+        {
             grounded = true;
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)

@@ -25,18 +25,16 @@ public class Player : PlayerBase
 
     protected override void Awake()
     {
+        base.Awake();
         bullet = Resources.Load<GameObject>("Projectiles/BaseBullet");
-        rb = GetComponent<Rigidbody2D>();
-        cd = GetComponent<Collider2D>();
-        PlayerBase.player = this;
     }
 
     protected override void SetDefaults()
     {
         acceleration = 10;
         JumpVelocity = 35;
-        MaxSpeedX = 100;
-        MaxSpeedY = 1000;
+        MaxSpeedX = 20;
+        MaxSpeedY = 200;
         BaseMass = 1;
         MaxHP = 100;
         CurrentHP = 100;

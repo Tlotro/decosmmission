@@ -4445,7 +4445,7 @@ MonoBehaviour:
   - {x: 16, y: -32, z: 0}
   m_ShapePathHash: -1703442531
   m_Mesh: {fileID: 0}
-  m_InstanceId: 120630
+  m_InstanceId: 129118
 --- !u!1 &4739044066214524602
 GameObject:
   m_ObjectHideFlags: 0
@@ -9295,7 +9295,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -9319,7 +9319,7 @@ PlatformEffector2D:
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
-  m_SurfaceArc: 180
+  m_SurfaceArc: 179
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
@@ -9524,7 +9524,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6331907115245757520, guid: 38e8a8d34bb107843b81b73c7248b19e, type: 3}
       propertyPath: m_InstanceId
-      value: -1793498
+      value: -2173190
       objectReference: {fileID: 0}
     - target: {fileID: 7704105052499789390, guid: 38e8a8d34bb107843b81b73c7248b19e, type: 3}
       propertyPath: m_ColliderPaths.Array.size
@@ -10053,7 +10053,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6205655471558722775, guid: 1788991dc0e3a3c43b98c0ef36556521, type: 3}
       propertyPath: m_InstanceId
-      value: -1793592
+      value: -2173284
       objectReference: {fileID: 0}
     - target: {fileID: 7704105052499789390, guid: 1788991dc0e3a3c43b98c0ef36556521, type: 3}
       propertyPath: m_ColliderPaths.Array.size
