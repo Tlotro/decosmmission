@@ -6,6 +6,7 @@ public class MissionStartDoor : Interactable
 {
     public override void Interact()
     {
+        AudioMaster.instance.Fade("Theme", 0.0f);
         StaticGameData.GlobalInstance["GeneratorValues"] = new StaticGameData();
         StaticGameData GeneratorValues = StaticGameData.GlobalInstance["GeneratorValues"] as StaticGameData;
         GeneratorValues["RoomCount"] = 100;
