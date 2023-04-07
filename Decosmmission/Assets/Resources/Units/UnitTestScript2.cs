@@ -22,8 +22,8 @@ public class UnitTestScript2 : StaticUnit
     protected override void SetDefaults()
     {
         detectionRange = 30;
-        MaxHP = 50;
-        CurrentHP = 50;
+        MaxHPBase = 50;
+        MaxHPmultiplyer = 1;
         state = 0;
     }
 

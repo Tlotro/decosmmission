@@ -5,8 +5,10 @@ using UnityEngine;
 public delegate void EmptyUnitDelegade(BaseEntity unit);
 public abstract class BaseEntity : MonoBehaviour
 {
-    public virtual int MaxHP { get { return _maxHP; } protected set { _maxHP = value; } }
-    protected int _maxHP;
+    public int MaxHP { get { return Mathf.FloorToInt(MaxHPBase * MaxHPmultiplyer + MaxHPaddition); } }
+    public float MaxHPmultiplyer;
+    public float MaxHPaddition;
+    public int MaxHPBase;
     public virtual int CurrentHP { get { return _CurrentHP; } protected set { _CurrentHP = value; } }
     protected int _CurrentHP;
     public Dictionary<GameObject, double> Iframelist = new Dictionary<GameObject, double>();

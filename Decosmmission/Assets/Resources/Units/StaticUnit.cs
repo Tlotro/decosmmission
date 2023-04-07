@@ -25,7 +25,8 @@ public abstract class StaticUnit : BaseEntity
         base.Start();
         savedposition = transform.position;
         InvokeRepeating("DetectTargets", 0.0f, 0.5f);
-
+        if (CurrentHP == 0)
+            CurrentHP = MaxHP;
     }
 
     // Update is called once per frame

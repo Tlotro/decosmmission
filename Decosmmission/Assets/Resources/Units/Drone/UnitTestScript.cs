@@ -13,8 +13,8 @@ public class UnitTestScript : Unit
     {
         newScale = transform.localScale;
         detectionRange = 20;
-        MaxHP = 30;
-        CurrentHP = 30;
+        MaxHPBase = 30;
+        MaxHPmultiplyer = 1;
         state = 0;
     }
     // Update is called once per frame

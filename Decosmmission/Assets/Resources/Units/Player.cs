@@ -35,18 +35,8 @@ public class Player : PlayerBase
         MaxSpeedX = 20;
         MaxSpeedY = 200;
         BaseMass = 1;
-        MaxHP = 100;
-        CurrentHP = 100;
-    }
-
-    async void SwordAttack() 
-    {
-        float angle = Vector2.SignedAngle(-Cannon.transform.up, CombatCameraScript.instance.Cam.ScreenToWorldPoint(Input.mousePosition) - transform.position);
-        Cannon.transform.Rotate(0, 0, angle - 45);
-        while (Cannon.transform.rotation.eulerAngles.z < angle+45)
-        {
-            Cannon.transform.Rotate(0,0,Mathf.Sign(angle)*3);
-        }
+        MaxHPBase = 100;
+        MaxHPmultiplyer = 1;
     }
 
     // Update is called once per frame

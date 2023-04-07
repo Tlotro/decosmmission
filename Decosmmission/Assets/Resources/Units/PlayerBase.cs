@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class PlayerBase : BaseEntity
@@ -25,6 +26,10 @@ public class PlayerBase : BaseEntity
     protected Animator anim;
     protected SpriteRenderer spriteRenderer;
 
+    public Type[] baseUpgrades = new Type[] {typeof(BasicHpUpgrade)};
+    public SortedDictionary<int, AbstractUpgrade> unlockedBaseUpgrades = new SortedDictionary<int, AbstractUpgrade>();
+    public List<(AbstractUpgrade, Type)> availableUpgrades = new List<(AbstractUpgrade, Type)>();
+
     //Item[] cargo;
     float MaxCargo;
 
@@ -32,10 +37,16 @@ public class PlayerBase : BaseEntity
     protected override void Start()
     {
         base.Start();
-        HPBar.UpdateMaxHP(_maxHP);
-        HPBar.UpdateHP(_CurrentHP);
         CombatCameraScript.instance.target = Player.player.transform;
+        foreach (var upgrade in unlockedBaseUpgrades)
+        {
+            upgrade.Value.OnStartBase(this);
+        }
         rb.mass = BaseMass;// + cargo.getsummasses()
+        if (CurrentHP == 0)
+            CurrentHP = MaxHP;
+        HPBar.UpdateMaxHP(MaxHP);
+        HPBar.UpdateHP(_CurrentHP);
     }
 
     protected override void Awake()
@@ -55,8 +66,8 @@ public class PlayerBase : BaseEntity
         MaxSpeedX = 20;
         MaxSpeedY = 200;
         BaseMass = 1;
-        MaxHP = 100;
-        CurrentHP = 100;
+        MaxHPBase = 100;
+        MaxHPmultiplyer = 1;
     }
 
     // Update is called once per frame
@@ -65,7 +76,6 @@ public class PlayerBase : BaseEntity
         rb.angularVelocity = -(Mathf.Pow(Mathf.Abs(rb.rotation), 1.5f) * Mathf.Sign(rb.rotation));
         rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x, -MaxSpeedX, MaxSpeedX), Mathf.Clamp(rb.velocity.y, -MaxSpeedY, MaxSpeedY));
         anim.SetFloat("VerticalSpeed", rb.velocity.y / MaxSpeedY);
-        Debug.Log(Mathf.Abs(rb.velocity.x / MaxSpeedX));
         anim.SetFloat("HorizontalSpeed", Mathf.Abs(rb.velocity.x / MaxSpeedX));
         if (Input.GetKeyDown(KeyCode.W) && grounded)
         {
@@ -104,7 +114,7 @@ public class PlayerBase : BaseEntity
         if (!Iframelist.ContainsKey(inflictor))
         {
             base.TakeDamage(inflictor, damage);
-            HPBar.UpdateMaxHP(_maxHP);
+            HPBar.UpdateMaxHP(MaxHP);
             HPBar.UpdateHP(_CurrentHP);
         }
     }
