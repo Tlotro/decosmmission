@@ -56,8 +56,6 @@ public class CanvasManager : MonoBehaviour
         ControlledCanvas desiredCanvas = controlledCanvasList.Find(x => x.type == type);
         if(desiredCanvas != null)
         {
-            ListState();
-            Debug.Log(activeCanvasStack.Count);
             if(activeCanvasStack.Count > 0)
             {
                 activeCanvasStack.Peek().SetInteractable(false);
@@ -78,8 +76,6 @@ public class CanvasManager : MonoBehaviour
 
         if (activeCanvasStack.Count > 0)
             activeCanvasStack.Peek().SetInteractable(true);
-        
-        StackState();
     }
 
     public void StackState()
@@ -91,6 +87,7 @@ public class CanvasManager : MonoBehaviour
 
     public void ListState()
     {
+        Debug.Log("__List__");
         foreach (ControlledCanvas a in controlledCanvasList)
             Debug.Log(a.name);
         Debug.Log("________");

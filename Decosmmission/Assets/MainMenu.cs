@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
 
 
 public class MainMenu : MonoBehaviour
@@ -19,13 +21,16 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
+        while (AudioMaster.instance == null);
+
         AudioMaster.instance.StopAll();
         AudioMaster.instance.Appear("Theme", "Test_Tune_2", MixerGroup.Music, 0.6f, 0, true, 0.0f);
+
     }
 
     private void SipCoffee()
     {
-        if (Random.value < 1.0 / 3.0)
+        if (UnityEngine.Random.value < 1.0 / 3.0)
             characterAnimator.SetTrigger("SipCoffee");
     }
 

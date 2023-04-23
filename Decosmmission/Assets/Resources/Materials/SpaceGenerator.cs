@@ -13,11 +13,12 @@ public static class SpaceGenerator
     public static float diskOffset;
     public static float diskWidth;
 
-    private static Material m_MaterialBase = Resources.Load<Material>("Materials/SpaceBox");
+    //private static Material m_MaterialBase = Resources.Load<Material>("Materials/SpaceBox");
     private static Material m_Material;
 
     public static void Setup()
     {
+        Material m_MaterialBase = Resources.Load<Material>("Materials/SpaceBox");
         m_Material = MonoBehaviour.Instantiate(m_MaterialBase);
     }
 
