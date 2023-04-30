@@ -5,26 +5,23 @@ using UnityEngine.Audio;
 
 public class AudioImp : MonoBehaviour
 {
-    public AudioMaster audioMaster;
     public AudioSource source;
     public List<AudioClip> clips;
 
     public void OnDestroy()
     {
-        audioMaster.imps.Remove(this);
+        AudioMaster.instance.imps.Remove(this);
     }
 
-    public AudioImp(AudioMaster master, AudioSource source, List<AudioClip> clips)
+    public void Start()
     {
-        this.audioMaster = master;
-        master.imps.Add(this);
-        this.source = source;
-        this.clips = clips;
+        AudioMaster.instance.imps.Add(this);
+        clips = new List<AudioClip>();
     }
 
     private AudioMixerGroup GetAudioMixerGroup(MixerGroup mixerGroup)
     {
-        return audioMaster.audioMixer.FindMatchingGroups(mixerGroup.ToString())[0];
+        return AudioMaster.instance.audioMixer.FindMatchingGroups(mixerGroup.ToString())[0];
     }
 
     public void Play(string clipName, MixerGroup mixerGroup, float volume = 0.6f, int timing = 0, bool loop = false)
@@ -35,6 +32,7 @@ public class AudioImp : MonoBehaviour
             Debug.Log("Clip does not exist. Loading...");
             clips.Add(Resources.Load<AudioClip>(clipName));
             Play(clipName, mixerGroup, volume, timing, loop);
+            return;
         }
         else source.clip = clip;
 
@@ -55,6 +53,7 @@ public class AudioImp : MonoBehaviour
             Debug.Log("Clip does not exist. Loading...");
             clips.Add(Resources.Load<AudioClip>(clipName));
             Appear(clipName, mixerGroup, volume, timing, loop, appearTime);
+            return;
         }
         else source.clip = clip;
 
@@ -81,9 +80,6 @@ public class AudioImp : MonoBehaviour
         }
     }
 
-
-
-
     public void Fade(float fadeTime = 1f)
     {
         StartCoroutine(Fade_ext(source, fadeTime));
@@ -104,7 +100,6 @@ public class AudioImp : MonoBehaviour
         audio.Pause();
     }
 
-
     public void Stop()
     {
         source.Pause();
@@ -115,7 +110,6 @@ public class AudioImp : MonoBehaviour
 
 public class TempAudioImp : AudioImp
 {
-    public TempAudioImp(AudioMaster master, AudioSource source, List<AudioClip> clips) : base(master, source, clips) { }
 
     public void Update()
     {
