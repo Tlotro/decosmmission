@@ -35,11 +35,13 @@ public class UnitTestScript2 : StaticUnit
         //angle = angle > 0 ? angle : 360 - angle;
         //Debug.Log(angle);
         //Cannon.transform.Rotate(Vector3.forward, Mathf.Abs(angle)>1?Mathf.Clamp(Mathf.LerpAngle(Cannon.transform.rotation.eulerAngles.z, angle, 0.015f),-1,1) : 0) ;
-        float angle = Vector2.SignedAngle(-Cannon.transform.up, savedposition - transform.position);
+
         switch (state) 
         {
             case 0:
-                Cannon.transform.Rotate(0, 0, Mathf.Abs(angle) > 0.01 ? (angle * 0.1f) : 0);
+                float angle = Vector2.SignedAngle(Cannon.transform.up, savedposition - transform.position);
+                float absAngle = Mathf.Abs(angle);
+                Cannon.transform.Rotate(0, 0, Mathf.Abs(angle) > 0.01 ? Mathf.Clamp(angle * Time.deltaTime*25,-absAngle, absAngle) : 0);
                 if (Target != null && Timer <= 0 && Mathf.Abs(angle) < 1)
                 {
                     Timer = 0.5f;
@@ -51,7 +53,7 @@ public class UnitTestScript2 : StaticUnit
                 {
                     Timer = 1;
                     state = 0;
-                    Projectile.Create(bullet, this.gameObject, transform.position, -Cannon.transform.up, 50, 15, LayerMask.GetMask("Player"));
+                    Projectile.Create(bullet, this.gameObject, transform.position, Cannon.transform.up, 50, 15, LayerMask.GetMask("Player"));
                 }
                 break;
         }

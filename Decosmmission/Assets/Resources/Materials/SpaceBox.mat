@@ -34,11 +34,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _DiscDegree: 30
+    - _DiscDegree: 46
     - _DiscOffset: 0
-    - _DiscQuantity: 0.1
-    - _DiskWidth: 0.5
-    - _FaintQuantity: 0.1
+    - _DiscQuantity: 0.017
+    - _DiskWidth: 0.185
+    - _FaintQuantity: 0.005
     - _PixelCountByWidth: 640
     - _TimeOffset: 0
     m_Colors:

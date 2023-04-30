@@ -26,9 +26,8 @@ public class PlayerBase : BaseEntity
     protected Animator anim;
     protected SpriteRenderer spriteRenderer;
 
-    public Type[] baseUpgrades = new Type[] {typeof(BasicHpUpgrade)};
-    public SortedDictionary<int, AbstractUpgrade> unlockedBaseUpgrades = new SortedDictionary<int, AbstractUpgrade>();
-    public List<(AbstractUpgrade, Type)> availableUpgrades = new List<(AbstractUpgrade, Type)>();
+    public AbstractUpgrade[] baseUpgrades = new AbstractUpgrade[] {new BasicHpUpgrade()};
+    public List<(AbstractUpgrade, AbstractUpgrade)> availableUpgrades = new List<(AbstractUpgrade, AbstractUpgrade)>();
 
     //Item[] cargo;
     float MaxCargo;
@@ -38,15 +37,19 @@ public class PlayerBase : BaseEntity
     {
         base.Start();
         CombatCameraScript.instance.target = Player.player.transform;
-        foreach (var upgrade in unlockedBaseUpgrades)
+        foreach (var upgrade in baseUpgrades)
         {
-            upgrade.Value.OnStartBase(this);
+            if (upgrade.unlocked && upgrade.enabled)
+            upgrade.OnStartBase(this);
         }
         rb.mass = BaseMass;// + cargo.getsummasses()
         if (CurrentHP == 0)
             CurrentHP = MaxHP;
-        HPBar.UpdateMaxHP(MaxHP);
-        HPBar.UpdateHP(_CurrentHP);
+        if (CombatUiManager.instance != null)
+        {
+            CombatUiManager.UpdateMaxHP(MaxHP);
+            CombatUiManager.UpdateHP(_CurrentHP);
+        }
     }
 
     protected override void Awake()
@@ -114,8 +117,11 @@ public class PlayerBase : BaseEntity
         if (!Iframelist.ContainsKey(inflictor))
         {
             base.TakeDamage(inflictor, damage);
-            HPBar.UpdateMaxHP(MaxHP);
-            HPBar.UpdateHP(_CurrentHP);
+            if (CombatUiManager.instance != null)
+            {
+                CombatUiManager.UpdateMaxHP(MaxHP);
+                CombatUiManager.UpdateHP(_CurrentHP);
+            }
         }
     }
 

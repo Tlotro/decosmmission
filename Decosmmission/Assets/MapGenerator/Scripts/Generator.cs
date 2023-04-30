@@ -24,13 +24,14 @@ public class Generator : MonoBehaviour
     //minimap has to be manually drawn and somehow placed with this
 
     /// <summary>
-    /// returns the amount of doors that will connect to a room if placed in this place.
+    /// returns the percentage of doors that will connect to a room if placed in this place.
     /// Use the tile by tile algorythm outside of this for a room with multiple of the same door
     /// </summary>
     /// <returns></returns>
-    int CheckRoomPlacement(RoomDesign roomDesign, int xroom, int yroom, int xmap, int ymap, int zmap)
+    float CheckRoomPlacement(RoomDesign roomDesign, int xroom, int yroom, int xmap, int ymap, int zmap)
     {
         int res = 0;
+        int delim = 0;
         RoomDesign des = roomDesign;
         xmap -= xroom; ymap -= yroom;
         foreach (var a in des.Design)
@@ -42,20 +43,36 @@ public class Generator : MonoBehaviour
                 {
                     if (Map[t, ymap] != null)
                         return 0;
-                    if (b.West && Map[t - 1, ymap] != null && Map[t - 1, ymap].East)
-                        res++;
-                    if (b.East && Map[t + 1, ymap] != null && Map[t + 1, ymap].West)
-                        res++;
-                    if (b.North && Map[t, ymap - 1] != null && Map[t, ymap - 1].South)
-                        res++;
-                    if (b.South && Map[t, ymap - 1] != null && Map[t, ymap - 1].North)
-                        res++;
+                    if (b.West)
+                    {
+                        if (Map[t - 1, ymap] != null && Map[t - 1, ymap].East)
+                            res++;
+                        delim++;
+                    }
+                    if (b.East)
+                    {
+                        if (Map[t + 1, ymap] != null && Map[t + 1, ymap].West)
+                            res++;
+                        delim++;
+                    }
+                    if (b.North)
+                    {
+                        if (Map[t, ymap - 1] != null && Map[t, ymap - 1].South)
+                            res++;
+                        delim++;
+                    }
+                    if (b.South)
+                    {
+                        if (Map[t, ymap + 1] != null && Map[t, ymap + 1].North)
+                            res++;
+                        delim++;
+                    }
                 }
                 ++t;
             }
             ++ymap;
         }
-        return res;
+        return res/(float)delim;
     }
 
     /// <summary>
@@ -215,7 +232,8 @@ public class Generator : MonoBehaviour
             int x, y;
             Direction direction;
             (x, y, direction) = doorQueue[0];
-            List<(int,int,RoomDesign)> WeightedRooms = new List<(int, int, RoomDesign)>();
+            List<(int,int, float,RoomDesign)> WeightedRooms = new List<(int, int, float, RoomDesign)>();
+            float doorsum = 0;
             foreach (RoomDesign room in RoomsPrefabs)
             {
                 for (int i = 0; i < room.Design.Length; i++)
@@ -224,11 +242,11 @@ public class Generator : MonoBehaviour
                     {
                         if (room.Design[i].cells[j] != null && room.Design[i].cells[j].HasDirection(direction))
                         {
-                            int doorcount = CheckRoomPlacement(room, j, i, x, y, 0);
+                            float doorcount = CheckRoomPlacement(room, j, i, x, y, 0);
                             if (doorcount > 0)
                             {
-                                for (int n = 0; n < Mathf.Min(doorcount,2); n++)
-                                WeightedRooms.Add((j,i,room));
+                                WeightedRooms.Add((j,i,doorcount, room));
+                                doorsum += doorcount;
                             }
                         }
                     }
@@ -236,9 +254,22 @@ public class Generator : MonoBehaviour
             }
             if (WeightedRooms.Count > 0)
             {
-                (int xroom,int yroom,RoomDesign room) = WeightedRooms[Random.Range(0, WeightedRooms.Count)];
-                PlaceRoom(room,xroom,yroom,x,y,0).gameObject.SetActive(false);
-                roomCount--;
+                float ressum = Random.Range(0, doorsum);
+                int room = 1;
+                foreach (var rooms in WeightedRooms)
+                {
+                    if (ressum <= rooms.Item3)
+                    {
+                        PlaceRoom(rooms.Item4, rooms.Item1, rooms.Item2, x, y, 0).gameObject.SetActive(false);
+                        roomCount--;
+                        break;
+                    }
+                    else
+                    {
+                        room++;
+                        ressum -= rooms.Item3;
+                    }
+                }
             }
             else
             {

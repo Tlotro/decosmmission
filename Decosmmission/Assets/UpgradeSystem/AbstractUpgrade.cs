@@ -7,19 +7,39 @@ using UnityEngine;
 public abstract class AbstractUpgrade
 {
     public int level;
-    static public int maxlevel;
+    /// <summary>
+    /// The maximum level of the upgrade, set this in SetDefaults
+    /// </summary>
+    public int maxlevel { get; protected set; }
+    public bool unlocked { get; private set; }
     public bool enabled { get; private set; }
-    static public Type[] children;
-    public SortedDictionary<int, AbstractUpgrade> unlockedChildren = new SortedDictionary<int, AbstractUpgrade>();
-    static public string Description;
+    /// <summary>
+    /// The types of "Child" upgrades, set this in SetDefaults
+    /// </summary>
+    protected Type[] childTypes { private get; set; }
+    public AbstractUpgrade[] children { get; private set; }
+    public string Description;
 
     /// <summary>
     /// Use this to initialize children upgrades
     /// </summary>
-    public AbstractUpgrade() { }
-    public void OnUnlockBase(PlayerBase player)
+    public AbstractUpgrade() 
     {
+        SetDefaults();
+        children = new AbstractUpgrade[childTypes.Length];
+        for (int i = 0; i < childTypes.Length; i++)
+        children[i] = (AbstractUpgrade)Activator.CreateInstance(childTypes[i]);
+    }
+    public virtual void SetDefaults()
+    {
+        maxlevel = 1;
+        childTypes = new System.Type[] { };
+    }
+    public void Unlock(PlayerBase player)
+    {
+        unlocked = true;
         enabled = true;
+        level = 1;
         OnUnlock(player);
         foreach (var child in children)
             player.availableUpgrades.Add((this, child));
@@ -28,8 +48,9 @@ public abstract class AbstractUpgrade
     {
         if (enabled)
             OnStart(player);
-        foreach (var child in unlockedChildren)
-            child.Value.OnStart(player);
+        foreach (var child in children)
+            if (child.unlocked)
+            child.OnStart(player);
     }
     public void Enable(PlayerBase player)
     {

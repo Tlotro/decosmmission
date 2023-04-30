@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+public enum RoomState { unexplored, explored, cleared }
+
 [Serializable]
 public class RoomDesign : MonoBehaviour
 {
@@ -13,6 +15,7 @@ public class RoomDesign : MonoBehaviour
     //The list of tags
     public string[] RoomTags;
     public Door[] doors;
+    public RoomState roomState = RoomState.unexplored;
 
     
     public (int y, int x) GetLocation(CellDesign cell)

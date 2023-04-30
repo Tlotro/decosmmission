@@ -23,7 +23,37 @@ public class Door : MonoBehaviour
             Door go = transform.GetComponent<Door>().LinkedDoor;
             collision.gameObject.transform.position = (Vector2)go.transform.position + (Vector2)(collision.gameObject.transform.position - transform.position) + go.transferPos;
             go.LinkedRoom.SetActive(true);
-            transform.parent.parent.gameObject.SetActive(false);
+            LinkedRoom.SetActive(false);
+            RoomDesign designExit = LinkedRoom.GetComponent<RoomDesign>();
+            RoomDesign designEnter = go.LinkedRoom.GetComponent<RoomDesign>();
+            if (designEnter.roomState == RoomState.unexplored)
+            {
+                designEnter.roomState = RoomState.explored;
+                //FirstRoomEnter(designEnter)
+                //UnclearedRoomEnter(designEnter)
+            }
+            else
+            {
+                if (designEnter.roomState == RoomState.cleared)
+                {
+                    //ClearedRoomEnter(designEnter)
+                }
+                else
+                {
+                    //UnclearedRoomEnter(designEnter)
+                    //UnclearedRoomReEnter(designEnter)
+                }
+                //RoomReEnter(designEnter)
+            }
+            //GeneralRoomEnter(designEnter)
+            if (designExit.roomState == RoomState.cleared)
+            {
+                //ExitClearedRoom(designExit)
+            }
+            else
+            {
+                //ExitUnclearedRoom(designExit)
+            }
         }
     }
 

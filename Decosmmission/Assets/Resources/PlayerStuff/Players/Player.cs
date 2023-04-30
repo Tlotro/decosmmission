@@ -6,11 +6,8 @@ using UnityEngine.UI;
 
 public class Player : PlayerBase
 {
-    [SerializeField]
-    GameObject Cannon;
-    float attackDelay;
-    int attackmode;
-    GameObject bullet;
+    List<Weapon> weapons = new List<Weapon>();
+    int currentWeapon;
     //TMPro.TMP_Text text;
 
     //Item[] cargo;
@@ -19,13 +16,12 @@ public class Player : PlayerBase
     protected override void Start()
     {
         base.Start();
-        //text.text = "Weapon: melee";
+        CombatUiManager.UpdateMunitions(weapons[currentWeapon]);
     }
 
     protected override void Awake()
     {
         base.Awake();
-        bullet = Resources.Load<GameObject>("Projectiles/BaseBullet");
     }
 
     protected override void SetDefaults()
@@ -37,13 +33,21 @@ public class Player : PlayerBase
         BaseMass = 1;
         MaxHPBase = 100;
         MaxHPmultiplyer = 1;
+        weapons.Add(Instantiate(Resources.Load<GameObject>("PlayerStuff/Weapons/Gun/Gun").GetComponent<Weapon>(),transform));
+        weapons.Add(Instantiate(Resources.Load<GameObject>("PlayerStuff/Weapons/Wrench/Wrench").GetComponent<Weapon>(), transform));
+        foreach (var weapon in weapons)
+        {
+            weapon.gameObject.SetActive(false);
+        }
+        weapons[currentWeapon].gameObject.SetActive(true);
+        CombatUiManager.UpdateWeapon(weapons[currentWeapon]);
     }
 
     // Update is called once per frame
     protected override void Update()
     {
         base.Update();
-        if (attackDelay <= 0)
+        /*if (attackDelay <= 0)
         {
             if (attackmode == 0)
             {
@@ -60,7 +64,8 @@ public class Player : PlayerBase
             } else if (attackmode == 1)
             {
                 float angle = Vector2.SignedAngle(-Cannon.transform.up, CombatCameraScript.instance.Cam.ScreenToWorldPoint(Input.mousePosition) - transform.position);
-                Cannon.transform.Rotate(0, 0, Mathf.Abs(angle) > 0.01 ? (angle * 0.1f) : 0);
+                float absAngle = Mathf.Abs(angle);
+                Cannon.transform.Rotate(0, 0, Mathf.Abs(angle) > 0.01 ? Mathf.Clamp(angle * Time.deltaTime * 25, -absAngle, absAngle) : 0);
                 if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
                     Projectile.Create(bullet, this.gameObject, Cannon.transform.position, CombatCameraScript.instance.Cam.ScreenToWorldPoint(Input.mousePosition) - transform.position, 50, 7, LayerMask.GetMask("Unit"));
@@ -68,22 +73,48 @@ public class Player : PlayerBase
                 }
             }
 
+        }*/
+        if (weapons[currentWeapon].AutoFire && Input.GetKey(KeyCode.Mouse0))
+        {
+            if (weapons[currentWeapon].NeedReload(this))
+            {
+                weapons[currentWeapon].PreReload(this);
+                weapons[currentWeapon].Reload(this);
+            }
+            if (weapons[currentWeapon].CanFire(this))
+            {
+                weapons[currentWeapon].PreFire(this);
+                weapons[currentWeapon].Fire(this);
+            }
+        }
+        if (!weapons[currentWeapon].AutoFire && Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            if (weapons[currentWeapon].NeedReload(this))
+            {
+                weapons[currentWeapon].PreReload(this);
+                weapons[currentWeapon].Reload(this);
+            }
+            if (weapons[currentWeapon].CanFire(this))
+            {
+                weapons[currentWeapon].PreFire(this);
+                weapons[currentWeapon].Fire(this);
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Mouse2))
         {
-            attackmode = (attackmode + 1) % 2;
-            switch (attackmode)
+            if (weapons[currentWeapon].OnDeselect(this))
             {
-                case 0:
-                    //text.text = "Weapon: melee";
-                    break;
-                    case 1:
-                    //text.text = "Weapon: ranged";
-                    break;
+                weapons[currentWeapon].gameObject.SetActive(false);
+                currentWeapon = (currentWeapon + 1) % weapons.Count;
+                weapons[currentWeapon].OnSelect(this);
+                weapons[currentWeapon].gameObject.SetActive(true);
+                weapons[currentWeapon].gameObject.SetActive(true);
+                weapons[currentWeapon].gameObject.transform.rotation = new Quaternion();
+                CombatUiManager.UpdateWeapon(weapons[currentWeapon]);
             }
         }
-        attackDelay -= Time.deltaTime;
+        weapons[currentWeapon].UpdateHeld(this);
     }
 
     public override void TakeDamage(GameObject inflictor,int damage)

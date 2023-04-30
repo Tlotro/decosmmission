@@ -10,7 +10,7 @@ public class MissionStartDoor : Interactable
         StaticGameData.GlobalInstance["GeneratorValues"] = new StaticGameData();
         StaticGameData GeneratorValues = StaticGameData.GlobalInstance["GeneratorValues"] as StaticGameData;
         GeneratorValues["RoomCount"] = 100;
-        GeneratorValues["PlayerObject"] = Resources.Load<GameObject>("Units/PlayerTestPrefab");
+        GeneratorValues["PlayerObject"] = Resources.Load<GameObject>("PlayerStuff/Players/PlayerTestPrefab");
         SceneLoader.instance.LoadScene("GeneratorSandbox");
     }
 }

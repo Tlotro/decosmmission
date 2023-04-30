@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9004810760329444403}
   - component: {fileID: 1449767210308273512}
   - component: {fileID: 6442453615296059732}
-  - component: {fileID: 1842116066258438840}
+  - component: {fileID: -6880471434069791823}
   - component: {fileID: 7797246064962878294}
   m_Layer: 0
   m_Name: BaseBullet
@@ -103,7 +103,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!50 &1842116066258438840
+--- !u!50 &-6880471434069791823
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0

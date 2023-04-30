@@ -365,10 +365,10 @@ RectTransform:
   m_Father: {fileID: 189936036}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 640, y: 360}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &365398958
 MonoBehaviour:
@@ -390,7 +390,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f9dcb45692ce27a4999256d86208c2bd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 056439fcc198ae24f99bcfe3f9cc35a6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1753,7 +1753,6 @@ MonoBehaviour:
   panelButton: {fileID: 956253858}
   animator: {fileID: 2102396182}
   characterAnimator: {fileID: 1990090547}
-  camera: {fileID: 519420031}
   panelToggle: 0
 --- !u!95 &2102396182
 Animator:

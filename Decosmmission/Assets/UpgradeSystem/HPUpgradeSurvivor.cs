@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class BasicHpUpgrade : AbstractUpgrade
 {
-    
+    public override void SetDefaults()
+    {
+        maxlevel = 3;
+        childTypes = new System.Type[] { };
+    }
     public override void OnStart(PlayerBase player)
     {
         switch (level)
