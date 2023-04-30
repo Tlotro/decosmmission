@@ -14,6 +14,12 @@ public class PauseManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        
+    }
+
+    private void Start()
+    {
+        PauseMenu.GetComponent<Canvas>().worldCamera = Camera.main;
     }
 
     void Update()
@@ -49,6 +55,7 @@ public class PauseManager : MonoBehaviour
 
     public void Quit()
     {
+        GamePaused = false;
         SceneLoader.instance.LoadScene("Main Menu");
     }
 

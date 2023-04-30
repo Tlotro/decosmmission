@@ -50,6 +50,7 @@ public class PlayerBase : BaseEntity
             CombatUiManager.UpdateMaxHP(MaxHP);
             CombatUiManager.UpdateHP(_CurrentHP);
         }
+        Time.timeScale = 1f;
     }
 
     protected override void Awake()
@@ -66,7 +67,7 @@ public class PlayerBase : BaseEntity
     {
         acceleration = 10;
         JumpVelocity = 35;
-        MaxSpeedX = 20;
+        MaxSpeedX = 15;
         MaxSpeedY = 200;
         BaseMass = 1;
         MaxHPBase = 100;
@@ -83,20 +84,20 @@ public class PlayerBase : BaseEntity
         if (Input.GetKeyDown(KeyCode.W) && grounded)
         {
             anim.SetTrigger("Jump");
+            //yield return new WaitForSeconds(0.1f);
             rb.velocity = new Vector2(rb.velocity.x, JumpVelocity);
             //rb.rotation = -rb.velocity.x / MaxSpeedX * 20f;
             grounded = false;
-            anim.ResetTrigger("Jump");
         }
         if (Input.GetKey(KeyCode.A))
         {
             spriteRenderer.flipX = true;
-            rb.AddForce(new Vector2(-acceleration, 0) * Time.deltaTime*500);
+            rb.AddForce(new Vector2(-acceleration, 0) * Time.deltaTime*400);
         }
         if (Input.GetKey(KeyCode.D))
         {
             spriteRenderer.flipX = false;
-            rb.AddForce(new Vector2(acceleration, 0) * Time.deltaTime*500);
+            rb.AddForce(new Vector2(acceleration, 0) * Time.deltaTime*400);
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -112,6 +113,8 @@ public class PlayerBase : BaseEntity
         base.Update();
     }
 
+
+    
     public override void TakeDamage(GameObject inflictor, int damage)
     {
         if (!Iframelist.ContainsKey(inflictor))
@@ -133,7 +136,7 @@ public class PlayerBase : BaseEntity
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (!grounded && Physics2D.CircleCast(transform.position, 0.4f, transform.rotation * Vector2.down, 0.5f, LayerMask.GetMask("Default", "Platforms")).collider != null)
+        if (!grounded && Physics2D.CircleCast(transform.position, 0.6f, transform.rotation * Vector2.down, 0.5f*transform.localScale.y, LayerMask.GetMask("Default", "Platforms")).collider != null)
         {
             grounded = true;
         }

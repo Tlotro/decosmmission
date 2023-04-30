@@ -30,10 +30,7 @@ public class AudioMaster : MonoBehaviour
             DontDestroyOnLoad(a);
             a.name = "Theme";
             AudioImp imp = a.AddComponent<AudioImp>();
-            imp.audioMaster = this;
-            imps.Add(imp);
             imp.source = a.AddComponent<AudioSource>();
-            imp.clips = new List<AudioClip>();
         }
         else Destroy(gameObject);
     }
@@ -99,10 +96,7 @@ public class AudioMaster : MonoBehaviour
         if (dontDestroyOnLoad) DontDestroyOnLoad(a);
         a.name = clipName;
         TempAudioImp imp = a.AddComponent<TempAudioImp>();
-        imp.audioMaster = this;
-        imps.Add(imp);
         imp.source = a.AddComponent<AudioSource>();
-        imp.clips = new List<AudioClip>();
 
         return imp;
     }

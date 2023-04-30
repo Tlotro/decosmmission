@@ -31,7 +31,7 @@ public class SceneLoader : MonoBehaviour
     {
         transitionAnimator.SetTrigger("Fade_Out");
 
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSecondsRealtime(0.7f);
 
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
         
