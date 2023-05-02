@@ -63,7 +63,7 @@ public class CanvasManager : MonoBehaviour
             } 
             desiredCanvas.SetActive(true);
             activeCanvasStack.Push(desiredCanvas);
-            StackState();
+            //StackState();
         }
         else Debug.Log("Desired Canvas does not exist.");
     }

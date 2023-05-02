@@ -94,7 +94,7 @@ public class AudioMaster : MonoBehaviour
     {
         GameObject a = new GameObject();
         if (dontDestroyOnLoad) DontDestroyOnLoad(a);
-        a.name = clipName;
+        a.name = "/" + clipName;
         TempAudioImp imp = a.AddComponent<TempAudioImp>();
         imp.source = a.AddComponent<AudioSource>();
 

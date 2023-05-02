@@ -13,7 +13,7 @@ public class AudioImp : MonoBehaviour
         AudioMaster.instance.imps.Remove(this);
     }
 
-    public void Start()
+    public void Awake()
     {
         AudioMaster.instance.imps.Add(this);
         clips = new List<AudioClip>();

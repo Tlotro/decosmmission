@@ -21,15 +21,11 @@ public class Demiurge : MonoBehaviour
             SpaceGenerator.getSpace(1280, 720, image);
         }
 
-        try
-        {
-            if (SettingsManagerFlag) Instantiate(Resources.Load<GameObject>("Manager_Prefabs/SettingsManager"));
-            if (AudioMasterFlag) Instantiate(Resources.Load<GameObject>("Manager_Prefabs/AudioMaster"));
-            if (SceneLoaderFlag) Instantiate(Resources.Load<GameObject>("Manager_Prefabs/SceneLoader"));
-            if (PauseManagerFlag) Instantiate(Resources.Load<GameObject>("Manager_Prefabs/PauseManager"));
-            if (CanvasManagerFlag) Instantiate(Resources.Load<GameObject>("Manager_Prefabs/CanvasManager"));
-        }
-        catch { }
+        if (AudioMasterFlag) { Instantiate(Resources.Load<GameObject>("Manager_Prefabs/AudioMaster")); while (AudioMaster.instance == null) ; }
+        if (SettingsManagerFlag) Instantiate(Resources.Load<GameObject>("Manager_Prefabs/SettingsManager"));
+        if (SceneLoaderFlag) Instantiate(Resources.Load<GameObject>("Manager_Prefabs/SceneLoader"));
+        if (PauseManagerFlag) Instantiate(Resources.Load<GameObject>("Manager_Prefabs/PauseManager"));
+        if (CanvasManagerFlag) Instantiate(Resources.Load<GameObject>("Manager_Prefabs/CanvasManager"));
         
         
     }
