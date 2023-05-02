@@ -16,7 +16,7 @@ public class UnitTestScript2 : StaticUnit
     protected override void Awake()
     {
         base.Awake();
-        bullet = Resources.Load<GameObject>("Projectiles/BaseBullet");
+        bullet = Resources.Load<GameObject>("Units/Turret/TurretLaser");
     }
 
     protected override void SetDefaults()

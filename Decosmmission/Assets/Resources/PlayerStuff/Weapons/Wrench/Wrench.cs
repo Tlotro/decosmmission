@@ -42,8 +42,9 @@ public class Wrench : Weapon
     {
         if (swinging)
         {
-            if ((LayerMask.GetMask("Unit") & (1 << other.gameObject.layer)) != 0 && Physics2D.Raycast(transform.position, other.transform.position, 2.25f).collider == other);
+            if ((6 == other.gameObject.layer) && Physics2D.Raycast(transform.position, other.transform.position, 2.25f).collider == other);
              {
+                if (other.gameObject.GetComponent<BaseEntity>() != null)
                 other.gameObject.GetComponent<BaseEntity>().TakeDamage(gameObject, 20);
              }
         }
