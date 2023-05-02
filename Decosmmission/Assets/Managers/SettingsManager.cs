@@ -26,6 +26,8 @@ public class SettingsManager : MonoBehaviour
     public Resolution[] resolutions;
     public static SettingsManager instance;
 
+    public AudioImp menuImp;
+
     private void Awake()
     {
 
@@ -129,6 +131,11 @@ public class SettingsManager : MonoBehaviour
         resolutionDropdown.RefreshShownValue();
 
         qualityDropdown.value = PlayerPrefs.GetInt("QualityIndex", 2);
+    }
+
+    public void ButtonSound()
+    {
+        menuImp.Play("Click", MixerGroup.UI);
     }
 
 

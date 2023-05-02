@@ -11,6 +11,7 @@ public class MainMenu : MonoBehaviour
     public Button panelButton;
     public Animator animator;
     public Animator characterAnimator;
+    public AudioImp menuImp;
 
     public bool panelToggle;
 
@@ -65,5 +66,10 @@ public class MainMenu : MonoBehaviour
     public void QuitButtonPressed()
     {
         Application.Quit();
+    }
+
+    public void ButtonSound()
+    {
+        menuImp.Play("Click", MixerGroup.UI);
     }
 }

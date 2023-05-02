@@ -8,6 +8,7 @@ public class PauseManager : MonoBehaviour
 
     public static PauseManager instance;
     public static PauseManager oldInstance;
+    public AudioImp menuImp;
 
     public static bool GamePaused = false;
 
@@ -62,6 +63,10 @@ public class PauseManager : MonoBehaviour
     public void Manual()
     {
         CanvasManager.instance.SwitchCanvas(CanvasType.ManualCanvas);
+    }
+    public void ButtonSound()
+    {
+        menuImp.Play("Click", MixerGroup.UI);
     }
 
 }
