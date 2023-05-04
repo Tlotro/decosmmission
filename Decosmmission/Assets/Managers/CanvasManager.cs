@@ -8,7 +8,8 @@ public enum CanvasType{
     PauseCanvas,
     SettingsCanvas,
     DialogWindowCanvas,
-    ManualCanvas
+    ManualCanvas,
+    UpgradeCanvas
 }
 
 public class CanvasManager : MonoBehaviour
@@ -24,6 +25,11 @@ public class CanvasManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+    }
+
+    private void OnDestroy()
+    {
+        if(instance == this) instance = null;
     }
 
     private void Start()
@@ -43,12 +49,15 @@ public class CanvasManager : MonoBehaviour
         }
         if (PauseManager.instance != null)
             controlledCanvasList.Add(PauseManager.instance.PauseMenu.GetComponent<ControlledCanvas>());
+        if (UpgradeTable.instance != null)
+            controlledCanvasList.Add(UpgradeTable.instance.upgradeMenu.GetComponent<ControlledCanvas>());
 
         ControlledCanvas mainCanvas = controlledCanvasList.Find(x => x.type == CanvasType.MainCanvas);
         if(mainCanvas != null)
         {
             activeCanvasStack.Push(mainCanvas);
         }
+        //ListState();
     }
 
     public void SwitchCanvas(CanvasType type)

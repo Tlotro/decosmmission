@@ -15,7 +15,11 @@ public class PauseManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        
+    }
+
+    private void OnDestroy()
+    {
+        if (instance == this) instance = null;
     }
 
     private void Start()
@@ -28,23 +32,27 @@ public class PauseManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (!GamePaused)
+            {
+                CanvasManager.instance.CloseTopStackCanvas();
                 Pause();
+            }
             else if (CanvasManager.instance.activeCanvasStack.Peek().type == CanvasType.PauseCanvas)
+            {
+                CanvasManager.instance.SwitchCanvas(CanvasType.PauseCanvas);
                 Resume();
+            }
         }
 
     }
 
     public void Resume()
     {
-        CanvasManager.instance.CloseTopStackCanvas();
         Time.timeScale = 1f;
         GamePaused = false;
     }
 
-    private void Pause()
+    public void Pause()
     {
-        CanvasManager.instance.SwitchCanvas(CanvasType.PauseCanvas);
         Time.timeScale = 0f;
         GamePaused = true;
     }

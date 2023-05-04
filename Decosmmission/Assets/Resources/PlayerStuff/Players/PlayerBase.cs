@@ -26,6 +26,8 @@ public class PlayerBase : BaseEntity
     protected Animator anim;
     protected SpriteRenderer spriteRenderer;
 
+    public Animator interactAnimator;
+
     public AbstractUpgrade[] baseUpgrades = new AbstractUpgrade[] {new BasicHpUpgrade()};
     public List<(AbstractUpgrade, AbstractUpgrade)> availableUpgrades = new List<(AbstractUpgrade, AbstractUpgrade)>();
 
@@ -77,6 +79,8 @@ public class PlayerBase : BaseEntity
     // Update is called once per frame
     protected override void Update()
     {
+        if (PauseManager.GamePaused) return;
+
         rb.angularVelocity = -(Mathf.Pow(Mathf.Abs(rb.rotation), 1.5f) * Mathf.Sign(rb.rotation));
         rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x, -MaxSpeedX, MaxSpeedX), Mathf.Clamp(rb.velocity.y, -MaxSpeedY, MaxSpeedY));
         anim.SetFloat("VerticalSpeed", rb.velocity.y / MaxSpeedY);

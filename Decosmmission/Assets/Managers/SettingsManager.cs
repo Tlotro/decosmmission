@@ -30,7 +30,6 @@ public class SettingsManager : MonoBehaviour
 
     private void Awake()
     {
-
         instance = this;
 
         resolutions = Screen.resolutions.Where(x => /*x.refreshRate == 60 &&*/ ((x.width == 1920 && x.height == 1080) || (x.width == 1600 && x.height == 900) || (x.width == 1280 && x.height == 720))).ToArray();
