@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UpgradeTable : Interactable
+public class NavigationTable : Interactable
 {
-    public GameObject upgradeMenu;
+    public GameObject navigationMenu;
 
-    public static UpgradeTable instance;
+    public static NavigationTable instance;
 
     private void Awake()
     {
@@ -20,7 +20,7 @@ public class UpgradeTable : Interactable
 
     public override void Interact()
     {
-        CanvasManager.instance.SwitchCanvas(CanvasType.UpgradeCanvas);
+        CanvasManager.instance.SwitchCanvas(CanvasType.NavigationCanvas);
         PauseManager.instance.Pause();
     }
 
@@ -31,6 +31,11 @@ public class UpgradeTable : Interactable
     }
 
     public void Menu_Select()
+    {
+
+    }
+
+    public void Menu_QuickStart()
     {
 
     }
