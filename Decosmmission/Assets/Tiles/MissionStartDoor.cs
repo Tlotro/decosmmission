@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MissionStartDoor : Interactable
 {
+    
+
     public override void Interact()
     {
         AudioMaster.instance.Fade("Theme", 0.0f);
