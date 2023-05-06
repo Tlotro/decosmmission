@@ -19,6 +19,9 @@ public abstract class Weapon : MonoBehaviour
     public int Magazine;
     public int MaxMagazine;
     public bool Rotating;
+    public int[] unlockcost;
+    [HideInInspector]
+    public bool unlocked;
     public bool UseMagazine { get { return MaxMagazine > 0; } }
     public bool UseAmmo { get { return MaxAmmo > 0; } }
 

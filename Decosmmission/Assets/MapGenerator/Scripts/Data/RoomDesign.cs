@@ -27,21 +27,6 @@ public class RoomDesign : MonoBehaviour
 
         throw new ArgumentException("This design does not exist!");
     }
-    
-    public Room ToRoom()
-    {
-        // Рассчитывается, что в юнити Design настроен как двумерный массив
-        var copiedDesign = new RoomCell[Design.Length, Design[0].Length];
-        
-        for (var row = 0; row < Design.Length; row++)
-        for (var col = 0; col < Design[row].Length; col++)
-            if (Design[row][col] != null)
-                copiedDesign[row, col] = Design[row][col].ToRoomCell();
-            else
-                copiedDesign[row, col] = RoomCell.NoDoor;
-
-        return new Room(copiedDesign);
-    }
 }
 
 // Чтобы можно было сериализовать в юнити двумерный массив

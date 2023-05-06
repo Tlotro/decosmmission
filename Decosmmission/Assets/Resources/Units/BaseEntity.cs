@@ -6,7 +6,9 @@ public delegate void EmptyUnitDelegade(BaseEntity unit);
 public abstract class BaseEntity : MonoBehaviour
 {
     public int MaxHP { get { return Mathf.FloorToInt(MaxHPBase * MaxHPmultiplyer + MaxHPaddition); } }
+    [HideInInspector]
     public float MaxHPmultiplyer;
+    [HideInInspector]
     public float MaxHPaddition;
     public int MaxHPBase;
     public virtual int CurrentHP { get { return _CurrentHP; } protected set { _CurrentHP = value; } }

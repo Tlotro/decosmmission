@@ -7,10 +7,8 @@ public class MissionStartDoor : Interactable
     public override void Interact()
     {
         AudioMaster.instance.Fade("Theme", 0.0f);
-        StaticGameData.GlobalInstance["GeneratorValues"] = new StaticGameData();
-        StaticGameData GeneratorValues = StaticGameData.GlobalInstance["GeneratorValues"] as StaticGameData;
-        GeneratorValues["RoomCount"] = 100;
-        GeneratorValues["PlayerObject"] = Resources.Load<GameObject>("PlayerStuff/Players/PlayerTestPrefab");
+        if (StaticGameData.instance.missions.Count < 1)
+            StaticGameData.instance.missions.Add(new MissionData());
         SceneLoader.instance.LoadScene("GeneratorSandbox");
     }
 }

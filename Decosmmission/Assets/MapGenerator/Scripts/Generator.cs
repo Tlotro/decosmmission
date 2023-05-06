@@ -5,14 +5,13 @@ using UnityEngine;
 public class Generator : MonoBehaviour
 {
     public string[] BaseFactions;
-    public Dictionary<string, (int,int)> SpecialRooms;
     List<(int, int, Direction)> doorQueue = new List<(int, int, Direction)>();
     Dictionary<(int,int, Direction), Door> doorMap = new Dictionary<(int,int, Direction), Door>();
     public RoomDesign[] RoomsPrefabs;
 
     private void Start()
     {
-        Generate((int)((StaticGameData.GlobalInstance["GeneratorValues"] as StaticGameData)["RoomCount"]), (StaticGameData.GlobalInstance["GeneratorValues"] as StaticGameData)["PlayerObject"] as GameObject);
+        Generate(StaticGameData.instance.SelectedMissionData.RoomCount, StaticGameData.instance.SelectedPlayerData);
         AudioMaster.instance.Appear("Theme", "Test_Tune", MixerGroup.Music, 0.6f, 0, true, 0.0f);
     }
 
@@ -205,19 +204,21 @@ public class Generator : MonoBehaviour
 
     private void LoadRoomPrefabs(params string[] GenerationModifierTags)
     {
-        BaseFactions = new string[]{"Military" };
+        BaseFactions = StaticGameData.instance.SelectedMissionData.factions;
         IEnumerable<RoomDesign> prefabsBase = Resources.LoadAll<GameObject>("").Where(x => x.GetComponent<RoomDesign>() != null).Select(x=>x.GetComponent<RoomDesign>()).Where(x=>!x.RoomTags.Contains("NoUse")).Where(x=>BaseFactions.Any(y=>y.Equals(x.Faction)));
         //Add all the code for GenerationModifier handling here, idk, you can remove specific room designs or add specific tags for adding them
         if (GenerationModifierTags.Contains("NoUniversal"))
             prefabsBase = prefabsBase.Where(x => x.Faction != "Universal");
         RoomsPrefabs = prefabsBase.ToArray();
     }
-    public void Generate(int roomCount, GameObject player, params string[] GenerationModifierTags)
+    public void Generate(int roomCount, Player player, params string[] GenerationModifierTags)
     {
+        int maxroomcount = roomCount;
         LoadRoomPrefabs(GenerationModifierTags);
         IEnumerable<RoomDesign> startingRooms = RoomsPrefabs.Where(x => x is StartRoomDesign);
-        MapSizex = roomCount * RoomsPrefabs.Max(x => x.Design.Max(x=>x.cells.Length));
-        MapSizey = roomCount * RoomsPrefabs.Max(x => x.Design.Length);
+        RoomsPrefabs = RoomsPrefabs.Where(x => !(x is StartRoomDesign)).ToArray();
+        MapSizex = 2*(roomCount+1) * RoomsPrefabs.Max(x => x.Design.Max(x=>x.cells.Length));
+        MapSizey = 2*(roomCount+1) * RoomsPrefabs.Max(x => x.Design.Length);
         Map = new CellDesign[MapSizex, MapSizey];
         int xb = MapSizex / 2;
         int yb = MapSizey / 2;
@@ -231,22 +232,50 @@ public class Generator : MonoBehaviour
         {
             int x, y;
             Direction direction;
-            (x, y, direction) = doorQueue[0];
-            List<(int,int, float,RoomDesign)> WeightedRooms = new List<(int, int, float, RoomDesign)>();
+            (x, y, direction) = doorQueue[0]; 
+            List<(int, int, float, RoomDesign,int)> WeightedRooms = new List<(int, int, float, RoomDesign, int)>();
             float doorsum = 0;
-            foreach (RoomDesign room in RoomsPrefabs)
+            if (roomCount / (float)maxroomcount <= StaticGameData.instance.SelectedMissionData.specialDesignRelation)
             {
-                for (int i = 0; i < room.Design.Length; i++)
+                for (int k = 0; k < StaticGameData.instance.SelectedMissionData.specialDesigns.Length;k++)
                 {
-                    for (int j = 0; j < room.Design[i].cells.Length; j++)
+                    if (StaticGameData.instance.SelectedMissionData.specialDesignsCount[k] > 0)
+                    foreach (RoomDesign room in StaticGameData.instance.SelectedMissionData.specialDesigns[k].designs)
                     {
-                        if (room.Design[i].cells[j] != null && room.Design[i].cells[j].HasDirection(direction))
+                        for (int i = 0; i < room.Design.Length; i++)
                         {
-                            float doorcount = CheckRoomPlacement(room, j, i, x, y, 0);
-                            if (doorcount > 0)
+                            for (int j = 0; j < room.Design[i].cells.Length; j++)
                             {
-                                WeightedRooms.Add((j,i,doorcount, room));
-                                doorsum += doorcount;
+                                if (room.Design[i].cells[j] != null && room.Design[i].cells[j].HasDirection(direction))
+                                {
+                                    float doorcount = CheckRoomPlacement(room, j, i, x, y, 0);
+                                    if (doorcount > 0)
+                                    {
+                                        WeightedRooms.Add((j, i, doorcount, room,k));
+                                        doorsum += doorcount;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            if (WeightedRooms.Count == 0)
+            {
+                foreach (RoomDesign room in RoomsPrefabs)
+                {
+                    for (int i = 0; i < room.Design.Length; i++)
+                    {
+                        for (int j = 0; j < room.Design[i].cells.Length; j++)
+                        {
+                            if (room.Design[i].cells[j] != null && room.Design[i].cells[j].HasDirection(direction))
+                            {
+                                float doorcount = CheckRoomPlacement(room, j, i, x, y, 0);
+                                if (doorcount > 0)
+                                {
+                                    WeightedRooms.Add((j, i, doorcount, room,-1));
+                                    doorsum += doorcount;
+                                }
                             }
                         }
                     }
@@ -255,18 +284,18 @@ public class Generator : MonoBehaviour
             if (WeightedRooms.Count > 0)
             {
                 float ressum = Random.Range(0, doorsum);
-                int room = 1;
                 foreach (var rooms in WeightedRooms)
                 {
                     if (ressum <= rooms.Item3)
                     {
                         PlaceRoom(rooms.Item4, rooms.Item1, rooms.Item2, x, y, 0).gameObject.SetActive(false);
+                        if (rooms.Item5 != -1)
+                            StaticGameData.instance.SelectedMissionData.specialDesignsCount[rooms.Item5]--;
                         roomCount--;
                         break;
                     }
                     else
                     {
-                        room++;
                         ressum -= rooms.Item3;
                     }
                 }

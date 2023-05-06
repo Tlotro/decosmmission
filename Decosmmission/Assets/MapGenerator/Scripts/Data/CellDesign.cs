@@ -24,6 +24,5 @@ public class CellDesign : ScriptableObject
         }
     }
 
-    public RoomCell ToRoomCell() => new RoomCell(North, East, South, West);
     public const int TilePerCell = 16;
 }
