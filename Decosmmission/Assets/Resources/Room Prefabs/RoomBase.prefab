@@ -202,11 +202,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ef9512207634ed0bd3e7d69a66d1ba1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpecialAccess: 1
   Design: []
   Faction: Military
-  RoomTags:
-  - NoUse
+  RoomTags: []
   doors: []
+  roomState: 0
 --- !u!1 &7446643163725753750
 GameObject:
   m_ObjectHideFlags: 0

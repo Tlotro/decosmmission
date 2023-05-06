@@ -19,14 +19,17 @@ public class CombatCameraScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.position = SnapToPixels(Vector3.Lerp(transform.position, target.position + offset, 0.5f));
-        if (Input.GetKey(KeyCode.Mouse1))
+        if (target != null)
         {
-            offset = Vector3.Normalize(Cam.ScreenToWorldPoint(Input.mousePosition)-target.position)*10 + baseoffset;
-        }
-        if (!Input.GetKey(KeyCode.Mouse1))
-        {
-            offset = baseoffset;
+            transform.position = SnapToPixels(Vector3.Lerp(transform.position, target.position + offset, 0.5f));
+            if (Input.GetKey(KeyCode.Mouse1))
+            {
+                offset = Vector3.Normalize(Cam.ScreenToWorldPoint(Input.mousePosition) - target.position) * 10 + baseoffset;
+            }
+            if (!Input.GetKey(KeyCode.Mouse1))
+            {
+                offset = baseoffset;
+            }
         }
     }
     public static Vector3 SnapToPixels(Vector3 vector3)

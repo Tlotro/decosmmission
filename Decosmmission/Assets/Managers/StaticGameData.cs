@@ -10,8 +10,9 @@ public partial class StaticGameData
     public List<Item> items;
     public List<Weapon> weapons;
     public List<MissionData> missions;
-    public int SelectedMission = 0;
-    public MissionData SelectedMissionData { get { return missions.Count > SelectedMission ? missions[SelectedMission] : new MissionData(); } }
+    //public int SelectedMission = 0;
+    [SerializeReference]
+    public MissionData SelectedMissionData;
     public List<Player> players;
     public int SelectedPlayer = 0;
     public Player SelectedPlayerData { get { return players[SelectedPlayer]; } }
@@ -30,15 +31,39 @@ public partial class StaticGameData
 
     public static void Save(int saveSlot)
     {
+        Debug.Log("Saving");
         string filename = "SaveData" + saveSlot.ToString()+ ".json";
         File.WriteAllText(filename, JsonUtility.ToJson(instance));
     }
 
     public static void Load(int saveSlot)
     {
-        string filename = "SaveData" + saveSlot.ToString();
+        string filename = "SaveData" + saveSlot.ToString() + ".json";
         if (File.Exists(filename))
-        instance = (StaticGameData)JsonUtility.FromJson(File.ReadAllText(filename),typeof(StaticGameData));
+        {
+            Debug.Log("LoadingSave");
+            instance = (StaticGameData)JsonUtility.FromJson(File.ReadAllText(filename), typeof(StaticGameData));
+        }
         else instance = new StaticGameData();
+    }
+
+    public static void tickMissions()
+    {
+        if (instance.SelectedMissionData == null)
+            instance.SelectedMissionData = instance.missions[0];
+        instance.missions.Remove(StaticGameData.instance.SelectedMissionData);
+        int iter = instance.missions.Count - 1;
+        while (iter >= 0)
+        {
+            if (instance.missions[iter].Time > 0)
+            {
+                instance.missions[iter].Time--;
+                if (instance.missions[iter].Time == 0)
+                {
+                    instance.missions.RemoveAt(iter);
+                }
+            }
+            iter--;
+        }
     }
 }

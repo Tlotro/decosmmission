@@ -12,9 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 610c550f590518c4db9da92565534da9, type: 3}
   m_Name: MilitaryKillEnemies
   m_EditorClassIdentifier: Assembly-CSharp::MissionPattern
+  MissionName: Culling
+  Description: Clear enemies
   factions:
   - Military
   MaxRoomCount: 20
-  MinRoomCount: 100
+  MinRoomCount: 60
+  MinLevel: 1
+  MaxLevel: 1
   specialDesigns: []
   specialDesignsCount: 
+  specialAccess: 0
+  minTime: 3
+  maxTime: 5

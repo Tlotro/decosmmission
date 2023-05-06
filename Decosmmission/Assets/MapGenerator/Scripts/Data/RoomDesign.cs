@@ -8,6 +8,7 @@ public enum RoomState { unexplored, explored, cleared }
 [Serializable]
 public class RoomDesign : MonoBehaviour
 {
+    public bool SpecialAccess;
     [SerializeField]
     public CellArray[] Design;
     //The type of mission the room is associated with
@@ -16,8 +17,6 @@ public class RoomDesign : MonoBehaviour
     public string[] RoomTags;
     public Door[] doors;
     public RoomState roomState = RoomState.unexplored;
-
-    
     public (int y, int x) GetLocation(CellDesign cell)
     {
         for (int y = 0; y < Design.Length; y++)

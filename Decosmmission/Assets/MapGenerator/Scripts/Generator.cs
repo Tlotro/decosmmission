@@ -205,7 +205,7 @@ public class Generator : MonoBehaviour
     private void LoadRoomPrefabs(params string[] GenerationModifierTags)
     {
         BaseFactions = StaticGameData.instance.SelectedMissionData.factions;
-        IEnumerable<RoomDesign> prefabsBase = Resources.LoadAll<GameObject>("").Where(x => x.GetComponent<RoomDesign>() != null).Select(x=>x.GetComponent<RoomDesign>()).Where(x=>!x.RoomTags.Contains("NoUse")).Where(x=>BaseFactions.Any(y=>y.Equals(x.Faction)));
+        IEnumerable<RoomDesign> prefabsBase = Resources.LoadAll<GameObject>("").Where(x => x.GetComponent<RoomDesign>() != null).Select(x=>x.GetComponent<RoomDesign>()).Where(x=>!x.SpecialAccess).Where(x=>BaseFactions.Any(y=>y.Equals(x.Faction)));
         //Add all the code for GenerationModifier handling here, idk, you can remove specific room designs or add specific tags for adding them
         if (GenerationModifierTags.Contains("NoUniversal"))
             prefabsBase = prefabsBase.Where(x => x.Faction != "Universal");
@@ -217,7 +217,7 @@ public class Generator : MonoBehaviour
         LoadRoomPrefabs(GenerationModifierTags);
         IEnumerable<RoomDesign> startingRooms = RoomsPrefabs.Where(x => x is StartRoomDesign);
         RoomsPrefabs = RoomsPrefabs.Where(x => !(x is StartRoomDesign)).ToArray();
-        MapSizex = 2*(roomCount+1) * RoomsPrefabs.Max(x => x.Design.Max(x=>x.cells.Length));
+        MapSizex = 2 * (roomCount + 1) * RoomsPrefabs.Max(x => x.Design.Max(x => x.cells.Length));
         MapSizey = 2*(roomCount+1) * RoomsPrefabs.Max(x => x.Design.Length);
         Map = new CellDesign[MapSizex, MapSizey];
         int xb = MapSizex / 2;

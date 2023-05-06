@@ -79,6 +79,7 @@ public class PlayerBase : BaseEntity
     // Update is called once per frame
     protected override void Update()
     {
+        //Debug.Log(PauseManager.GamePaused);
         if (PauseManager.GamePaused) return;
 
         rb.angularVelocity = -(Mathf.Pow(Mathf.Abs(rb.rotation), 1.5f) * Mathf.Sign(rb.rotation));
@@ -134,8 +135,8 @@ public class PlayerBase : BaseEntity
 
     public override void Death()
     {
-        base.Death();
-        SceneLoader.instance.LoadScene("Main Menu");
+        DeathDelegate.Invoke(this);
+        SceneLoader.instance.LoadScene("Player Ship");
     }
 
     private void OnCollisionStay2D(Collision2D collision)

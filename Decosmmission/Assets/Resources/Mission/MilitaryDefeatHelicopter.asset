@@ -9,14 +9,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 610c550f590518c4db9da92565534da9, type: 3}
   m_Name: MilitaryDefeatHelicopter
   m_EditorClassIdentifier: Assembly-CSharp::MissionPattern
+  MissionName: Boss
+  Description: Defeat a Halicopter
   factions:
   - Military
-  MaxRoomCount: 1
-  MinRoomCount: 1
+  MaxRoomCount: 30
+  MinRoomCount: 10
+  MinLevel: 1
+  MaxLevel: 1
   specialDesigns:
   - designs:
     - {fileID: 8393704891739976258, guid: 8d9ef25c9ff80984d814a961639c5f1b, type: 3}
   specialDesignsCount: 01000000
+  specialAccess: 0
+  minTime: 1
+  maxTime: 1
