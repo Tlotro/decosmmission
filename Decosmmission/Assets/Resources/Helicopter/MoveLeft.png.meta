@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0e7904cca83d81948bd61b1723a456cf
+guid: 69cd8267baf0a4e479351dcfedb2f9ec
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Turn_0
+      name: MoveLeft_0
       rect:
         serializedVersion: 2
-        x: 47
-        y: 6
-        width: 404
-        height: 148
+        x: 0
+        y: 7
+        width: 459
+        height: 145
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d12519d57320bc641a5508d5e2bb9562
-      internalID: 838504517
+      spriteID: 6483153a2b5e8fe43bb81ebe14db7590
+      internalID: 369330290
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Turn_1
+      name: MoveLeft_1
       rect:
         serializedVersion: 2
-        x: 576
-        y: 6
-        width: 414
-        height: 144
+        x: 523
+        y: 7
+        width: 436
+        height: 139
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,20 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7dc3ba8ac56d73448b581ecb363e36c
-      internalID: 884506967
+      spriteID: 718855c04f619e741b1bf6ba375892b4
+      internalID: -1934790135
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Turn_2
+      name: MoveLeft_2
       rect:
         serializedVersion: 2
-        x: 1078
-        y: 6
-        width: 418
-        height: 146
+        x: 1023
+        y: 7
+        width: 436
+        height: 145
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,113 +161,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3df5e967d41307547a736883fa2688ba
-      internalID: 752215230
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Turn_3
-      rect:
-        serializedVersion: 2
-        x: 1549
-        y: 6
-        width: 439
-        height: 148
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8e30f8b5b525ac94f855ff33b5136df3
-      internalID: 1171389763
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Turn_4
-      rect:
-        serializedVersion: 2
-        x: 2023
-        y: 6
-        width: 452
-        height: 150
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7775e384ce7e28f4abdf37a6ec40ed82
-      internalID: 1061753667
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Turn_5
-      rect:
-        serializedVersion: 2
-        x: 2502
-        y: 6
-        width: 453
-        height: 150
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9e3c996e6fb901143adea5dc78476c2e
-      internalID: 1879014803
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Turn_6
-      rect:
-        serializedVersion: 2
-        x: 2998
-        y: 6
-        width: 449
-        height: 150
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 15dbc3b7924786748b1c88194781d39d
-      internalID: 1396971928
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Turn_7
-      rect:
-        serializedVersion: 2
-        x: 3521
-        y: 6
-        width: 440
-        height: 150
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 88e0d7f34834f0245a01a32b5e4a8263
-      internalID: -1268458912
+      spriteID: ad278673a8a4e784693b33ef800cce79
+      internalID: 1972648286
       vertices: []
       indices: 
       edges: []
@@ -283,14 +178,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Turn_6: 1396971928
-      Turn_5: 1879014803
-      Turn_0: 838504517
-      Turn_3: 1171389763
-      Turn_4: 1061753667
-      Turn_2: 752215230
-      Turn_1: 884506967
-      Turn_7: -1268458912
+      MoveLeft_2: 1972648286
+      MoveLeft_0: 369330290
+      MoveLeft_1: -1934790135
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

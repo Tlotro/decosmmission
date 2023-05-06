@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 17a02279b7590f344b9854ba129874b5
+guid: 2b51f15eed99916439e4ad0e443d36f6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -105,12 +105,159 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Move_0
+      name: TurnFlipped_0
       rect:
         serializedVersion: 2
-        x: 42
-        y: 7
-        width: 423
+        x: 0
+        y: 6
+        width: 434
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d8842e9e5aa0ec4c8d3ebb57deda87a
+      internalID: 410862496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurnFlipped_1
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 6
+        width: 420
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f00a0c13c681af419074ed05a3d2c4c
+      internalID: -1491825740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurnFlipped_2
+      rect:
+        serializedVersion: 2
+        x: 1035
+        y: 6
+        width: 445
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abf90fe19451c3847bd9fc5f0628276c
+      internalID: 722794568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurnFlipped_3
+      rect:
+        serializedVersion: 2
+        x: 1512
+        y: 6
+        width: 441
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f28b4b18db152b46ae53e80e57e8875
+      internalID: -573047172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurnFlipped_4
+      rect:
+        serializedVersion: 2
+        x: 2051
+        y: 6
+        width: 422
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69857e50464c1ab43ad2fed38ed83ddd
+      internalID: -1915403851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurnFlipped_5
+      rect:
+        serializedVersion: 2
+        x: 2555
+        y: 6
+        width: 445
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1d45085f46d13e4498480cd85028dc2
+      internalID: 511343488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurnFlipped_6
+      rect:
+        serializedVersion: 2
+        x: 3037
+        y: 6
+        width: 449
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8647e62aebf7ae74c9a6359c06148b9b
+      internalID: -1773003238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurnFlipped_7
+      rect:
+        serializedVersion: 2
+        x: 3541
+        y: 6
+        width: 445
         height: 140
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -119,50 +266,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58e776612c60e484e80463dcf095cd98
-      internalID: 354864666
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Move_1
-      rect:
-        serializedVersion: 2
-        x: 542
-        y: 7
-        width: 458
-        height: 144
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f354650a65f1a274e87faf33ef4c92c4
-      internalID: -327017827
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Move_2
-      rect:
-        serializedVersion: 2
-        x: 1042
-        y: 7
-        width: 444
-        height: 146
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bdf54e5116860b04fb6b215a019a8b82
-      internalID: 1911232021
+      spriteID: 538a2f11ade37e74c86f48d7fb4d521b
+      internalID: -1787884872
       vertices: []
       indices: 
       edges: []
@@ -178,9 +283,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Move_2: 1911232021
-      Move_1: -327017827
-      Move_0: 354864666
+      TurnFlipped_4: -1915403851
+      TurnFlipped_3: -573047172
+      TurnFlipped_5: 511343488
+      TurnFlipped_7: -1787884872
+      TurnFlipped_2: 722794568
+      TurnFlipped_0: 410862496
+      TurnFlipped_6: -1773003238
+      TurnFlipped_1: -1491825740
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
