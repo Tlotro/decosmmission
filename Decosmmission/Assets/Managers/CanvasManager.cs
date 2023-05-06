@@ -10,7 +10,8 @@ public enum CanvasType{
     DialogWindowCanvas,
     ManualCanvas,
     UpgradeCanvas,
-    NavigationCanvas
+    NavigationCanvas,
+    InventoryCanvas
 }
 
 public class CanvasManager : MonoBehaviour
@@ -54,6 +55,8 @@ public class CanvasManager : MonoBehaviour
             controlledCanvasList.Add(UpgradeTable.instance.upgradeMenu.GetComponent<ControlledCanvas>());
         if (NavigationTable.instance != null)
             controlledCanvasList.Add(NavigationTable.instance.navigationMenu.GetComponent<ControlledCanvas>());
+        if (Inventory.instance != null)
+            controlledCanvasList.Add(Inventory.instance.inventoryMenu.GetComponent<ControlledCanvas>());
 
         ControlledCanvas mainCanvas = controlledCanvasList.Find(x => x.type == CanvasType.MainCanvas);
         if(mainCanvas != null)

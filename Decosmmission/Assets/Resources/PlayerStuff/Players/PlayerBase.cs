@@ -114,6 +114,8 @@ public class PlayerBase : BaseEntity
         }
         if (Input.GetKeyUp(KeyCode.S))
             Physics2D.IgnoreLayerCollision(7, 3, false);
+        if (Input.GetKeyUp(KeyCode.I))
+            Inventory.instance.Open();
         base.Update();
     }
 
