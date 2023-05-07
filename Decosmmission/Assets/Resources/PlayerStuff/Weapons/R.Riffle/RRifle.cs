@@ -15,7 +15,6 @@ public class RRifle : Weapon
         description = "A standart-issue weapon of a well-trained private army of clones.\n" +
         "While it allows for quick suppression of any enemy, it's ammo capacity is very limited\n" +
         "It is advised to save up ammo for when you really need it.\n\n";
-        bullet = Resources.Load<GameObject>("PlayerStuff/Weapons/Gun/GaussBullet");
         newScale = transform.localScale;
     }
 

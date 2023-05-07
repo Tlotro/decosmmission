@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 2deb28361f8a6fc88fdad18700000000
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -249,7 +249,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -1050597463656943264, guid: 4d33375d7fd4f2c4fb0ccd04495d9de4, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -1050597463656943264, guid: 4d33375d7fd4f2c4fb0ccd04495d9de4, type: 3}
       propertyPath: m_WasSpriteAssigned
@@ -338,7 +338,5 @@ MonoBehaviour:
   ReloadTime: 0
   Magazine: 0
   MaxMagazine: 0
-  Rotating: 0
-  unlockcost: 
   unlocked: 0
-  bullet: {fileID: 0}
+  bullet: {fileID: 3842882878664182338, guid: 8cf9c2ff57b44574ea3e1a84cd805197, type: 3}

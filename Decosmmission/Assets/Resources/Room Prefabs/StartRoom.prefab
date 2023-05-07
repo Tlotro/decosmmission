@@ -1827,9 +1827,9 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingLayerID: 908651309
+  m_SortingLayer: -3
+  m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -3389,8 +3389,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -2016290161
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -3587,7 +3587,7 @@ MonoBehaviour:
   - {x: 16, y: -16, z: 0}
   m_ShapePathHash: -124390123
   m_Mesh: {fileID: 0}
-  m_InstanceId: 129788
+  m_InstanceId: 65238
 --- !u!1 &3733438417857427992
 GameObject:
   m_ObjectHideFlags: 0
@@ -3898,9 +3898,9 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingLayerID: -932214241
+  m_SortingLayer: -1
+  m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -3989,6 +3989,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec56fdd25ad30484da4746746c0155cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpecialAccess: 0
   Design:
   - cells:
     - {fileID: 11400000, guid: 1e70a512108da304aa9e7f63254f9334, type: 2}
@@ -3999,6 +4000,7 @@ MonoBehaviour:
   - {fileID: 7759241179471817218}
   - {fileID: 3498352426331349390}
   - {fileID: 1907012024898998627}
+  roomState: 0
   SpawnPosition: {x: 5, y: -11}
 --- !u!1001 &1611219550141367588
 PrefabInstance:
@@ -4057,7 +4059,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7600911903480865376, guid: 3945d7561c0fe3744a4b87af7db9ed23, type: 3}
       propertyPath: m_InstanceId
-      value: -2178232
+      value: -259340
       objectReference: {fileID: 0}
     - target: {fileID: 7704105052499789390, guid: 3945d7561c0fe3744a4b87af7db9ed23, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[0].x
@@ -4366,7 +4368,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6205655471558722775, guid: 1788991dc0e3a3c43b98c0ef36556521, type: 3}
       propertyPath: m_InstanceId
-      value: -2178254
+      value: -259362
       objectReference: {fileID: 0}
     - target: {fileID: 7704105052499789390, guid: 1788991dc0e3a3c43b98c0ef36556521, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.size
@@ -4799,7 +4801,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6331907115245757520, guid: 38e8a8d34bb107843b81b73c7248b19e, type: 3}
       propertyPath: m_InstanceId
-      value: -2178276
+      value: -259384
       objectReference: {fileID: 0}
     - target: {fileID: 7704105052499789390, guid: 38e8a8d34bb107843b81b73c7248b19e, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[0].x
@@ -5276,7 +5278,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8493406316623782852, guid: a9be1665f6f15984aab39267d6d75b8c, type: 3}
       propertyPath: m_InstanceId
-      value: -2178298
+      value: -259406
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9be1665f6f15984aab39267d6d75b8c, type: 3}

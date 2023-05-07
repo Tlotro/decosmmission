@@ -1260,7 +1260,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 1
-      m_TileSpriteIndex: 26
+      m_TileSpriteIndex: 7
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -2670,7 +2670,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 3
-      m_TileSpriteIndex: 15
+      m_TileSpriteIndex: 26
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -3260,7 +3260,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 1
-      m_TileSpriteIndex: 4
+      m_TileSpriteIndex: 15
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -4273,13 +4273,13 @@ Tilemap:
     m_Data: {fileID: -1064244635, guid: d424f7843b9dbd74095942ce8dc51a0c, type: 3}
   - m_RefCount: 41
     m_Data: {fileID: -297241899, guid: d424f7843b9dbd74095942ce8dc51a0c, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 1348948319, guid: d424f7843b9dbd74095942ce8dc51a0c, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 87256644, guid: a1dc842d11fb7d94b83a9c247c8eb4e7, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: -586856582, guid: d424f7843b9dbd74095942ce8dc51a0c, type: 3}
-  - m_RefCount: 76
+  - m_RefCount: 77
     m_Data: {fileID: 87256644, guid: d424f7843b9dbd74095942ce8dc51a0c, type: 3}
   - m_RefCount: 3
     m_Data: {fileID: 1939616734, guid: d424f7843b9dbd74095942ce8dc51a0c, type: 3}
@@ -4296,7 +4296,7 @@ Tilemap:
   - m_RefCount: 4
     m_Data: {fileID: -1631499008, guid: 394258f3543cb274e82ee358eb5c4a6b, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: -1064244635, guid: c7d5d3b3a158c7e469aad4bf0d358f64, type: 3}
+    m_Data: {fileID: 1348948319, guid: d424f7843b9dbd74095942ce8dc51a0c, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -1064244635, guid: d9f462ac10b8661409840af510adaf5a, type: 3}
   - m_RefCount: 1
@@ -4318,7 +4318,7 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: 1930394303, guid: d424f7843b9dbd74095942ce8dc51a0c, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: -1595605156, guid: d424f7843b9dbd74095942ce8dc51a0c, type: 3}
+    m_Data: {fileID: -1064244635, guid: c7d5d3b3a158c7e469aad4bf0d358f64, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 420
     m_Data:
@@ -4403,8 +4403,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -2016290161
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -4557,7 +4557,7 @@ MonoBehaviour:
   - {x: 48, y: -32, z: 0}
   m_ShapePathHash: -401214187
   m_Mesh: {fileID: 0}
-  m_InstanceId: 97186
+  m_InstanceId: 63786
 --- !u!1 &4501112575007808894
 GameObject:
   m_ObjectHideFlags: 0
@@ -15919,9 +15919,9 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingLayerID: 908651309
+  m_SortingLayer: -3
+  m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -16041,9 +16041,9 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingLayerID: -932214241
+  m_SortingLayer: -1
+  m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -16299,7 +16299,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6205655471558722775, guid: 1788991dc0e3a3c43b98c0ef36556521, type: 3}
       propertyPath: m_InstanceId
-      value: -799670
+      value: -251626
       objectReference: {fileID: 0}
     - target: {fileID: 7704105052499789390, guid: 1788991dc0e3a3c43b98c0ef36556521, type: 3}
       propertyPath: m_ColliderPaths.Array.size
@@ -17480,7 +17480,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8493406316623782852, guid: a9be1665f6f15984aab39267d6d75b8c, type: 3}
       propertyPath: m_InstanceId
-      value: -799692
+      value: -251648
       objectReference: {fileID: 0}
     - target: {fileID: 9075438360731283238, guid: a9be1665f6f15984aab39267d6d75b8c, type: 3}
       propertyPath: celly

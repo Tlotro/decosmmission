@@ -38,9 +38,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BackGround
+    uniqueID: 908651309
+    locked: 0
+  - name: Furniture
+    uniqueID: 3362753055
+    locked: 0
+  - name: Walls
+    uniqueID: 2278677135
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: UIlayer
-    uniqueID: 2278677135
+  - name: UI
+    uniqueID: 3998746331
     locked: 0

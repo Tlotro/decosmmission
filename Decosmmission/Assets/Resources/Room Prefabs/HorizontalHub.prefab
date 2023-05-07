@@ -11991,8 +11991,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -2016290161
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -12461,7 +12461,7 @@ MonoBehaviour:
   - {x: 80, y: -48, z: 0}
   m_ShapePathHash: 152433941
   m_Mesh: {fileID: 0}
-  m_InstanceId: 129490
+  m_InstanceId: 63140
 --- !u!1 &4501112575007808894
 GameObject:
   m_ObjectHideFlags: 0
@@ -39689,9 +39689,9 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingLayerID: 908651309
+  m_SortingLayer: -3
+  m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -40739,9 +40739,9 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingLayerID: -932214241
+  m_SortingLayer: -1
+  m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -40895,6 +40895,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ef9512207634ed0bd3e7d69a66d1ba1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpecialAccess: 0
   Design:
   - cells:
     - {fileID: 11400000, guid: 947013e098556e04b9120e2461702146, type: 2}
@@ -40927,6 +40928,7 @@ MonoBehaviour:
   - {fileID: 6538724596302574831}
   - {fileID: 8442119685733357198}
   - {fileID: 3670573835661776636}
+  roomState: 0
 --- !u!1001 &340379412092833653
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40984,7 +40986,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7600911903480865376, guid: 3945d7561c0fe3744a4b87af7db9ed23, type: 3}
       propertyPath: m_InstanceId
-      value: -2175630
+      value: -245190
       objectReference: {fileID: 0}
     - target: {fileID: 7704105052499789390, guid: 3945d7561c0fe3744a4b87af7db9ed23, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[0].x
@@ -41261,7 +41263,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6205655471558722775, guid: 1788991dc0e3a3c43b98c0ef36556521, type: 3}
       propertyPath: m_InstanceId
-      value: -2175652
+      value: -245212
       objectReference: {fileID: 0}
     - target: {fileID: 7704105052499789390, guid: 1788991dc0e3a3c43b98c0ef36556521, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[0].x
@@ -41742,7 +41744,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8493406316623782852, guid: a9be1665f6f15984aab39267d6d75b8c, type: 3}
       propertyPath: m_InstanceId
-      value: -2175674
+      value: -245234
       objectReference: {fileID: 0}
     - target: {fileID: 9075438360731283238, guid: a9be1665f6f15984aab39267d6d75b8c, type: 3}
       propertyPath: celly
@@ -41885,7 +41887,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6331907115245757520, guid: 38e8a8d34bb107843b81b73c7248b19e, type: 3}
       propertyPath: m_InstanceId
-      value: -2175720
+      value: -245286
       objectReference: {fileID: 0}
     - target: {fileID: 7704105052499789390, guid: 38e8a8d34bb107843b81b73c7248b19e, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[0].x
@@ -42232,7 +42234,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6331907115245757520, guid: 38e8a8d34bb107843b81b73c7248b19e, type: 3}
       propertyPath: m_InstanceId
-      value: -2175790
+      value: -245356
       objectReference: {fileID: 0}
     - target: {fileID: 7704105052499789390, guid: 38e8a8d34bb107843b81b73c7248b19e, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[0].x
@@ -42513,7 +42515,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7600911903480865376, guid: 3945d7561c0fe3744a4b87af7db9ed23, type: 3}
       propertyPath: m_InstanceId
-      value: -2175812
+      value: -245378
       objectReference: {fileID: 0}
     - target: {fileID: 7704105052499789390, guid: 3945d7561c0fe3744a4b87af7db9ed23, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[0].x
@@ -43176,7 +43178,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8493406316623782852, guid: a9be1665f6f15984aab39267d6d75b8c, type: 3}
       propertyPath: m_InstanceId
-      value: -2175954
+      value: -245526
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9be1665f6f15984aab39267d6d75b8c, type: 3}
@@ -43253,7 +43255,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6205655471558722775, guid: 1788991dc0e3a3c43b98c0ef36556521, type: 3}
       propertyPath: m_InstanceId
-      value: -2175976
+      value: -245548
       objectReference: {fileID: 0}
     - target: {fileID: 7704105052499789390, guid: 1788991dc0e3a3c43b98c0ef36556521, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[0].x
@@ -43538,7 +43540,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6331907115245757520, guid: 38e8a8d34bb107843b81b73c7248b19e, type: 3}
       propertyPath: m_InstanceId
-      value: -2175998
+      value: -245570
       objectReference: {fileID: 0}
     - target: {fileID: 7704105052499789390, guid: 38e8a8d34bb107843b81b73c7248b19e, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[0].x
@@ -43823,7 +43825,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7600911903480865376, guid: 3945d7561c0fe3744a4b87af7db9ed23, type: 3}
       propertyPath: m_InstanceId
-      value: -2176020
+      value: -245592
       objectReference: {fileID: 0}
     - target: {fileID: 7704105052499789390, guid: 3945d7561c0fe3744a4b87af7db9ed23, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[0].x

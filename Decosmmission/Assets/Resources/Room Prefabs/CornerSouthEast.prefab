@@ -4181,8 +4181,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -2016290161
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -4445,7 +4445,7 @@ MonoBehaviour:
   - {x: 16, y: -32, z: 0}
   m_ShapePathHash: -1703442531
   m_Mesh: {fileID: 0}
-  m_InstanceId: 129118
+  m_InstanceId: 58410
 --- !u!1 &4739044066214524602
 GameObject:
   m_ObjectHideFlags: 0
@@ -4495,6 +4495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ef9512207634ed0bd3e7d69a66d1ba1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpecialAccess: 0
   Design:
   - cells:
     - {fileID: 11400000, guid: 1e13999ca6434c94c9f55d54d8b0e64e, type: 2}
@@ -4507,6 +4508,7 @@ MonoBehaviour:
   doors:
   - {fileID: 2107213003512896039}
   - {fileID: 6608529841155986097}
+  roomState: 0
 --- !u!1 &5112084145772769866
 GameObject:
   m_ObjectHideFlags: 0
@@ -8923,9 +8925,9 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingLayerID: 908651309
+  m_SortingLayer: -3
+  m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -9293,9 +9295,9 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingLayerID: -932214241
+  m_SortingLayer: -1
+  m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -9524,7 +9526,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6331907115245757520, guid: 38e8a8d34bb107843b81b73c7248b19e, type: 3}
       propertyPath: m_InstanceId
-      value: -2173190
+      value: -225364
       objectReference: {fileID: 0}
     - target: {fileID: 7704105052499789390, guid: 38e8a8d34bb107843b81b73c7248b19e, type: 3}
       propertyPath: m_ColliderPaths.Array.size
@@ -10053,7 +10055,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6205655471558722775, guid: 1788991dc0e3a3c43b98c0ef36556521, type: 3}
       propertyPath: m_InstanceId
-      value: -2173284
+      value: -225464
       objectReference: {fileID: 0}
     - target: {fileID: 7704105052499789390, guid: 1788991dc0e3a3c43b98c0ef36556521, type: 3}
       propertyPath: m_ColliderPaths.Array.size

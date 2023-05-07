@@ -16,7 +16,6 @@ public class Gun : Weapon
         "As private ships became more available, attacks on civilian vessels became more and more frequent.\n" +
         "As a result, self-defence and weapon handling became parts of standart space training.\n\n" +
         */
-        bullet = Resources.Load<GameObject>("PlayerStuff/Weapons/Gun/GaussBullet");
         newScale = transform.localScale;
     }
 

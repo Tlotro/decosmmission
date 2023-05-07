@@ -53,7 +53,7 @@ public partial class StaticGameData
         Debug.Log("Tick");
         if (instance.SelectedMissionData == null)
             instance.SelectedMissionData = instance.missions[0];
-        instance.missions.Remove(StaticGameData.instance.SelectedMissionData);
+        instance.missions.Remove(instance.SelectedMissionData);
         int iter = instance.missions.Count - 1;
         while (iter >= 0)
         {
