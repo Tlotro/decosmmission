@@ -14,8 +14,8 @@ public class MilitaryKillEnemiesMission : MissionOrder
     {
         _enemyCount = 0;
         _killedEnemies = 0;
-        BaseEntity.GlobalStartDelegate += OnUnitStart;
-        Generator.PostGeneration += PostGeneration;
+        StaticGameData.instance.GlobalStartDelegate += OnUnitStart;
+        StaticGameData.instance.PostGeneration += PostGeneration;
     }
     public void OnUnitStart(BaseEntity entity)
     {

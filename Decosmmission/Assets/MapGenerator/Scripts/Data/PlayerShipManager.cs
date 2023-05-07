@@ -16,6 +16,11 @@ public class PlayerShipManager : MonoBehaviour
                 StaticGameData.instance.missions.Add(new MissionData(patterns[Random.Range(0,patterns.Length)]));
             }
         }
+        StaticGameData.instance.GlobalinteractebleDelegate = delegate { };
+        StaticGameData.instance.GlobalStartDelegate = delegate { };
+        StaticGameData.instance.GlobalDeathDelegate = delegate { };
+        StaticGameData.instance.roomGenerationDelegate = delegate { };
+        StaticGameData.instance.PostGeneration = delegate { };
         StaticGameData.Save(0);
     }
 

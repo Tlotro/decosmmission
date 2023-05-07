@@ -5,7 +5,6 @@ using UnityEngine;
 public delegate void InteractebleDelegate(PlayerBase player, Interactable interactable);
 public abstract class Interactable : MonoBehaviour
 {
-    public static InteractebleDelegate GlobalinteractebleDelegate = delegate { };
     private void OnTriggerEnter2D(Collider2D collision)
     {
         PlayerBase player = collision.gameObject.GetComponent<PlayerBase>();

@@ -109,7 +109,7 @@ public class PlayerBase : BaseEntity
         {
             if (ApproachedObject != null)
             {
-                Interactable.GlobalinteractebleDelegate.Invoke(this, ApproachedObject);
+                StaticGameData.instance.GlobalinteractebleDelegate.Invoke(this, ApproachedObject);
                 ApproachedObject.Interact();
             }
         }

@@ -13,8 +13,8 @@ public class MilitaryBreakReactors : MissionOrder
     {
         _recators = 0;
         _sabotaged = 0;
-        Generator.roomGenerationDelegate += CheckReactor;
-        Interactable.GlobalinteractebleDelegate += CountSabotaged;
+        StaticGameData.instance.roomGenerationDelegate += CheckReactor;
+        StaticGameData.instance.GlobalinteractebleDelegate += CountSabotaged;
     }
 
     public void CountSabotaged(PlayerBase player, Interactable interactable)

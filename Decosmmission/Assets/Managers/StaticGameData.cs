@@ -17,6 +17,11 @@ public partial class StaticGameData
     public List<Player> players;
     public int SelectedPlayer = 0;
     public Player SelectedPlayerData { get { return players[SelectedPlayer]; } }
+    public InteractebleDelegate GlobalinteractebleDelegate;
+    public EmptyUnitDelegade GlobalStartDelegate;
+    public EmptyUnitDelegade GlobalDeathDelegate; 
+    public OnRoomGenerationDelegate roomGenerationDelegate;
+    public PostGenerationDelegate PostGeneration;
 
     public StaticGameData()
     {

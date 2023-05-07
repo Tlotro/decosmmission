@@ -14,8 +14,6 @@ public abstract class BaseEntity : MonoBehaviour
     public virtual int CurrentHP { get { return _CurrentHP; } protected set { _CurrentHP = value; } }
     protected int _CurrentHP;
     public Dictionary<GameObject, double> Iframelist = new Dictionary<GameObject, double>();
-    public static EmptyUnitDelegade GlobalStartDelegate = delegate { };
-    public static EmptyUnitDelegade GlobalDeathDelegate = delegate { };
     public EmptyUnitDelegade DeathDelegate = delegate { };
     public virtual void TakeDamage(GameObject inflictor, int damage)
     {
@@ -33,7 +31,7 @@ public abstract class BaseEntity : MonoBehaviour
     }
     protected virtual void SetDefaults() { }
 
-    protected virtual void Awake() { GlobalStartDelegate.Invoke(this); }
+    protected virtual void Awake() { StaticGameData.instance.GlobalStartDelegate.Invoke(this); }
     protected virtual void Start()
     {
         SetDefaults();
@@ -52,7 +50,7 @@ public abstract class BaseEntity : MonoBehaviour
 
     public virtual void Death()
     {
-        GlobalDeathDelegate.Invoke(this);
+        StaticGameData.instance.GlobalDeathDelegate.Invoke(this);
         DeathDelegate.Invoke(this);
         Destroy(this.gameObject);
     }

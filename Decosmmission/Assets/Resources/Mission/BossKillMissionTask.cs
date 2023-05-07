@@ -11,7 +11,7 @@ public class BossKillMissionTask : MissionOrder
     public override void Setup()
     {
         _complete = false;
-        BaseEntity.GlobalStartDelegate += bossStartCheck;
+        StaticGameData.instance.GlobalStartDelegate += bossStartCheck;
     }
     private bool _complete;
     public void bossDeathCheck(BaseEntity boss)
