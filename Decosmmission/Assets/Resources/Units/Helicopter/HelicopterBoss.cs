@@ -19,7 +19,7 @@ public class HelicopterBoss : Unit
     {
         newScale = transform.localScale;
         detectionRange = 60;
-        MaxHPBase = 100;
+        MaxHPBase = 500;
         MaxHPmultiplyer = 1;
         state = 1;
         bullet = Resources.Load<GameObject>("Units/Turret/TurretLaser");
@@ -27,6 +27,7 @@ public class HelicopterBoss : Unit
     // Update is called once per frame
     protected override void AI()
     {
+        DeathDelegate.Invoke(this);
         transform.localRotation = Quaternion.AngleAxis(-rb.velocity.x / 10 * 45, Vector3.forward);
         switch (state)
         {
@@ -40,7 +41,6 @@ public class HelicopterBoss : Unit
                 PhaseTimer = 1000;
                 break;
             case 2:
-                Debug.Log(PlayerBase.player.transform.position.x - transform.position.x);
                 GameObject Cannon = PlayerBase.player.transform.position.x<transform.position.x?leftGun:rightGun;
                 float angle = Vector2.SignedAngle(Cannon.transform.up, PlayerBase.player.transform.position - transform.position);
                 float absAngle = Mathf.Abs(angle);

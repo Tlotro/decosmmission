@@ -16,6 +16,7 @@ public abstract class StaticUnit : BaseEntity
 
     protected override void Awake()
     {
+        base.Awake();
         cd = GetComponent<Collider2D>();
     }
 

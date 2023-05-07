@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e3cb25913a90ac499d9a0ebfa7cc5f6, type: 3}
+  m_Name: RepairKit
+  m_EditorClassIdentifier: 
+  ItemName: Repair Kit
+  Description: A standart repair kit
+  Consumable: 1
+  Fragile: 0
+  deconstructionResources: 000000000000000000000000000000000000000000000000
+  working: {fileID: -5905720602746443881, guid: dd482ccba8f446f43986bcc6c719ccbb, type: 3}

@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: MilitaryKillEnemies
   m_EditorClassIdentifier: Assembly-CSharp::MissionPattern
   MissionName: Culling
-  Description: Clear enemies
+  Description: Your client wants you to sweep the ship of most of the hostile (to
+    you) personel for further takeover.
   factions:
   - Military
   MaxRoomCount: 20
@@ -22,6 +23,8 @@ MonoBehaviour:
   MaxLevel: 1
   specialDesigns: []
   specialDesignsCount: 
+  orders:
+  - {fileID: -2463110944124020272, guid: 23db4a89b03f6014db3a744894658980, type: 3}
   specialAccess: 0
   minTime: 3
   maxTime: 5

@@ -16,6 +16,11 @@ public class MissionPattern : ScriptableObject
     [SerializeField]
     public RoomCategory[] specialDesigns;
     public int[] specialDesignsCount;
+    [SerializeField]
+    public MissionOrder[] orders;
+    public int CreditRewardMin;
+    public int CreditRewardMax;
+    public LootTable rewards;
     public int specialDesignSum { get { return specialDesignsCount.Sum(); } }
     /// <summary>
     /// SpecialAccess missions do not generate as part of general pool and have to be acquired somehow else

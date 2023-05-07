@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: MilitaryDefeatHelicopter
   m_EditorClassIdentifier: Assembly-CSharp::MissionPattern
   MissionName: Boss
-  Description: Defeat a Halicopter
+  Description: A piece of powerful equipment is being transfered via this ship. You
+    must destroy it. It will definitely be employed against you.
   factions:
   - Military
   MaxRoomCount: 30
@@ -24,6 +25,11 @@ MonoBehaviour:
   - designs:
     - {fileID: 8393704891739976258, guid: 8d9ef25c9ff80984d814a961639c5f1b, type: 3}
   specialDesignsCount: 01000000
+  orders:
+  - {fileID: -3174789851914123589, guid: 507b369e23117f74b886a739c373d733, type: 3}
+  CreditRewardMin: 0
+  CreditRewardMax: 0
+  rewards: {fileID: 0}
   specialAccess: 0
   minTime: 1
   maxTime: 1

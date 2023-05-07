@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: MilitarySabotage
   m_EditorClassIdentifier: 
   MissionName: Sabotage
-  Description: Plant charges in the vulnerable spots of the ship and escape after
-    the job is done.
+  Description: Your mission is to destroy a hostile ship and disguise it as an accident.
+    Causing reactor safety failure and meltdown would do the trick, but they are
+    controlled from terminals and have no remote access, so you'll need to get your
+    hands dirty.
   factions:
   - Military
   MaxRoomCount: 100
@@ -26,6 +28,11 @@ MonoBehaviour:
     - {fileID: 7822976062972723236, guid: d43f65b5cee780e48821ee63e131d7bb, type: 3}
     - {fileID: 7822976062972723236, guid: 561ace6c1fd5ffc4eabd9959500ffd26, type: 3}
   specialDesignsCount: 05000000
+  orders:
+  - {fileID: 5861931486994897145, guid: a2a6cbf43830e3840b378326b1c578ec, type: 3}
+  CreditRewardMin: 0
+  CreditRewardMax: 0
+  rewards: {fileID: 0}
   specialAccess: 0
   minTime: 3
   maxTime: 5

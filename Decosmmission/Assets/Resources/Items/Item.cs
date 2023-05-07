@@ -21,22 +21,24 @@ public static class ResourcesExtensions
     }
 }
 
-public abstract class Item
+public delegate void PlayerItemDelegate(Player player, Item item);
+public delegate void ItemDelegate(Item item);
+
+public class Item
 {
-    public Sprite icon;
-    public string ItemName;
-    public string Description;
-    public int MaxCount;
-    public int Count;
-    public abstract void SetDefaults();
-    //Can an item be consumed mid-mission for some effects
-    public bool Consumable;
-    //If an item is fragile, it will be automatically deconstructed when returning to the ship
-    public bool Fragile;
-    //Resources that are given on deconstruction
-    public int[] deconstructionResources = new int[6];
-    public virtual void OnCollect(Player player) {}
-    public virtual void OnMissionEnd(Player player) {}
-    public virtual void OnUse(Player player) {}
-    public virtual void OnDeconstruct() {}
+    //public int MaxCount;
+    [HideInInspector]
+    public int count;
+    public ItemPattern pattern;
+    public static PlayerItemDelegate OnCollectDelegate = delegate { };
+    public static PlayerItemDelegate OnMissionEndDelegate = delegate { };
+    public static PlayerItemDelegate OnUseDelegate = delegate { };
+    public static ItemDelegate OnDeconstructDelegate = delegate { };
+    public static PlayerItemDelegate OnDiscardDelegate = delegate { };
+
+    public Item(ItemPattern pattern, int count = 0)
+    {
+        this.pattern = pattern;
+        this.count = count;
+    }
 }

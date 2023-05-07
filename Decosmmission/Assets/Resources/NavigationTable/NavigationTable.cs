@@ -70,8 +70,15 @@ public class NavigationTable : Interactable
     public void Menu_QuickStart()
     {
         StaticGameData.instance.SelectedMissionData = StaticGameData.instance.missions[chosenMission];
+        StartMission();
+    }
+
+    public static void StartMission()
+    {
         StaticGameData.tickMissions();
-        PauseManager.instance.Resume();
+        PauseManager.GamePaused = false;
+        foreach (var a in StaticGameData.instance.SelectedMissionData.Pattern.orders)
+            a.Setup();
         AudioMaster.instance.Fade("Theme", 0.0f);
         SceneLoader.instance.LoadScene("GeneratorSandbox");
     }

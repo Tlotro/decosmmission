@@ -123,6 +123,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1050597463656943264, guid: 4d33375d7fd4f2c4fb0ccd04495d9de4, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 323249645565735756, guid: 4d33375d7fd4f2c4fb0ccd04495d9de4, type: 3}
       propertyPath: m_Name
       value: Wrench
@@ -233,3 +237,5 @@ MonoBehaviour:
   Magazine: 0
   MaxMagazine: 0
   Rotating: 0
+  unlockcost: 
+  unlocked: 0

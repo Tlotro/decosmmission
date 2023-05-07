@@ -29,7 +29,7 @@ public class Wrench : Weapon
         base.Fire(weilder);
     }
 
-    public override void UpdateHeld(PlayerBase weilder)
+    public override void UpdateHeld(Player weilder)
     {
         base.UpdateHeld(weilder); 
         float angle = Vector2.SignedAngle(transform.up, CombatCameraScript.instance.Cam.ScreenToWorldPoint(Input.mousePosition) - transform.position)+angleT;

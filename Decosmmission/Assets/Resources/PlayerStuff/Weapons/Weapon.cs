@@ -18,14 +18,16 @@ public abstract class Weapon : MonoBehaviour
     [HideInInspector]
     public int Magazine;
     public int MaxMagazine;
-    public bool Rotating;
-    public int[] unlockcost;
     [HideInInspector]
     public bool unlocked;
     public bool UseMagazine { get { return MaxMagazine > 0; } }
     public bool UseAmmo { get { return MaxAmmo > 0; } }
-
     public Weapon() { }
+    public virtual void SetDefaults()
+    {
+        Ammo = MaxAmmo;
+        Magazine = MaxMagazine;
+    }
     public virtual bool OnSelect(Player weilder) { enabled = true; return true; }
     public virtual bool OnDeselect(Player weilder) { enabled = false; return true; }
     public virtual void PreFire(Player weilder) { }
@@ -43,14 +45,14 @@ public abstract class Weapon : MonoBehaviour
     public virtual bool NeedReload(Player weilder) { return (UseMagazine && Magazine <= 0); }
     public virtual void Reload(Player weilder) { FireDelay = ReloadTime; if (UseAmmo) { Magazine = Mathf.Min(MaxMagazine, Ammo); Ammo -= Magazine; } else Magazine = MaxMagazine; }
     public virtual void AfterReload(Player weilder) { }
-    public virtual void OnEmptyMag(PlayerBase weilder) { }
-    public virtual void OnEmpty(PlayerBase weilder) { }
-    public virtual void UpdateHeld(PlayerBase weilder) { FireDelay = FireDelay > 0? FireDelay-Time.deltaTime: 0; }
+    public virtual void OnEmptyMag(Player weilder) { }
+    public virtual void OnEmpty(Player weilder) { }
+    public virtual void UpdateHeld(Player weilder) { FireDelay = FireDelay > 0? FireDelay-Time.deltaTime: 0; }
     /// <summary>
     /// NYI
     /// </summary>
     /// <param name="weilder"></param>
-    public virtual void UpdateUnheld(PlayerBase weilder) { }
+    public virtual void UpdateUnheld(Player weilder) { }
 
     public virtual void OnTriggerEnter2D(Collider2D collision)
     {

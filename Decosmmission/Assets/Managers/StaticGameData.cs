@@ -6,6 +6,7 @@ using UnityEngine;
 public partial class StaticGameData
 {
     public static StaticGameData instance;
+    public int credits;
     public int[] resources;
     public List<Item> items;
     public List<Weapon> weapons;
@@ -49,6 +50,7 @@ public partial class StaticGameData
 
     public static void tickMissions()
     {
+        Debug.Log("Tick");
         if (instance.SelectedMissionData == null)
             instance.SelectedMissionData = instance.missions[0];
         instance.missions.Remove(StaticGameData.instance.SelectedMissionData);

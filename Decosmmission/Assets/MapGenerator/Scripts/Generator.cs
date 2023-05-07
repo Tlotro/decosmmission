@@ -2,8 +2,12 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+public delegate void OnRoomGenerationDelegate(RoomDesign roomDesign);
+public delegate void PostGenerationDelegate();
 public class Generator : MonoBehaviour
 {
+    static public OnRoomGenerationDelegate roomGenerationDelegate = delegate { };
+    static public PostGenerationDelegate PostGeneration = delegate { };
     public string[] BaseFactions;
     List<(int, int, Direction)> doorQueue = new List<(int, int, Direction)>();
     Dictionary<(int,int, Direction), Door> doorMap = new Dictionary<(int,int, Direction), Door>();
@@ -288,6 +292,7 @@ public class Generator : MonoBehaviour
                 {
                     if (ressum <= rooms.Item3)
                     {
+                        roomGenerationDelegate.Invoke(rooms.Item4);
                         PlaceRoom(rooms.Item4, rooms.Item1, rooms.Item2, x, y, 0).gameObject.SetActive(false);
                         if (rooms.Item5 != -1)
                             StaticGameData.instance.SelectedMissionData.specialDesignsCount[rooms.Item5]--;
@@ -306,6 +311,8 @@ public class Generator : MonoBehaviour
             }
             doorQueue.RemoveAt(0);
         }
+        PostGeneration.Invoke();
+        CombatUiManager.UpdateMission();
         //spawn player
     }
 }

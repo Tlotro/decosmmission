@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 using UnityEngine.UI;
 using TMPro;
 
@@ -19,6 +20,7 @@ public class CombatUiManager : MonoBehaviour
     public TextMeshProUGUI[] Ammo;
     public TextMeshProUGUI[] MaxMag;
     public TextMeshProUGUI[] MaxAmmo;
+    public TextMeshProUGUI MissionText;
     public int type;
     // Start is called before the first frame update
     void Start()
@@ -36,6 +38,10 @@ public class CombatUiManager : MonoBehaviour
         instance.slider.maxValue = MHP;
         instance.MaxHP.text = MHP.ToString();
     }
+    public static void UpdateMission()
+    {
+        instance.MissionText.text = StaticGameData.instance.SelectedMissionData.Pattern.orders.Select(x => x.showString + "\n").Aggregate("",(x,y)=>x+y);
+    }
 
     public static void UpdateWeapon(Weapon weapon)
     {
@@ -49,6 +55,7 @@ public class CombatUiManager : MonoBehaviour
 
     public static void UpdateMunitions(Weapon weapon)
     {
+        Debug.Log("Munitions");
         if (weapon.UseMagazine)
         {
             if (weapon.UseAmmo)
@@ -86,29 +93,29 @@ public class CombatUiManager : MonoBehaviour
     {
         if (weapon.UseAmmo)
         {
-            instance.MaxMag[0].text = weapon.Magazine.ToString();
+            instance.MaxMag[0].text = weapon.MaxMagazine.ToString();
         }
         else
-            instance.MaxMag[1].text = weapon.Magazine.ToString();
+            instance.MaxMag[1].text = weapon.MaxMagazine.ToString();
     }
     public static void UpdateAmmo(Weapon weapon)
     {
         if (weapon.UseMagazine)
         {
-            instance.Ammo[0].text = weapon.Magazine.ToString();
+            instance.Ammo[0].text = weapon.Ammo.ToString();
         }
         else
-            instance.Ammo[1].text = weapon.Magazine.ToString();
+            instance.Ammo[1].text = weapon.Ammo.ToString();
     }
 
     public static void UpdateMaxAmmo(Weapon weapon)
     {
         if (weapon.UseMagazine)
         {
-            instance.MaxAmmo[0].text = weapon.Magazine.ToString();
+            instance.MaxAmmo[0].text = weapon.MaxAmmo.ToString();
         }
         else
-            instance.MaxAmmo[1].text = weapon.Magazine.ToString();
+            instance.MaxAmmo[1].text = weapon.MaxAmmo.ToString();
     }
 
     // Update is called once per frame

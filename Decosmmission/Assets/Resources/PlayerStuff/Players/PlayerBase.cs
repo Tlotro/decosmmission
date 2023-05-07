@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerBase : BaseEntity
 {
     static public PlayerBase player;
+    public Item[] items = new Item[20];
     protected Rigidbody2D rb;
     protected Collider2D cd;
 
@@ -107,7 +108,10 @@ public class PlayerBase : BaseEntity
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (ApproachedObject != null)
+            {
+                Interactable.GlobalinteractebleDelegate.Invoke(this, ApproachedObject);
                 ApproachedObject.Interact();
+            }
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
@@ -133,6 +137,13 @@ public class PlayerBase : BaseEntity
                 CombatUiManager.UpdateHP(_CurrentHP);
             }
         }
+    }
+
+    public override void RecoverHP(int count)
+    {
+        base.RecoverHP(count);
+        CombatUiManager.UpdateMaxHP(MaxHP);
+        CombatUiManager.UpdateHP(_CurrentHP);
     }
 
     public override void Death()

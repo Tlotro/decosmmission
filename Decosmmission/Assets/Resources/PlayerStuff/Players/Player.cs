@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class Player : PlayerBase
 {
-    List<Weapon> weapons = new List<Weapon>();
-    int currentWeapon;
+    public List<Weapon> weapons = new List<Weapon>();
+    public int currentWeapon;
     //TMPro.TMP_Text text;
 
     //Item[] cargo;
@@ -34,9 +34,11 @@ public class Player : PlayerBase
         MaxHPBase = 100;
         MaxHPmultiplyer = 1;
         weapons.Add(Instantiate(Resources.Load<GameObject>("PlayerStuff/Weapons/Gun/Gun").GetComponent<Weapon>(),transform));
+        weapons.Add(Instantiate(Resources.Load<GameObject>("PlayerStuff/Weapons/R.Riffle/RRifle").GetComponent<Weapon>(), transform));
         weapons.Add(Instantiate(Resources.Load<GameObject>("PlayerStuff/Weapons/Wrench/Wrench").GetComponent<Weapon>(), transform));
         foreach (var weapon in weapons)
         {
+            weapon.SetDefaults();
             weapon.gameObject.SetActive(false);
         }
         weapons[currentWeapon].gameObject.SetActive(true);
@@ -86,6 +88,10 @@ public class Player : PlayerBase
                 weapons[currentWeapon].PreFire(this);
                 weapons[currentWeapon].Fire(this);
             }
+        }
+        if (weapons[currentWeapon].AutoFire && Input.GetKeyUp(KeyCode.Mouse0))
+        {
+            weapons[currentWeapon].OnCeaseFire(this);
         }
         if (!weapons[currentWeapon].AutoFire && Input.GetKeyDown(KeyCode.Mouse0))
         {
