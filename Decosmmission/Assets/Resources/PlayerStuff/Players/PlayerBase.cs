@@ -149,7 +149,9 @@ public class PlayerBase : BaseEntity
     public override void Death()
     {
         DeathDelegate.Invoke(this);
+        AudioMaster.instance.StopAll();
         SceneLoader.instance.LoadScene("Player Ship");
+        AudioMaster.instance.Appear("Theme", "Test_Tune_2", MixerGroup.Music, 0.6f, 0, true, 0.0f);
     }
 
     private void OnCollisionStay2D(Collision2D collision)
