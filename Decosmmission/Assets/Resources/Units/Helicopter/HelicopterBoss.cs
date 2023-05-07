@@ -13,7 +13,13 @@ public class HelicopterBoss : Unit
     GameObject leftGun;
     [SerializeField]
     GameObject rightGun;
-    GameObject bullet;
+    GameObject bullet; 
+    [SerializeField]
+    GameObject mark;
+    [SerializeField]
+    GameObject colliders;
+    [SerializeField]
+    Animator animator;
     float PhaseTimer;
     protected override void SetDefaults()
     {
@@ -27,21 +33,18 @@ public class HelicopterBoss : Unit
     // Update is called once per frame
     protected override void AI()
     {
-        DeathDelegate.Invoke(this);
         transform.localRotation = Quaternion.AngleAxis(-rb.velocity.x / 10 * 45, Vector3.forward);
         switch (state)
         {
             case 0:
-
-            break;
-            case 1:
                 leftGun.SetActive(true);
                 rightGun.SetActive(true);
-                state = 2;
-                PhaseTimer = 1000;
+                state = 1;
+                PhaseTimer = 10;
                 break;
-            case 2:
-                GameObject Cannon = PlayerBase.player.transform.position.x<transform.position.x?leftGun:rightGun;
+            case 1:
+                rb.velocity = (PlayerBase.player.transform.position - transform.position).magnitude > 1 ? (PlayerBase.player.transform.position - transform.position).normalized * 5 : new Vector3(0, 0, 0); 
+                GameObject Cannon = PlayerBase.player.transform.position.x < transform.position.x ? leftGun : rightGun;
                 float angle = Vector2.SignedAngle(Cannon.transform.up, PlayerBase.player.transform.position - transform.position);
                 float absAngle = Mathf.Abs(angle);
                 Cannon.transform.Rotate(0, 0, absAngle > 0.01 ? Mathf.Clamp(angle * Time.deltaTime * 25, -absAngle, absAngle) : 0);
@@ -54,6 +57,11 @@ public class HelicopterBoss : Unit
                 float Nangle = Vector2.SignedAngle(NonCannon.transform.up, Vector2.up);
                 float NabsAngle = Mathf.Abs(Nangle);
                 NonCannon.transform.Rotate(0, 0, NabsAngle > 0.01 ? Mathf.Clamp(Nangle * Time.deltaTime * 25, -NabsAngle, NabsAngle) : 0);
+                break;
+            case 2:
+                rightGun.SetActive(false);
+                leftGun.SetActive(false);
+                if (false) ;
                 break;
             case 3:
 

@@ -8,10 +8,10 @@ public class PlayerShipManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (StaticGameData.instance.missions.Count < 3)
+        if (StaticGameData.instance.missions.Count < 5)
         {
             MissionPattern[] patterns = Resources.LoadAll<MissionPattern>("Mission").Where(x=>!x.specialAccess).ToArray();
-            for (int i = StaticGameData.instance.missions.Count; i < 3; i++)
+            for (int i = StaticGameData.instance.missions.Count; i < UnityEngine.Random.Range(3,8); i++)
             {
                 StaticGameData.instance.missions.Add(new MissionData(patterns[Random.Range(0,patterns.Length)]));
             }
