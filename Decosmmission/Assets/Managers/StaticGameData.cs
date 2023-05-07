@@ -31,6 +31,7 @@ public partial class StaticGameData
         weapons = new List<Weapon>();
         weapons.Add(Resources.Load<GameObject>("PlayerStuff/Weapons/Gun/Gun").GetComponent<Weapon>());
         weapons.Add(Resources.Load<GameObject>("PlayerStuff/Weapons/Wrench/Wrench").GetComponent<Weapon>());
+        weapons.Add(Resources.Load<GameObject>("PlayerStuff/Weapons/R.Riffle/RRifle").GetComponent<Weapon>());
         players = new List<Player>();
         players.Add(Resources.Load<GameObject>("PlayerStuff/Players/PlayerTestPrefab").GetComponent<Player>());
     }
