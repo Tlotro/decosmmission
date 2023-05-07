@@ -15,6 +15,8 @@ public class NavigationTable : Interactable
     [HideInInspector]
     public int chosenMission;
 
+    public AudioImp menuImp;
+
     public static NavigationTable instance;
 
     private void Awake()
@@ -81,5 +83,10 @@ public class NavigationTable : Interactable
             a.Setup();
         AudioMaster.instance.Fade("Theme", 0.0f);
         SceneLoader.instance.LoadScene("GeneratorSandbox");
+    }
+
+    public void ButtonSound()
+    {
+        menuImp.Play("Click", MixerGroup.UI);
     }
 }
