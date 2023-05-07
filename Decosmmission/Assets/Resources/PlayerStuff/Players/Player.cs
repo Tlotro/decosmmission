@@ -33,13 +33,14 @@ public class Player : PlayerBase
         BaseMass = 1;
         MaxHPBase = 100;
         MaxHPmultiplyer = 1;
-        weapons.Add(Instantiate(Resources.Load<GameObject>("PlayerStuff/Weapons/Gun/Gun").GetComponent<Weapon>(),transform));
+        weapons.Add(Instantiate(Resources.Load<GameObject>("PlayerStuff/Weapons/Gun/Gun").GetComponent<Weapon>(), transform));
         weapons.Add(Instantiate(Resources.Load<GameObject>("PlayerStuff/Weapons/R.Riffle/RRifle").GetComponent<Weapon>(), transform));
         weapons.Add(Instantiate(Resources.Load<GameObject>("PlayerStuff/Weapons/Wrench/Wrench").GetComponent<Weapon>(), transform));
         foreach (var weapon in weapons)
         {
             weapon.SetDefaults();
             weapon.gameObject.SetActive(false);
+            weapon.transform.localPosition = new Vector3(0, 0.4f, 0);
         }
         weapons[currentWeapon].gameObject.SetActive(true);
         CombatUiManager.UpdateWeapon(weapons[currentWeapon]);
