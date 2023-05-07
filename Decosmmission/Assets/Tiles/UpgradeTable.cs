@@ -5,6 +5,7 @@ using UnityEngine;
 public class UpgradeTable : Interactable
 {
     public GameObject upgradeMenu;
+    public AudioImp menuImp;
 
     public static UpgradeTable instance;
 
@@ -33,5 +34,10 @@ public class UpgradeTable : Interactable
     public void Menu_Select()
     {
 
+    }
+
+    public void ButtonSound()
+    {
+        menuImp.Play("Click", MixerGroup.UI);
     }
 }
