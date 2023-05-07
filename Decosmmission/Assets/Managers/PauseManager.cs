@@ -29,7 +29,6 @@ public class PauseManager : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(GamePaused);
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (!GamePaused)

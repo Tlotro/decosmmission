@@ -884,9 +884,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7073069091870235623, guid: 7ba6e734fdbb03942bc797661b71bd4b, type: 3}
       propertyPath: m_text
-      value: 'Placeholder
-
-        Button'
+      value: Continue
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ba6e734fdbb03942bc797661b71bd4b, type: 3}
@@ -1330,7 +1328,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7073069091870235623, guid: 7ba6e734fdbb03942bc797661b71bd4b, type: 3}
       propertyPath: m_text
-      value: "Play Test \nLevel"
+      value: New game
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ba6e734fdbb03942bc797661b71bd4b, type: 3}
