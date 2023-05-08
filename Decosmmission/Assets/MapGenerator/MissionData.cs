@@ -8,6 +8,7 @@ using System.Linq;
 public class RoomCategory
 {
     public RoomDesign[] designs;
+    public int count;
 }
 
 
@@ -27,9 +28,8 @@ public class MissionData
     public int MaxLevel { get { return Pattern.MaxLevel; } }
     public int minTime { get { return Pattern.minTime; } }
     public int maxTime { get { return Pattern.maxTime; } }
-    public RoomCategory[] specialDesigns { get { return Pattern.specialDesigns; } }
-    public int[] specialDesignsCount;
-    public int specialDesignSum { get { return specialDesignsCount.Sum(); } }
+    public RoomCategory[] specialDesigns;
+    public int specialDesignSum { get { return Pattern.specialDesignSum; } }
     public float specialDesignRelation { get { return specialDesignSum / ((float)Pattern.specialDesignSum+1); } }
 
     public MissionData(MissionPattern pattern)
@@ -38,7 +38,7 @@ public class MissionData
         RoomCount = UnityEngine.Random.Range(MinRoomCount, MaxRoomCount+1);
         Time = UnityEngine.Random.Range( Mathf.Min(Mathf.Max(minTime,1),maxTime), maxTime+1);
         Level = UnityEngine.Random.Range(MinLevel, MaxLevel+1);
-        specialDesignsCount = Pattern.specialDesignsCount.Clone() as int[];
+        specialDesigns = Pattern.specialDesigns.Clone() as RoomCategory[];
     }
     public MissionData(string patternReference) : this(Resources.Load<MissionPattern>(patternReference)) { }
 

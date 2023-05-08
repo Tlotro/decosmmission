@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RepairKit : ItemWorking
+public class RepairKit : ItemPattern
 {
     public override void OnUse(Player player)
     {

@@ -27,7 +27,7 @@ MonoBehaviour:
   - designs:
     - {fileID: 7822976062972723236, guid: d43f65b5cee780e48821ee63e131d7bb, type: 3}
     - {fileID: 7822976062972723236, guid: 561ace6c1fd5ffc4eabd9959500ffd26, type: 3}
-  specialDesignsCount: 05000000
+    count: 5
   orders:
   - {fileID: 5861931486994897145, guid: a2a6cbf43830e3840b378326b1c578ec, type: 3}
   CreditRewardMin: 0

@@ -242,7 +242,7 @@ public class Generator : MonoBehaviour
             {
                 for (int k = 0; k < StaticGameData.instance.SelectedMissionData.specialDesigns.Length;k++)
                 {
-                    if (StaticGameData.instance.SelectedMissionData.specialDesignsCount[k] > 0)
+                    if (StaticGameData.instance.SelectedMissionData.specialDesigns[k].count > 0)
                     foreach (RoomDesign room in StaticGameData.instance.SelectedMissionData.specialDesigns[k].designs)
                     {
                         for (int i = 0; i < room.Design.Length; i++)
@@ -294,7 +294,7 @@ public class Generator : MonoBehaviour
                         StaticGameData.instance.roomGenerationDelegate.Invoke(rooms.Item4);
                         PlaceRoom(rooms.Item4, rooms.Item1, rooms.Item2, x, y, 0).gameObject.SetActive(false);
                         if (rooms.Item5 != -1)
-                            StaticGameData.instance.SelectedMissionData.specialDesignsCount[rooms.Item5]--;
+                            StaticGameData.instance.SelectedMissionData.specialDesigns[rooms.Item5].count--;
                         roomCount--;
                         break;
                     }

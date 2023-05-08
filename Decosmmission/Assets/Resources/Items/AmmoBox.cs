@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AmmoBox : ItemWorking
+public class AmmoBox : ItemPattern
 {
     public override bool CanUse(Player player)
     {

@@ -40,7 +40,7 @@ public class LootTable : ScriptableObject
                     {
                         foreach (int i in Enum.GetValues(typeof(Resource)))
                             StaticGameData.instance.resources[i] += item.pattern.deconstructionResources[i];
-                        item.pattern.working.OnDeconstruct();
+                        item.pattern.OnDeconstruct();
                     }
                     else
                     {
